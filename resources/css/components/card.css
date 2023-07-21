@@ -1,0 +1,15 @@
+.card {
+    border: 1px;
+
+    .body {
+        font-size: 10px;
+    }
+
+    .footer {
+        border-top: 1px solid red;
+
+        a {
+            text-decoration: none;
+        }
+    }
+}
