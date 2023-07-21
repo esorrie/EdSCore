@@ -1,0 +1,34 @@
+<?php
+
+namespace Database\Factories;
+
+use App\Models\League;
+use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
+
+/**
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Team>
+ */
+class TeamFactory extends Factory
+{
+    /**
+     * Define the model's default state.
+     *
+     * @return array<string, mixed>
+     */
+    public function definition(): array
+    {
+        $name = fake()->name();
+
+        return [
+            'league_id' => League::factory(),
+            'slug' => Str::slug($name),
+            'name' => $name,
+            'established' => fake() -> year(),
+            'stadium' => fake()-> name(),
+            'capacity' => fake()-> numberBetween(10000, 80000),
+            'lat' => fake()->randomFloat(6, -90, 90),
+            'lng' => fake()->randomFloat(6, -180, 180),
+        ];
+    }
+}
