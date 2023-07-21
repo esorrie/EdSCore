@@ -1,3 +1,5 @@
+const defaultTheme = require('tailwindcss/defaultTheme');
+
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
@@ -6,11 +8,18 @@ export default {
     './resources/css/*.css'
   ],
   theme: {
-    colors: {
-      'orange': '#ff5935'
+    ...defaultTheme,
+    extend: {
+      colors: {
+        'orange': '#ff5935'
+      }
     },
-    extend: {},
   },
   plugins: [],
+
+  corePlugins: {
+    preflight: false,
+ }
+
 }
 

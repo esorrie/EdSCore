@@ -12,14 +12,16 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="font-sans antialiased">
-        <x-navbar />
+    <body class="bg-black font-sans antialiased">
+    <x-navbar />
 
-        <div class="container mx-auto">
+        <div class="container mx-auto ">
            {{-- @include('layouts.navigation') --}}
             <!-- Page Content -->
-            @yield('content')
+            <main>
+                @yield('content')
                 
+            </main>
         </div>
     </body>
 </html>

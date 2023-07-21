@@ -23,7 +23,6 @@ body {
 *the HOME page 
 *
 *
-*
 */
 .nav {
     background:
@@ -35,10 +34,6 @@ body {
 
     display: flex;
     justify-content: space-between;
-}
-
-.orange {
-    color: #ff5935;
 }
 
 .menu {
@@ -852,6 +847,8 @@ body {
     margin-left: 200px;
     text-transform: uppercase;
 }
+
+@include './components/card.css';
 
 @tailwind base;
 @tailwind components;
