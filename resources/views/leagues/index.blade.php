@@ -21,6 +21,8 @@
     </div>
 
     {{-- TODO: fix the FE!!!! --}}
+
+    {{-- New comment --}}
     
     @foreach ($leagues as $league)
         <div class="w-full flex border border-gray-200 hover:bg-pink-500 transition duration-500 hover:cursor-pointer rounded p-4 justify-between">        
