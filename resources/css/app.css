@@ -8,30 +8,102 @@ body {
     margin: 0px;
     padding: 0px;
 }
-
+.flexcenter {
+    display: flex;
+    align-items: center;
+}
+.flexstretch {
+    display: flex;
+    align-items: stretch;
+}
 .pagination {
     color: white;
     text-decoration: none;
 }
-.grey {
-    color: rgba(74, 74, 74, 1);
+.background {
+   background: rgba(74, 74, 74, 1);
 }
-/* 
-*
-*
-*
-*the HOME page 
-*
-*
-*/
+
+.padding {
+    padding: 20px 16px 20px 16px;
+}
+.smallpadding {
+    padding: 10px 8px 10px 8px;
+
+}
+.border {
+    border: 1px solid rgba(74, 74, 74, 1);
+}
+.bordertop {
+    border: 1px solid rgba(74, 74, 74, 1);
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.borderbottom {
+    border: 1px solid rgba(74, 74, 74, 1);
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.grey {
+    color: rgba(255, 255, 255, 0.5);
+}
+.grey a{
+    color: rgb(255, 255, 255, 0.5);
+    text-decoration: none;
+}
+.orange {
+    color: #ff5935;
+}
+.orange a {
+    color: #ff5935;
+    text-decoration: none;
+}
+.text {
+    color: white;
+    font-size: 18px;
+}
+.text a {
+    text-decoration: none;
+    color: white;
+}
+.heading {
+    display: flex;
+    width: 806px;
+    align-items: center;
+    align-self: stretch;
+}
+.subheading {
+    display: flex;
+    width: 840px;
+    height: 20px;
+    
+    align-items: flex-start;
+    align-self: stretch;
+}
+.game {
+    width: 806px;
+    height: 140px;
+    display: flex;
+    align-self: stretch;   
+}
+.margintop {
+    margin-top: 25px;
+}
+.details {
+    width: 480px;
+}
+
+/* NAVBAR */
 .nav {
     background:
     linear-gradient(180deg, rgba(74, 74, 74, 0.2) 60%, rgba(0, 0, 0, 0) 100%);
-
+    
     height: 64px;
     border: 1px solid rgba(74, 74, 74, 1);
     padding-left: 56px;
-
+    
     display: flex;
     justify-content: space-between;
 }
@@ -59,7 +131,7 @@ body {
 .nav .card2 a {
     text-decoration: none;
     color: rgb(255, 255, 255, 0.5);
-
+    
 }
 
 .nav .card3 {
@@ -69,7 +141,7 @@ body {
 .nav .card3 a {
     text-decoration: none;
     color: rgba(255, 255, 255, 0.5);
-
+    
 }
 
 .nav .card_searchbar {
@@ -78,178 +150,19 @@ body {
     border: none;
     margin-right: 50px;
     font-size: 17px;
-    align-self: center; /* formats text to the rigth side of the page */
+    align-self: center; /* formats text to the right side of the page */
+    padding-right: 56px;
 }
 
-.overview {
-    height: 975px;
-    padding: 24px 16px 24px 16px;
-    border-radius: 8px;
-    border: 1px;
-    border: 1px solid rgba(74, 74, 74, 1);
-}
+/* 
+*
+*
+*
+*the HOME page 
+*
+*
+*/
 
-.overview a{ 
-    text-decoration: none;
-    color: rgba(255, 255, 255);
-}
-.overview .leaguescard {
-    font-size: 25px;
-    color: rgba(255, 255, 255);
-    width: 274px;
-    height: 393px;
-    margin-top: 15px;
-    margin-left: 1111px;
-    padding: 24px 16px 24px 16px;
-    border-radius: 8px;
-    border: 1px;
-    gap: 24px;
-
-    border: 1px solid rgba(74, 74, 74, 1);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.grey {
-    color: rgba(255, 255, 255, 0.5);
-}
-
-.overview .premcard {
-    font-size: 20px;
-}
-.overview .premteams {
-    font-size: 10px;
-}
-
-.overview .champscard {
-    font-size: 20px;
-}
-.overview .champsteams {
-    font-size: 10px;
-}
-
-.overview .europacard {
-    font-size: 20px;
-}
-.overview .europateams {
-    font-size: 10px;
-}
-
-.overview .bundescard {
-    font-size: 20px;
-}
-.overview .bundesteams {
-    font-size: 10px;
-}
-
-.overview .serieacard {
-    font-size: 20px;
-}
-.overview .serieateams {
-    font-size: 10px;
-}
-
-.overview .nextgamescard { 
-    border: 1px solid rgba(74, 74, 74, 1);
-    border-radius: 8px;
-    height: 1px;
-    margin-top: -442px;
-    margin-left: 56px;
-    margin-right: 400px;
-    padding: 24px 16px 24px 16px;
-    
-    color: rgb(255, 255, 255);
-    font-size: 20px;
-    display: flex;
-    background-color: rgba(79, 78, 78, 0.378);
-    flex-direction: row;
-    align-items: center;
-}
-
-.overview .fixturescard {
-    border: 1px solid rgba(74, 74, 74, 1);
-    border-radius: 8px;
-    height: 200px;
-    margin-left: 56px;
-    margin-right: 400px;
-    padding: 24px 16px 24px 16px;
-
-    color: rgb(255, 255, 255);
-    font-size: 25px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    
-}
-
-.overview .popularcard {
-    border: 1px solid rgba(74, 74, 74, 1);
-    border-radius: 8px;
-    height: 1px;
-    margin-top: 40px;
-    margin-left: 56px;
-    margin-right: 400px;
-    padding: 24px 16px 24px 16px;
-    
-    color: rgb(255, 255, 255);
-    font-size: 20px;
-    background-color: rgba(79, 78, 78, 0.378);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
-
-.overview .popularteamcard {
-    border: 1px solid rgba(74, 74, 74, 1);
-    border-radius: 8px;
-    height: 200px;
-    margin-left: 56px;
-    margin-right: 400px;
-    padding: 24px 16px 24px 16px;
-
-    color: rgb(255, 255, 255);
-    font-size: 25px;
-    /* display: flex;
-    flex-direction: ;
-    align-items: ; */
-    
-}
-
-.overview .popularplayercard {
-    border: 1px solid rgba(74, 74, 74, 1);
-    border-radius: 8px;
-    height: 200px;
-    margin-left: 56px;
-    margin-right: 400px;
-    padding: 24px 16px 24px 16px;
-
-    color: rgb(255, 255, 255);
-    font-size: 25px;
-    /* display: flex;
-    flex-direction: ;
-    align-items: ; */
-    
-}
-
-.overview .topmanagers {
-    font-size: 25px;
-    color: rgba(255, 255, 255);
-    width: 274px;
-    height: 393px;
-    margin-top: -500px;
-    margin-left: 1111px;
-    padding: 24px 16px 24px 16px;
-    border-radius: 8px;
-    border: 1px;
-    gap: 24px;
-
-    border: 1px solid rgba(74, 74, 74, 1);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-
-}
 
 /* 
 *
@@ -278,71 +191,6 @@ body {
     padding-right: 20px;
 }
 
-.leaguestablecard1 { 
-    color: rgb(255, 255, 255);
-    height: 20px;
-    margin-top: 25px;
-    margin-left: 56px;
-    margin-right: 735px;
-    padding: 24px 16px 24px 16px;
-    border-right: none;
-    border: 1px solid rgba(74, 74, 74, 1);
-    border-bottom-left-radius: 8px;
-    border-top-left-radius: 8px;
-    background-color: rgba(79, 78, 78, 0.378);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
-}
-
-.locationtablecard1 { 
-    color: rgb(255, 255, 255);
-    height: 20px;
-    margin-top: -70px;
-    margin-left: 735px;
-    margin-right: 56px;
-    padding: 24px 16px 24px 16px;
-    border: 1px solid rgba(74, 74, 74, 1);
-    border-left: none;
-    border-bottom-right-radius: 8px;
-    border-top-right-radius: 8px;
-    background-color: rgba(79, 78, 78, 0.378);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
-}
-.leaguescard2 a {
-    text-decoration: none;
-    color: rgb(255, 255, 255);
-}
-.leaguescard2 .league {
-    color: rgb(255, 255, 255);
-    height: 20px;
-    margin-left: 56px;
-    margin-right: 735px;
-    padding: 24px 16px 24px 16px;
-    border: 1px solid rgba(74, 74, 74, 1);
-    border-bottom-left-radius: 8px;
-    border-top-left-radius: 8px;
-    text-transform: uppercase;
-    border-right: none;
-    display: flex;
-}
-.leaguescard2 .location {
-    color: rgb(255, 255, 255);
-    height: 20px;
-    margin-top: -70px;
-    margin-left: 735px;
-    margin-right: 56px;
-    padding: 24px 16px 24px 16px;
-    border: 1px solid rgba(74, 74, 74, 1);
-    border-left: none;
-    border-bottom-right-radius: 8px;
-    border-top-right-radius: 8px;
-}
-
 /*
 *
 * LEAGUE VIEW
@@ -352,6 +200,7 @@ body {
 .leagueoverview {
     background:
     linear-gradient(180deg, rgba(74, 74, 74, 0.413) 40%, rgba(81, 81, 81, 0.221) 100%);
+    
     
     border: 1px solid rgba(74, 74, 74, 1);
     border-left: none;
@@ -375,29 +224,6 @@ body {
     font-size: 15px;
     color: rgb(255, 255, 255);;
     margin-left: 200px;
-}
-.leagueviewnav {
-    background:
-    linear-gradient(180deg, rgba(74, 74, 74, 0.413) 40%, rgba(0, 0, 0, 0) 100%);
-
-    height: 64px;
-    border: 1px solid rgba(74, 74, 74, 1);
-    padding-left: 56px;
-    display: flex;
-    align-items: center;
-}
-.leagueviewnav a {
-    text-decoration: none;
-    color: rgb(255, 255, 255, 0.5);
-}
-.leagueviewcard1 {
-    padding-right: 20px;
-}
-.leagueviewcard2 {
-    padding-right: 20px;
-}
-.leagueviewcard3 {
-    padding-right: 20px;
 }
 
 /*
@@ -427,81 +253,6 @@ body {
     font-size: 20px;
     padding-right: 20px;
 }
-
-.teamtableheader .teamheader {
-    color: rgb(255, 255, 255);
-    height: 20px;
-    margin-top: 25px;
-    margin-left: 56px;
-    margin-right: 735px;
-    padding: 24px 16px 24px 16px;
-    border-right: none;
-    border: 1px solid rgba(74, 74, 74, 1);
-    border-bottom-left-radius: 8px;
-    border-top-left-radius: 8px;
-    background-color: rgba(79, 78, 78, 0.378);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
-}
-
-.teamtableheader .leagueheader {
-    color: rgb(255, 255, 255);
-    height: 20px;
-    margin-top: -70px;
-    margin-left: 735px;
-    margin-right: 56px;
-    padding: 24px 16px 24px 16px;
-    border: 1px solid rgba(74, 74, 74, 1);
-    border-left: none;
-    border-bottom-right-radius: 8px;
-    border-top-right-radius: 8px;
-    background-color: rgba(79, 78, 78, 0.378);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
-}
-
-.teamtablecontents a {
-    text-decoration: none;
-    color: rgb(255, 255, 255);
-
-}
-.teamtablecontents .teamname {
-    height: 50px;
-    margin-left: 56px;
-    margin-right: 735px;
-    padding: 24px 16px 24px 16px;
-    border: 1px solid rgba(74, 74, 74, 1);
-    border-bottom-left-radius: 8px;
-    border-top-left-radius: 8px;
-    border-right: none;
-    display: flex;
-    flex-direction: column;
-    font-size: 20px;
-    text-transform: uppercase;
-}
-.teamtablecontents .leaguename {
-    color: rgb(255, 89, 53, 1);
-    height: 50px;
-    margin-top: -150.5px;
-    margin-left: 735px;
-    margin-right: 56px;
-    padding: 24px 16px 24px 16px;
-    border: 1px solid rgba(74, 74, 74, 1);
-    border-bottom-right-radius: 8px;
-    border-top-right-radius: 8px;
-    border-left: none;
-    display: flex;
-    flex-direction: column;
-    font-size: 20px;
-    text-transform: uppercase;
-
-
-}
-
 /*
 *
 * TEAM VIEW
@@ -605,26 +356,6 @@ body {
     flex-direction: column;
     font-size: 20px;
     text-transform: uppercase;
-}
-.teamviewnav {
-    background:
-    linear-gradient(180deg, rgba(74, 74, 74, 0.413) 40%, rgba(0, 0, 0, 0) 100%);
-
-    height: 64px;
-    border: 1px solid rgba(74, 74, 74, 1);
-    padding-left: 56px;
-    display: flex;
-    align-items: center;
-}
-.teamviewnav a {
-    text-decoration: none;
-    color: rgb(255, 255, 255, 0.5);
-}
-.teamviewcard1 {
-    padding-right: 20px;
-}
-.teamviewcard2 {
-    padding-right: 20px;
 }
 
 /*
@@ -828,7 +559,7 @@ body {
     border-left: none;
     border-right: none;
     border-top: none;
-    
+
     height: 200px;
     text-decoration: none;
     font-size: 30px;
