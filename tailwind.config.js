@@ -11,7 +11,12 @@ export default {
     ...defaultTheme,
     extend: {
       colors: {
-        'orange': '#ff5935'
+        'orange': '#ff5935',
+        'grey': '#ffffff80',
+        'darkgrey': '#3C3C3C',
+        'black': '#000000',
+        'fadegrey': '#4a4a4a69'
+
       }
     },
   },
