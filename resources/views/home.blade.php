@@ -1,64 +1,84 @@
 @extends('layouts.base')
 
 @section('content')
+<div class="grid grid-cols-2 w-full, h-max padding text-white border margintop">
+    
+<x-fixturepreview />
+    <div class=" ml-72"> 
+        <div class="bordertop bg-darkgrey padding text "> LEAGUES </div> 
+            <div class="borderbottom h-fit">
+                <div class="pl-4 pt-4">
+                    <div class="text hover:font-bold">
+                        <a href="{{ route('leagues.view', ['id' => 1, 'slug' => '1']) }}"> PREMIER LEAGUE</a>
+                    </div>
+                        <div class="text-xs orange hover:font-bold"><a href="{{ route('teams.index')}}">TEAMS</a>
+                            <span class="grey">|</span>
+                            <a href="">FIXTURES</a>
+                        </div>
+                </div>
 
-<div class="overview">
-    <div class="cardshome"></div>
-        <div class="leaguescard"> LEAGUES 
-            <div class="premcard">
-                <a href="{{ route('leagues.view', ['id' => 1, 'slug' => '1']) }}"> PREMIER LEAGUE</a>
-                <div class="premteams"><a href="{{ route('teams.index')}}"><span class="orange"> TEAMS</span></a>
-                    <span class="grey">| |</span>
-                    <a href=""><span class="orange"> FIXTURES</span></a>
+                <div class="pl-4 pt-4 ">
+                    <div class="text hover:font-bold">
+                        <a href="#">CHAMPIONS LEAGUE</a>
+                    </div>
+                        <div class="text-xs orange hover:font-bold"><a href="{{ route('teams.index') }}">TEAMS</a>
+                            <span class="grey">|</span>
+                            <a href="">FIXTURES</a>
+                        </div>
                 </div>
-            </div>
-            <div class="champscard">
-                <a href="#">CHAMPIONS LEAGUE</a>
-                <div class="champsteams"><a href="{{ route('teams.index') }}"><span class="orange"> TEAMS</span></a>
-                    <span class="grey">| |</span>
-                    <a href=""><span class="orange"> FIXTURES</span></a>
-                </div>
-            </div>
-            <div class="europacard">
-                <a href="#">EUROPA LEAGUE</a>
-                <div class="europateams"><a href="{{ route('teams.index') }}"><span class="orange"> TEAMS</span></a>
-                    <span class="grey">| |</span>
-                    <a href=""><span class="orange"> FIXTURES</span></a>
-                </div>
-            </div>
-            <div class="bundescard">
-                <a href="#"> BUNDESLIGA</a>
-                <div class="bundesteams"><a href="{{ route('teams.index') }}"><span class="orange"> TEAMS</span></a>
-                    <span class="grey">| |</span>
-                    <a href=""><span class="orange"> FIXTURES</span></a>
-                </div>
-            </div>
-            <div class="serieacard">
-                <a href="#"> SERIE A</a>
-                <div class="serieateams"><a href="{{ route('teams.index') }}"><span class="orange"> TEAMS</span></a>
-                    <span class="grey">| |</span>
-                    <a href=""><span class="orange"> FIXTURES</span></a>
-                </div>
-            </div>
-        </div>     
-        <div class="nextgamescard"> UPCOMING FIXTURES</div>
-        <div class="fixturescard"> PREMIER LEAGUE
 
+                <div class="pl-4 pt-4">
+                    <div class="text hover:font-bold">
+                        <a href="#">EUROPA LEAGUE</a>
+                    </div>
+                        <div class="text-xs orange hover:font-bold"><a href="{{ route('teams.index') }}">TEAMS</a>
+                            <span class="grey">|</span>
+                            <a href=""> FIXTURES</a>
+                        </div>
+                </div>
+
+                <div class="pl-4 pt-4">
+                    <div class="text hover:font-bold">
+                        <a href="#"> BUNDESLIGA</a>
+                    </div>
+                        <div class="text-xs orange hover:font-bold"><a href="{{ route('teams.index') }}">TEAMS</a>
+                            <span class="grey">|</span>
+                            <a href="">FIXTURES</a>
+                        </div>
+                </div>
+
+                <div class="pl-4 pt-4 pb-4">
+                    <div class="text hover:font-bold">
+                        <a href="#"> SERIE A</a>
+                    </div>
+                        <div class="text-xs orange hover:font-bold"><a href="{{ route('teams.index') }}">TEAMS</a>
+                            <span class="grey">|</span>
+                            <a href="">FIXTURES</a>
+                        </div>
+                </div>
+            </div> 
+    </div>
+
+    <div class="">
+        <div class="">
+            <div class=" bordertop bg-darkgrey padding text heading"> TOP SEARCHED TEAMS </div>
+            <div class=" grid grid-cols-2 grid-rows-4 subheading">
+                <div class=" bg-darkgrey pl-4 text-sm smallpadding"> TEAM</div>
+
+                <div class=" bg-darkgrey text-sm smallpadding"> LEAGUE</div>
+            
+            </div>
         </div>
-        <div class="popularcard"> TOP SEARCHED TEAMS</div>
-        <div class="popularteamcard">
-            #
-        </div>
-        <div class="popularcard"> TOP SEARCHED PLAYERS
-        </div>
-        <div class="popularplayercard">
-            #
-        </div>
-        <div class="topmanagers"> TOP MANAGER</div>
-        <div class="topmanagercard">
-            #
+        <div class="margintop">
+            <div class=" bordertop bg-darkgrey padding text heading"> TOP SEARCHED PLAYERS </div>
+            <div class=" grid grid-cols-2 subheading">
+                <div class=" bg-darkgrey pl-4 text-sm smallpadding"> PLAYER</div>
+                <div class=" bg-darkgrey text-sm smallpadding">CLUB</div>
+                
+            </div>
         </div>
     </div>
 </div>
+
 
 @endsection
