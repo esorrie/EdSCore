@@ -95,7 +95,7 @@ class LeagueController extends Controller
             ]);
         }
 
-        return view('leagues.teams', [
+        return view('leagues.teamlist', [
             'league' => $league,
             'teams' => League::all(),
         ]);
