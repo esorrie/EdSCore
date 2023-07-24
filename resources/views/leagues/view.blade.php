@@ -5,25 +5,27 @@
 <div class="leagueoverview">
   <div class="leaguecard">
     <div class="leaguename"> {!! $league->name !!}</div>
-      <div class="leaguenation"> <span class="orange"> LOCATION </span> <span class="grey"> | </span> {!! $league->totalTeams !!} CLUBS </div>
+    <div class="leaguenation"> <span class="orange"> LOCATION </span> <span class="grey"> | </span> {!! $league->totalTeams !!} CLUBS </div>
   </div>
 </div>
 
-<div class="leagueviewnav">
-    <div class="leagueviewcard1"> 
-      <a class="{{ request()->routeIs('leagues.view') ? 'active' : '' }}" href="/leagues/{{ $league->id }}/{{ $league->slug }}"> OVERVIEW </a> 
-    </div>
-    <div class="leagueviewcard2"> 
-      <a class="{{ request()->routeIs('leagues.standings') ? 'active' : '' }}" href="/leagues/{{ $league->id }}/{{ $league->slug }}/standings">STANDINGS</a> 
-    </div>
-    <div class="leagueviewcard3"> 
-      <a class="{{ request()->routeIs('leagues.fixtures') ? 'active' : '' }}" href="/leagues/{{ $league->id }}/{{ $league->slug }}/fixtures">FIXTURES</a> 
-    </div>
-    <div class="leagueviewcard4"> 
-      <a class="{{ request()->routeIs('leagues.teams') ? 'active' : '' }}" href="/leagues/{{ $league->id }}/{{ $league->slug }}/teams">TEAMS</a> 
-    </div>
+<div class="mb-4 bg-gradient-to-b from-fadegrey to-black border rounded-b-lg flexcenter h-14 pl-14">
+  <div class="pr-5 grey hover:font-bold"> 
+    <a class="{{ request()->routeIs('leagues.view') ? 'active' : '' }}" href="/leagues/{{ $league->id }}/{{ $league->slug }}"> OVERVIEW </a> 
+  </div>
+  <div class="pr-5 grey hover:font-bold"> 
+    <a class="{{ request()->routeIs('leagues.standings') ? 'active' : '' }}" href="/leagues/{{ $league->id }}/{{ $league->slug }}/standings">STANDINGS</a> 
+  </div>
+  <div class="pr-5 grey hover:font-bold"> 
+    <a class="{{ request()->routeIs('leagues.fixtures') ? 'active' : '' }}" href="/leagues/{{ $league->id }}/{{ $league->slug }}/fixtures">FIXTURES</a> 
+  </div>
+  <div class="pr-5 grey hover:font-bold"> 
+    <a class="{{ request()->routeIs('leagues.teams') ? 'active' : '' }}" href="/leagues/{{ $league->id }}/{{ $league->slug }}/teams">TEAMS</a> 
+  </div>
 </div>
 
-<a href="/leagues">Go Back to leagues</a>
+<x-fixturepreview />
+
+<div class="text-xs text"><a href="/leagues">Go Back to leagues</a></div>
 
 @endsection 

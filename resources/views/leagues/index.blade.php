@@ -2,35 +2,24 @@
 
 @section('content')
 
-<div class="leaguenav">
-  <div class="leaguesdisplay"> LEAGUES</div>
-    <div class="card_searchbar">
-          <input type="text" placeholder="Search...">
+<x-leaguenav />    
+<div class="grid grid-cols-2 margintop text">
+    <div class="w-full bg-darkgrey border rounded-tl-lg">
+        <p class="text ml-2">League</p>
     </div>
-</div>
-
-<div class="grid grid-cols-2 w-full">
-    <div class="w-full bg-gray-200">
-        <p class="text-white">League</p>
-    </div>
-    <div class="w-full bg-gray-200">
-        <p class="text-white">Location</p>
+    <div class="w-full bg-darkgrey border rounded-tr-lg">
+        <p class="text ml-2">Location</p>
     </div>
     
     @foreach ($leagues as $league)
-    <div class="league text-white">
+    <div class="text-sm smallpadding border hover:bg-darkgrey duration-500">
         <a href="/leagues/{{ $league->id }}/{{ $league->slug }}">
             {!! $league->name !!}
         </a>
     </div>
-    <div class="location text-white">ENGLAND</div>
+    <div class="text-sm smallpadding border hover:bg-darkgrey duration-500">ENGLAND</div>
     @endforeach
-</div>
+</div> 
 
-<div class="card">
-    <div class="heading"></div>
-    <div class="body"></div>
-</div>
-
-<a href="/">Go Back Home</a>
+<div class="text-xs text"><a href="/">Go Back Home</a></div>
 @endsection
