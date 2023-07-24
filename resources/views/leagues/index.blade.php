@@ -3,6 +3,9 @@
 @section('content')
 
 <x-leaguenav />    
+
+{{-- TODO --}}
+{{-- table heading is too big --}}
 <div class="grid grid-cols-2 margintop text">
     <div class="w-full bg-darkgrey border rounded-tl-lg">
         <p class="text ml-2">League</p>
