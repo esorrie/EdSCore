@@ -2,12 +2,7 @@
 
 @section('content')
 
-<div class="playernav">
-  <div class="playersdisplay"> PLAYERS</div>
-      <div class="card_searchbar">
-          <input type="text" placeholder="Search...">
-      </div>
-</div>
+<x-playernav />
 
 <div class="playertableheader">
   <div class="playerheader"> PLAYER</div>
