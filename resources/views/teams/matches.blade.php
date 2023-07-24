@@ -9,16 +9,16 @@
   </div>
 </div>
 
-<div class="teamviewnav">
-    <div class="teamviewcard1"> 
-      <a class="{{ request()->routeIs('teams.view') ? 'active' : '' }}" href="/teams/{{ $team->id }}/{{ $team->slug }}"> OVERVIEW </a> 
-    </div>
-    <div class="teamviewcard2"> 
-      <a class="{{ request()->routeIs('teams.matches') ? 'active' : '' }}" href="/teams/{{ $team->id }}/{{ $team->slug }}/matches"> MATCHES</a> 
-    </div>
-    <div class="teamviewcard3"> 
-      <a class="{{ request()->routeIs('teams.players') ? 'active' : '' }}" href="/teams/{{ $team->id }}/{{ $team->slug }}/players"> PLAYERS</a> 
-    </div>
+<div class="mb-4 bg-gradient-to-b from-fadegrey to-black border rounded-b-lg flexcenter h-14 pl-14">
+  <div class="pr-5 grey hover:font-bold"> 
+    <a class="{{ request()->routeIs('teams.view') ? 'active' : '' }}" href="/teams/{{ $team->id }}/{{ $team->slug }}"> OVERVIEW </a> 
+  </div>
+  <div class="pr-5 grey hover:font-bold"> 
+    <a class="{{ request()->routeIs('teams.matches') ? 'active' : '' }}" href="/teams/{{ $team->id }}/{{ $team->slug }}/matches"> MATCHES</a> 
+  </div>
+  <div class="pr-5 grey hover:font-bold"> 
+    <a class="{{ request()->routeIs('teams.players') ? 'active' : '' }}" href="/teams/{{ $team->id }}/{{ $team->slug }}/players"> PLAYERS</a> 
+  </div>
 </div>
 
 @endsection
