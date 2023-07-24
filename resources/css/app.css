@@ -1,5 +1,7 @@
 .active {
-    color: #ff5935!important;
+    /* (!important) overrides any previous 
+    formats that usually take priority */
+    color: #ff5935!important; 
     font-weight: 800;
 }
 
