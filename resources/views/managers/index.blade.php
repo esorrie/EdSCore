@@ -4,26 +4,25 @@
 
 <x-managernav />
 
-<div class="managertableheader">
-  <div class="managerheader"> MANAGER</div>
-  <div class="teamheader"> TEAM</div>
-</div>
-
-@foreach ($managers as $manager)
-    <div class="managertablecontents">
-        <div class="managername">
-            <a href="/managers/{{ $manager->id }}/{{ $manager->slug }}">
-                {!! $manager->name !!}
-            </a>
-        </div>
-        <p>
-            Team: {{ $manager->team->name }}
-        </p>
-        <div class="teamname"> {!! $manager->team->name !!} </div> 
+<div class="grid grid-cols-2 margintop">
+    <div class="bg-darkgrey border rounded-tl-lg smallpadding">
+        <div class="text"> NAME</div>
     </div>
+    <div class="bg-darkgrey border rounded-tr-lg smallpadding">
+        <div class="text"> TEAM</div>
+    </div>
+    
+@foreach ($managers as $manager)
+    <div class="text-sm text uppercase smallpadding border hover:bg-darkgrey duration-500">
+        <a href="/players/{{ $manager->id }}/{{ $manager->slug }}"> {!! $manager->name !!} </a>
+    </div>
+    <div class="text-sm text uppercase smallpadding border hover:bg-darkgrey duration-500">
+        {!! $manager->team->name !!} 
+    </div> 
 @endforeach
 
-<div class="pagination">
+
+<div class="pagination text">
 {{ $managers->links() }}
 <a href="/">Go Back Home</a>
 </div>
