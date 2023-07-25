@@ -46,7 +46,7 @@
             {{ $team->stadium}}
         </div>
         <div class="text-sm text smallpadding border hover:bg-darkgrey duration-500">
-          {{ $team->capacity}}
+            {{ $team->capacity}}
         </div>
     @endforeach
 </div>

@@ -42,7 +42,7 @@ class LeagueController extends Controller
     public function standings(int $id, string $slug): RedirectResponse|View 
     {
         $league = League::where('id', $id)->first();
-        
+        $team = Team::where('id', $id)->first();
         
         if(! $league) {
             abort(Response::HTTP_NOT_FOUND);
@@ -103,4 +103,6 @@ class LeagueController extends Controller
             'teams' => Team::all(),
         ]);
     }
+
+    
 }
