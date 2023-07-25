@@ -62,10 +62,15 @@
     <div class="">
         <div class="">
             <div class=" bordertop bg-darkgrey padding text heading"> TOP SEARCHED TEAMS </div>
-            <div class=" grid grid-cols-2 grid-rows-4 subheading">
+            <div class=" grid grid-cols-2 subheading">
                 <div class=" bg-darkgrey pl-4 text-sm smallpadding"> TEAM</div>
+                <div class=" bg-darkgrey text-sm smallpadding "> LEAGUE</div>
+                
+                @foreach ($teams as $team)
+                    <div class=""> {{ $team->name}} </div>
+                    <div class=""> {{ $team->league->name}} </div>
 
-                <div class=" bg-darkgrey text-sm smallpadding"> LEAGUE</div>
+                @endforeach
             
             </div>
         </div>
