@@ -39,10 +39,10 @@
         </a>
       </div>
       <div class="text-sm text smallpadding border hover:bg-darkgrey duration-500">
-        {{ $player->date_of_birth}}
+        {{ $player->date_of_birth }}
       </div>
       <div class="text-sm text smallpadding border hover:bg-darkgrey duration-500">
-        {{ $player->position}}
+        {{ $player->position }}
       </div>
   @endforeach
 </div>
