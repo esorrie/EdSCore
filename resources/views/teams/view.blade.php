@@ -2,10 +2,10 @@
 
 @section('content')
 
-<div class="leagueoverview">
-  <div class="leaguecard">
-    <div class="leaguename"> {!! $team->name !!}</div>
-    <div class="leaguenation"> <span class="orange"> LOCATION </span> <span class="grey"> | </span> {!! $team->totalPlayers !!} PLAYERS </div>
+<div class="teamoverview">
+  <div class="teamcard">
+    <div class="teamname"> {!! $team->name !!}</div>
+      <div class="teamnation"> <span class="orange"> LOCATION </span> <span class="grey"> | </span> {!! $team->totalPlayers !!} PLAYERS </div>
   </div>
 </div>
 
@@ -36,6 +36,34 @@
       </div>
   </div>
   <div class=""><x-fixturepreview /></div>
+</div>
+
+<div class="details text ">
+  <div class="bordertop bg-darkgrey smallpadding text">LEAGUE</div>
+    <div class="border bg-darkgrey text grid grid-cols-10">
+      <div class="col-span-5 smallpadding"> TEAM</div>
+      <div class="self-center smallpadding"> P</div>
+      <div class="self-center smallpadding"> W</div>
+      <div class="self-center smallpadding"> D</div>
+      <div class="self-center smallpadding"> L</div>
+      <div class="self-center smallpadding"> PTS</div>
+    </div>
+
+    <div class="uppercase text-sm">
+      <div class="grid grid-rows-5">
+        <div class="grid grid-cols-10 border">
+            @foreach ($teams as $team)
+            <div class="col-span-5 border smallpadding"> {{ $team->name }}</div>
+              <div class="border smallpadding"> #</div>
+              <div class="border smallpadding"> #</div>
+              <div class="border smallpadding"> #</div>
+              <div class="border smallpadding"> #</div>
+              <div class="border smallpadding"> #</div>
+            @endforeach
+          </div>
+        </div>
+    </div>
+
 </div>
 <div class="text-xs text"><a href="/teams">Go Back to teams</a></div>
 
