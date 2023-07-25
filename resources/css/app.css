@@ -260,7 +260,34 @@ body {
 * TEAM VIEW
 *
 */
+.teamoverview {
+    background:
+    linear-gradient(180deg, rgba(74, 74, 74, 0.413) 40%, rgba(81, 81, 81, 0.221) 100%);
+    
+    
+    border: 1px solid rgba(74, 74, 74, 1);
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    
+    height: 200px;
+    text-decoration: none;
+    font-size: 30px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
 
+.teamoverview .teamname {
+    margin-left:200px;
+    color: rgb(255, 255, 255);
+    text-transform: uppercase;
+}
+.teamnation {
+    font-size: 15px;
+    color: rgb(255, 255, 255);;
+    margin-left: 200px;
+}
 
 /*
 *
@@ -323,31 +350,6 @@ body {
     font-size: 15px;
     color: rgb(255, 255, 255);;
     margin-left: 200px;
-    text-transform: uppercase;
-}
-.personaltable {
-    border: 1px solid rgba(74, 74, 74, 1);
-    background-color: rgb(74, 74, 74);
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
-    margin-top: 24px;
-    margin-left: 56px;
-    margin-right: 900px;
-    padding: 16px 16px 16px 16px;
-    
-
-}
-.personaltable .personalheader {
-    color: white;
-}
-.personalcontents .personalinfo {
-    border: 1px solid rgba(74, 74, 74, 1);
-    margin-left: 56px;
-    margin-right: 900px;
-    color: white;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
     text-transform: uppercase;
 }
 
