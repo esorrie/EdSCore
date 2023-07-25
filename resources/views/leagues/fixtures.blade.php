@@ -24,6 +24,8 @@
   </div>
 </div>
 
+<x-fixtures />
+
 
 <a href="/leagues">Go Back to leagues</a>
 
