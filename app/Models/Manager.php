@@ -15,6 +15,7 @@ class Manager extends Model
         'date_of_birth',
         'country_of_origin',
         'languages_spoken',
+        'seasons'
     ];
     
     public function team()
