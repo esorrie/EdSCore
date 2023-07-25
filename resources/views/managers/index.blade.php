@@ -17,7 +17,7 @@
 
 @foreach ($managers as $manager)
     <div class="text-sm text uppercase smallpadding border hover:bg-darkgrey duration-500">
-        <a href="/players/{{ $manager->id }}/{{ $manager->slug }}"> {!! $manager->name !!} </a>
+        <a href="/managers/{{ $manager->id }}/{{ $manager->slug }}"> {!! $manager->name !!} </a>
     </div>
     <div class="text-sm text uppercase smallpadding border hover:bg-darkgrey duration-500">
         {!! $manager->team->name !!} 
