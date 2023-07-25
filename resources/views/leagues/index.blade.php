@@ -4,13 +4,11 @@
 
 <x-leaguenav />    
 
-{{-- TODO --}}
-{{-- table heading is too big --}}
 <div class="grid grid-cols-2 margintop text">
     <div class="w-full bg-darkgrey border rounded-tl-lg">
         <p class="text ml-2">League</p>
     </div>
-    <div class="w-full bg-darkgrey border rounded-tr-lg">
+    <div class=" bg-darkgrey border rounded-tr-lg">
         <p class="text ml-2">Location</p>
     </div>
     
