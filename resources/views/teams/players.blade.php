@@ -31,8 +31,7 @@
   <div class="bg-darkgrey border rounded-tr-lg smallpadding">
     <div class="text"> POSITION</div>
   </div>
-  {{-- TODO --}}
-  {{-- displaying the team name instead of player but url redirect works correctly based on id--}}
+
     @foreach ($players as $player)
       <div class="text-sm text smallpadding border hover:bg-darkgrey duration-500">
         <a href="/players/{{ $player->id }}/{{ $player->slug }}">

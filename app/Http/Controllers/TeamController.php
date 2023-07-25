@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Player;
 use App\Models\Team;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
@@ -76,7 +77,7 @@ class TeamController extends Controller
 
         return view('teams.players', [
             'team' => $team,
-            'players' => Team::all(),
+            'players' => Player::all(),
         ]);
     }
     

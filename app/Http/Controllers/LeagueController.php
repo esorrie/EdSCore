@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\League;
+use App\Models\Team;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Response;
@@ -41,7 +42,8 @@ class LeagueController extends Controller
     public function standings(int $id, string $slug): RedirectResponse|View 
     {
         $league = League::where('id', $id)->first();
-
+        
+        
         if(! $league) {
             abort(Response::HTTP_NOT_FOUND);
         }
@@ -55,7 +57,8 @@ class LeagueController extends Controller
 
         return view('leagues.standings', [
             'league' => $league,
-            'standings' => League::all(),
+            'teams' => Team::all(),
+            
         ]);
     }
 
@@ -97,7 +100,7 @@ class LeagueController extends Controller
 
         return view('leagues.teamlist', [
             'league' => $league,
-            'teams' => League::all(),
+            'teams' => Team::all(),
         ]);
     }
 }
