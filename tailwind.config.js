@@ -16,7 +16,10 @@ export default {
         'darkgrey': '#3C3C3C',
         'black': '#000000',
         'fadegrey': '#4a4a4a69',
-        
+      },
+      gridTemplateColumns: {
+        '14': 'repeat(14,minmax(0, 1fr))'
+
       }
     },
   },
