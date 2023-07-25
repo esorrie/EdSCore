@@ -8,7 +8,7 @@
   <div class="w-full bg-darkgrey border rounded-tl-lg"> 
     <p class="text pl-4">TEAM</p> 
   </div>
-  <div class="w-full bg-darkgrey border rounded-tr-lg">
+  <div class="bg-darkgrey border rounded-tr-lg">
     <p class="text pl-4">LEAGUE</p>
   </div>
   
