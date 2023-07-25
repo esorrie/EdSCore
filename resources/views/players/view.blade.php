@@ -8,6 +8,7 @@
       <div class="playerteam"> <span class="orange"> {!! $player->team->name !!} </span> <span class="grey"> | </span> {!! $player->position !!} </div>
   </div>  
 </div>
+
 <div class="">
   <div class="details margintop">
     <div class="bg-darkgrey bordertop padding text">PERSONAL DETAILS</div>
