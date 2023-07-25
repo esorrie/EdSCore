@@ -15,8 +15,8 @@ export default {
         'grey': '#ffffff80',
         'darkgrey': '#3C3C3C',
         'black': '#000000',
-        'fadegrey': '#4a4a4a69'
-
+        'fadegrey': '#4a4a4a69',
+        
       }
     },
   },
