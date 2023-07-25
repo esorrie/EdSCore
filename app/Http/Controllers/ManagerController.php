@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Manager;
+use App\Models\Team;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -20,6 +21,7 @@ class ManagerController extends Controller
     public function view(int $id, string $slug): RedirectResponse|View
     {
         $manager = Manager::where('id', $id)->first();
+        $team = Team::where('id', $id)->first();
 
         if(! $manager) {
             abort(Response::HTTP_NOT_FOUND);
@@ -33,7 +35,9 @@ class ManagerController extends Controller
         }
     
         return view('managers.view', [
-            'manager' => $manager
+            'manager' => $manager,
+            'team' => $team,
+            'teams' => Team::all(),
         ]);
     }
 }
