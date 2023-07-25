@@ -9,7 +9,7 @@
         <div class="self-center smallpadding"> PTS</div>
       </div>
   
-      <div class="uppercase text-sm">
+    <div class="uppercase text-sm">
         <div class="grid grid-rows-5">
           <div class="grid grid-cols-10 border">
               @foreach ($teams as $team)
@@ -22,6 +22,7 @@
               @endforeach
             </div>
           </div>
-      </div>
-  
-  </div>
+    </div>
+</div>
+
+{{-- TODO: add this component to manager.view and team.view --}}
