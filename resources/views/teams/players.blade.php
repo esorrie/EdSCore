@@ -21,6 +21,21 @@
   </div>
 </div>
 
-<x-playercomponents.playerlist :players="$players" />
 
+
+<x-card.card title="Goalkeepers">
+  <x-playercomponents.playerlist :players="$players" />
+</x-card.card>
+
+<x-card.card title="Defenders">
+  {{-- <x-playercomponents.playerlist :players="$players" /> --}}
+</x-card.card>
+
+<x-card.card title="Midfielders">
+  {{-- <x-playercomponents.playerlist :players="$players" /> --}}
+</x-card.card>
+
+<x-card.card title="Attackers">
+  {{-- <x-playercomponents.playerlist :players="$players" /> --}}
+</x-card.card>
 @endsection

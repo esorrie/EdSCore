@@ -81,6 +81,7 @@ class TeamController extends Controller
     public function players(int $id, string $slug) : RedirectResponse|View
     {
         $team = Team::where('id', $id)->first();
+        $player = Team::all();
 
         if(! $team) {
             abort(Response::HTTP_NOT_FOUND);
@@ -95,7 +96,8 @@ class TeamController extends Controller
 
         return view('teams.players', [
             'team' => $team,
-            'players' => Player::all(),
+            'players' => Player::all()->where('team_id', $team->id),
+            // 'players' => Player::all()->where('defender', $player->position),
         ]);
     }
     
