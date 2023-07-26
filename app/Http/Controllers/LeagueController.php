@@ -12,6 +12,8 @@ class LeagueController extends Controller
 {
     public function index(): View 
     {
+        $league = League::all();
+    
         return view('leagues.index', [
             'leagues' => League::all(),
         ]);
