@@ -2,12 +2,8 @@
 
 @section('content')
 
-<div class="manageroverview">
-  <div class="managercard">
-    <div class="managername"> {!! $manager->name !!}</a> </div>
-      <div class="managerteam"> <span class="orange"> {!! $manager->team->name !!} </span> <span class="grey"> | </span> MANAGER</div>
-  </div>  
-</div>
+<x-managercomponents.overview :manager="$manager"/>
+
 
 <div class="margintop">
   <div class="grid grid-cols-2">

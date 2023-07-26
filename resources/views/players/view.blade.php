@@ -2,12 +2,8 @@
 
 @section('content')
 
-<div class="playeroverview">
-  <div class="playercard">
-    <div class="playername"> {!! $player->name !!}</a> </div>
-      <div class="playerteam"> <span class="orange"> {!! $player->team->name !!} </span> <span class="grey"> | </span> {!! $player->position !!} </div>
-  </div>  
-</div>
+<x-playercomponents.overview :player="$player"/>
+
 
 <div class="">
   <div class="grid grid-cols-2">
