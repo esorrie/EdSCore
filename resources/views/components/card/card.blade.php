@@ -3,8 +3,8 @@
     'link'  => null
 ])
 
-<div class="border rounded-lg">
-    <div class="bg-darkgrey padding text uppercase font-bold">
+<div class="">
+    <div class="bg-darkgrey border rounded-t-lg padding text uppercase font-bold">
         @if($link)
         <a href="{{ $link }}">{{ $title }} ></a>
         @else
