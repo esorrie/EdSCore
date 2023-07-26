@@ -13,7 +13,7 @@
       <div class="">
         <div class="grid grid-cols-9 border grid-rows-5">
             @foreach ($teams as $team)
-            <div class="col-span-4 border smallpadding hover:bg-darkgrey duration-500"> <a href="/teams/{{ $team->id }}/{{ $team->slug }}"> {!! $team->name !!} </a></div>
+            <div class="col-span-4 border smallpadding hover:bg-orange duration-500"> <a href="/teams/{{ $team->id }}/{{ $team->slug }}"> {!! $team->name !!} </a></div>
               <div class="border smallpadding"> {{ $team->played }}</div>
               <div class="border smallpadding"> {{ $team->won }}</div>
               <div class="border smallpadding"> {{ $team->drawn }}</div>
