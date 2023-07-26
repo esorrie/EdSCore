@@ -20,7 +20,7 @@
 </div>
 
 <div class="">
-  <x-leaguecomponents.leaguetablepreview :teams="$teams"/>
+  <x-table.leaguetablepreview :teams="$teams"/>
 </div>
 
 @endsection

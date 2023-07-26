@@ -35,7 +35,7 @@
 <div class="flex justify-evenly">
   <div class="grid grid-cols-2">
     <div class="details">
-    <x-leaguecomponents.leaguetablepreview :teams="$teams"/>
+    <x-table.leaguetablepreview :teams="$teams"/>
     </div>
     
     <div class="w-full">

@@ -12,7 +12,7 @@
 <div class="">
   <div class="grid grid-cols-2">
     <div class="details margintop">
-      <x-card.card title="Player Details">
+      <x-card.card title="player details">
         <x-table.table :tableData="$playerTableData"/>
       </x-card.card>
     </div>
@@ -21,7 +21,7 @@
 <div class="">
   <div class="grid grid-cols-2">
     <div class="details margintop">
-      <x-card.card title="player stats">
+      <x-card.card title="stats">
         <x-table.table :tableData="$statTableData"/>
       </x-card.card>
     </div>
