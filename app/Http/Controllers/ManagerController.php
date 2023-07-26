@@ -6,8 +6,8 @@ use App\Models\Manager;
 use App\Models\Team;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Str;
 
 class ManagerController extends Controller
 {
@@ -35,14 +35,14 @@ class ManagerController extends Controller
         }
 
         $managerArray = $manager->toArray();
-        $tableDataKeys = ['country_of_origin', 'date_of_birth', 'age', 'seasons'];
+        $tableDataKeys = ['country', 'date_of_birth', 'age', 'seasons'];
 
         foreach($tableDataKeys as $key) {
             $managerTableData[] = [
-                [
+                Str::replace('_', ' ',[
                     'data' => $key,
                     'style' => 'uppercase'
-                ],
+                ]),
                 [
                     'data' => data_get($managerArray, $key),
                     'style' => 'text-right uppercase'

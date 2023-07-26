@@ -6,6 +6,8 @@ use App\Models\Player;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Response;
+use Illuminate\Support\Str;
+
 
 class PlayerController extends Controller
 {
@@ -33,14 +35,14 @@ class PlayerController extends Controller
         }
 
         $playerArray = $player->toArray();
-        $tableDataKeys = ['country_of_origin', 'date_of_birth', 'age', 'height', 'number', 'nickname'];
+        $tableDataKeys = ['country', 'date_of_birth', 'age', 'height', 'number', 'nickname'];
 
         foreach($tableDataKeys as $key) {
             $playerTableData[] = [
-                [
+                Str::replace('_', ' ',[
                     'data' => $key,
                     'style' => 'uppercase'
-                ],
+                ]),
                 [
                     'data' => data_get($playerArray, $key),
                     'style' => 'text-right uppercase'
