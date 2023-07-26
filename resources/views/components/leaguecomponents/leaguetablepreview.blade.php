@@ -1,5 +1,5 @@
 <div class="details text margintop">
-  <div class="bordertop bg-darkgrey smallpadding text">LEAGUE</div>
+  <x-card.card title="League">
     <div class="border bg-darkgrey text grid grid-cols-9">
       <div class="col-span-4 smallpadding"> TEAM</div>
       <div class="self-center smallpadding"> P</div>
@@ -23,6 +23,5 @@
         </div>
       </div>
     </div>   
+  </x-card.card>
 </div>
-
-{{-- TODO: add this component to manager.view and team.view --}}
