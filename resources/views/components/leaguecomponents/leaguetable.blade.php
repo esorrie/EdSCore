@@ -1,9 +1,8 @@
-<div class="grid grid-cols-14 text jusitfy-between">
-    
+<div class="grid grid-cols-13 text jusitfy-between">
     <div class="border rounded-tl-lg bg-darkgrey smallpadding text">
         <div class=""> # </div>
     </div>
-    <div class="border bg-darkgrey smallpadding text col-span-3">
+    <div class="border bg-darkgrey smallpadding text col-span-2">
         <div class=""> TEAM </div>
     </div>
     <div class="border bg-darkgrey smallpadding text ">
@@ -35,19 +34,16 @@
     </div>
 
     @foreach ($teams as $team) 
-      <div class="smallpadding border"> #</div>
-      <div class="col-span-3 smallpadding border hover:bg-darkgrey duration-500 uppercase"> {!! $team->name!!} </div>
-      <div class="smallpadding border"> #</div>
-      <div class="smallpadding border"> #</div>
-      <div class="smallpadding border"> #</div>
-      <div class="smallpadding border"> #</div>
-      <div class="smallpadding border"> #</div>
-      <div class="smallpadding border"> #</div>
-      <div class="smallpadding border"> #</div>
-      <div class="smallpadding border"> #</div>
-      <div class="col-span-2 smallpadding border hover:bg-darkgrey duration-500"> N/A </div>
-    @endforeach 
-    
+      <div class="smallpadding border text-sm"> #</div>
+      <div class="col-span-2 smallpadding border hover:bg-orange duration-500 uppercase text-sm"> {!! $team->name !!} </div>
+      <div class="smallpadding border text-sm"> {{ $team->played }}</div>
+      <div class="smallpadding border text-sm"> {{ $team->won }} </div>
+      <div class="smallpadding border text-sm"> {{ $team->drawn }} </div>
+      <div class="smallpadding border text-sm"> {{ $team->lost }} </div>
+      <div class="smallpadding border text-sm"> {{ $team->played }} </div>
+      <div class="smallpadding border text-sm"> {{ $team->played }} </div>
+      <div class="smallpadding border text-sm"> {{ $team->played }} </div>
+      <div class="smallpadding border text-sm"> {{ $team->played }} </div>
+      <div class="col-span-2 smallpadding border hover:bg-orange duration-500 text-sm"> N/A </div>
+    @endforeach
 </div>
-
-{{-- TODO: add this component to league.standings --}}
