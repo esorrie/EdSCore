@@ -13,7 +13,7 @@
     </div>
     
     @foreach ($leagues as $league)
-    <div class="text-sm smallpadding border hover:bg-darkgrey duration-500">
+    <div class="text-sm smallpadding border hover:bg-orange duration-500">
         <a href="/leagues/{{ $league->id }}/{{ $league->slug }}">
             {!! $league->name !!}
         </a>

@@ -17,7 +17,7 @@
     </div>
 
 @foreach ($players as $player)
-    <div class="text-sm text smallpadding border hover:bg-darkgrey duration-500">
+    <div class="text-sm text smallpadding border hover:bg-orange duration-500">
         <a href="/players/{{ $player->id }}/{{ $player->slug }}"> {!! $player->name !!} </a>
     </div>
     <div class="text-sm text smallpadding border hover:bg-darkgrey duration-500">    

@@ -16,7 +16,7 @@
     </div>
 
 @foreach ($managers as $manager)
-    <div class="text-sm text uppercase smallpadding border hover:bg-darkgrey duration-500">
+    <div class="text-sm text uppercase smallpadding border hover:bg-orange duration-500">
         <a href="/managers/{{ $manager->id }}/{{ $manager->slug }}"> {!! $manager->name !!} </a>
     </div>
     <div class="text-sm text uppercase smallpadding border hover:bg-darkgrey duration-500">

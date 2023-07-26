@@ -25,7 +25,6 @@
 ])
 
 <div class="grid grid-cols-{{ count($tableData[0]) }} grid-rows-{{ count($tableData) }} details">
-    
     @foreach ($tableData as $data)
         @foreach ($data as $column )
             <div class="border text-sm text smallpadding {{ isset($column['style']) ? $column['style'] : '' }}">{{ $column['data'] }}</div>
