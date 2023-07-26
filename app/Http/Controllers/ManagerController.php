@@ -33,11 +33,28 @@ class ManagerController extends Controller
                 'slug' => $manager->slug,
             ]);
         }
+
+        $managerArray = $manager->toArray();
+        $tableDataKeys = ['country_of_origin', 'date_of_birth', 'age', 'seasons'];
+
+        foreach($tableDataKeys as $key) {
+            $managerTableData[] = [
+                [
+                    'data' => $key,
+                    'style' => 'uppercase'
+                ],
+                [
+                    'data' => data_get($managerArray, $key),
+                    'style' => 'text-right uppercase'
+                ]
+            ];
+        }
     
         return view('managers.view', [
             'manager' => $manager,
             'team' => $team,
             'teams' => Team::all(),
+            'managerTableData' => $managerTableData,
         ]);
     }
 }
