@@ -4,7 +4,9 @@
 
 <div class="grid grid-cols-2 w-full text-white  margintop">
     
-<div class="heading"><x-leaguecomponents.fixturepreview /></div>
+    <div class="">
+        <x-leaguecomponents.fixturepreview />
+      </div>
     <div class=" ml-72"> 
         <div class="bordertop bg-darkgrey padding text "> LEAGUES </div> 
             <div class="borderbottom h-fit">

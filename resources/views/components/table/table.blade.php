@@ -7,7 +7,7 @@
             ],
             [
                 'data' => 'Eddie Howe',
-                'style' => ''
+                'style' => 'text-right'
             ],
         ],
         1 => [
@@ -28,7 +28,7 @@
     
     @foreach ($tableData as $data)
         @foreach ($data as $column )
-            <div class="border text-sm text smallpadding {{ $column['style'] }}">{{ $column['data'] }}</div>
+            <div class="border text-sm text smallpadding {{ isset($column['style']) ? $column['style'] : '' }}">{{ $column['data'] }}</div>
         @endforeach 
     @endforeach
 </div>
