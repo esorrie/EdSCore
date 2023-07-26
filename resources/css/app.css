@@ -4,7 +4,6 @@
     color: #ff5935!important; 
     font-weight: 800;
 }
-
 body {
     background: linear-gradient(0deg, #000000, #000000);
     margin: 0px;
@@ -27,7 +26,7 @@ body {
 }
 
 .padding {
-    padding: 20px 16px 20px 16px;
+    padding: 16px;
 }
 .smallpadding {
     padding: 10px 8px 10px 8px;
@@ -92,6 +91,9 @@ body {
 }
 .margintop {
     margin-top: 25px;
+}
+.negmargintop {
+    margin-top: -80px;
 }
 .details {
     width: 480px;
