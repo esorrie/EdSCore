@@ -25,5 +25,7 @@
 </div>
 
 <x-leaguecomponents.leaguetable :teams='$teams' />
+
+
 <div class="text-sm text"><a href="/leagues">Go Back to leagues</a></div>
 @endsection 
