@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('nickname');
             $table->string('date_of_birth');
-            $table->string('country_of_origin');
+            $table->string('country');
             $table->string('languages_spoken');
             $table->string('seasons');
             $table->foreignId('team_id');

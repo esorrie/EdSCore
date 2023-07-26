@@ -26,10 +26,10 @@ class PlayerFactory extends Factory
             'name' => $name,
             'nickname' => fake()->firstName(),
             'date_of_birth' => fake()->dateTimeBetween('1990-01-01', '2012-12-31')->format('d/m/Y'), 
-            'country_of_origin' => fake()->country(),
+            'country' => fake()->country(),
             'languages_spoken' => fake()->languageCode(),
             'foot'=> fake()->randomElement(['Left', 'Right']),
-            'position'=> fake()->randomElement(['Striker','Midfielder','Defender','Goal Keeper']),
+            'position'=> fake()->randomElement(['striker','midfielder','defender','goalkeeper']),
         ];
     }
 }

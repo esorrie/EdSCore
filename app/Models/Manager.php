@@ -13,7 +13,7 @@ class Manager extends Model
         'name',
         'nickname',
         'date_of_birth',
-        'country_of_origin',
+        'country',
         'languages_spoken',
         'seasons'
     ];

@@ -30,19 +30,19 @@ class DatabaseSeeder extends Seeder
             ])->each(function( $team ) {
                 Player::factory(3)->create([
                     'team_id' => $team->id,
-                    'position' => 'Goal Keeper'
+                    'position' => 'goalkeeper'
                 ]);
                 Player::factory(rand(3, 8))->create([
                     'team_id' => $team->id,
-                    'position' => 'Defenders'
+                    'position' => 'defender'
                 ]);
                 Player::factory(rand(5, 10))->create([
                     'team_id' => $team->id,
-                    'position' => 'Midfielder'
+                    'position' => 'midfielder'
                 ]);
                 Player::factory(rand(2,4))->create([
                     'team_id' => $team->id,
-                    'position' => 'Striker'
+                    'position' => 'striker'
                 ]);
                 Player::factory(5)->create([
                     'team_id' => $team->id
