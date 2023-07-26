@@ -31,64 +31,44 @@
   <div class="w-full">
     <x-leaguecomponents.fixturepreview />
   </div>
-  
 </div>
-
-<div class="details text margintop">
-  <div class="bordertop bg-darkgrey text grid grid-cols-9">
-    <div class="col-span-4 padding"> TEAM</div>
-    <div class="self-center smallpadding"> P</div>
-    <div class="self-center smallpadding"> W</div>
-    <div class="self-center smallpadding"> D</div>
-    <div class="self-center smallpadding"> L</div>
-    <div class="self-center smallpadding"> PTS</div>
-  </div>
-
-  <div class="uppercase text-sm">
-    <div class="">
-      <div class="grid grid-cols-9 border grid-rows-5">
-        @foreach ($teams as $team)
-        <div class="col-span-4 border smallpadding hover:bg-darkgrey duration-500"> <a href="/teams/{{ $team->id }}/{{ $team->slug }}"> {!! $team->name !!} </a></div>
-          <div class="border smallpadding"> {{ $team->played }}</div>
-          <div class="border smallpadding"> {{ $team->won }}</div>
-          <div class="border smallpadding"> {{ $team->drawn }}</div>
-          <div class="border smallpadding"> {{ $team->lost }}</div>
-          <div class="border smallpadding"> {{ $team->played }}</div>
-        @endforeach
-      </div>
+<div class="flex justify-evenly">
+  <div class="grid grid-cols-2">
+    <div class="details">
+    <x-leaguecomponents.leaguetablepreview :teams="$teams"/>
+    </div>
+    
+    <div class="w-full">
+      <div class="margintop text">
+        <div class="bordertop bg-darkgrey smallpadding  ">GAME STATS</div>
+          <div class="grid grid-cols-13 text-xs">
+            <div class="border bg-darkgrey smallpadding col-span-2"> DATE </div>
+            <div class="border bg-darkgrey smallpadding col-span-2"> OPP </div>
+            <div class="border bg-darkgrey smallpadding"> RESULT </div>
+            <div class="border bg-darkgrey smallpadding"> G </div>
+            <div class="border bg-darkgrey smallpadding"> CONC </div>
+            <div class="border bg-darkgrey smallpadding"> S </div>
+            <div class="border bg-darkgrey smallpadding"> SoT </div>
+            <div class="border bg-darkgrey smallpadding"> xG </div>
+            <div class="border bg-darkgrey smallpadding"> xA </div>
+            <div class="border bg-darkgrey smallpadding"> xGA </div>
+            <div class="border bg-darkgrey smallpadding"> xAA </div>
+            <div class="border smallpadding col-span-2"> 26/07/23</div>
+            <div class="border smallpadding col-span-2"> sunderland</div>
+            <div class="border smallpadding"> 12-0 </div>
+            <div class="border smallpadding"> 3</div>
+            <div class="border smallpadding"> 2</div>
+            <div class="border smallpadding"> 23</div>
+            <div class="border smallpadding"> 5</div>
+            <div class="border smallpadding"> 2.4</div>
+            <div class="border smallpadding"> 1.1</div>
+            <div class="border smallpadding"> 0.6</div>
+            <div class="border smallpadding"> 0.7</div>
+          </div>
+      </div> 
     </div>
   </div>
-
-  <div class="details margintop w-full ">
-    <div class="bordertop bg-darkgrey smallpadding text ">GAME STATS</div>
-      <div class="grid grid-cols-17  text">
-        <div class="border bg-darkgrey smallpadding col-span-2"> DATE </div>
-        <div class="border bg-darkgrey smallpadding col-span-3"> OPP </div>
-        <div class="border bg-darkgrey smallpadding col-span-4"> RESULT </div>
-        <div class="border bg-darkgrey smallpadding"> G </div>
-        <div class="border bg-darkgrey smallpadding"> CONC </div>
-        <div class="border bg-darkgrey smallpadding"> S </div>
-        <div class="border bg-darkgrey smallpadding"> SoT </div>
-        <div class="border bg-darkgrey smallpadding"> xG </div>
-        <div class="border bg-darkgrey smallpadding"> xA </div>
-        <div class="border bg-darkgrey smallpadding"> xGA </div>
-        <div class="border bg-darkgrey smallpadding"> xAA </div>
-        <div class="text col-span-2">hgfd</div>
-        <div class="text col-span-3">hgfd</div>
-        <div class="text col-span-4">hgfd</div>
-        <div class="text"> 3</div>
-        <div class="text"> 2</div>
-        <div class="text"> 23</div>
-        <div class="text"> 5</div>
-        <div class="text"> 2.4</div>
-        <div class="text"> 1.1</div>
-        <div class="text"> 0.6</div>
-        <div class="text"> 0.7</div>
-      </div>
-  </div> 
-
 </div>
-
   
 
 <div class="text-xs text"><a href="/teams">Go Back to teams</a></div>
