@@ -18,9 +18,11 @@ export default {
         'fadegrey': '#4a4a4a69',
       },
       gridTemplateColumns: {
-        '14': 'repeat(14,minmax(0, 1fr))'
+        '14': 'repeat(14,minmax(0, 1fr))',
+        '17': 'repeat(17,minmax(0, 1fr))'
 
-      }
+      },
+      
     },
   },
   plugins: [],
