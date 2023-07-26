@@ -2,7 +2,7 @@
 
 @section('content')
 
-<x-leaguenav />    
+<x-leaguecomponents.leaguenav />    
 
 <div class="grid grid-cols-2 margintop text">
     <div class="w-full bg-darkgrey border rounded-tl-lg">

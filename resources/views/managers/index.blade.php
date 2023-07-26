@@ -2,7 +2,7 @@
 
 @section('content')
 
-<x-managernav />
+<x-managercomponents.managernav />
 
 <div class="grid grid-cols-3 margintop">
     <div class="bg-darkgrey border rounded-tl-lg smallpadding">

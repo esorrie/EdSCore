@@ -2,17 +2,17 @@
 
 @section('content')
 
-<x-playernav />
+<x-playercomponents.playernav />
 
 
 <div class="grid grid-cols-3 margintop">
-    <div class="bg-darkgrey border rounded-tl-lg smallpadding">
+    <div class="bg-darkgrey border rounded-tl-lg padding">
         <div class="text"> NAME</div>
     </div>
-    <div class="bg-darkgrey border smallpadding">
+    <div class="bg-darkgrey border padding">
         <div class="text"> POSITION</div>
     </div>
-    <div class="bg-darkgrey border rounded-tr-lg smallpadding">
+    <div class="bg-darkgrey border rounded-tr-lg padding">
       <div class="text"> CLUB</div>
     </div>
 

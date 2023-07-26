@@ -2,7 +2,7 @@
 
 @section('content')
 
-<x-teamnav />
+<x-teamcomponents.teamnav />
 
 <div class="grid grid-cols-2 text margintop">
   <div class="w-full bg-darkgrey border rounded-tl-lg"> 
