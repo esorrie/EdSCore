@@ -23,5 +23,3 @@
         </div>
     @endforeach
   </div>
-
-  {{-- TODO: teams.players --}}
