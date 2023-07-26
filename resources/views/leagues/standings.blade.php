@@ -61,12 +61,12 @@
     </div>
 
     @foreach ($teams as $team) 
-      <div class="smallpadding border"> #</div>
+      <div class="smallpadding border"> </div>
       <div class="col-span-3 smallpadding border hover:bg-darkgrey duration-500 uppercase"> {!! $team->name!!} </div>
-      <div class="smallpadding border"> #</div>
-      <div class="smallpadding border"> #</div>
-      <div class="smallpadding border"> #</div>
-      <div class="smallpadding border"> #</div>
+      <div class="smallpadding border"> {{ $team->played }}</div>
+      <div class="smallpadding border"> {{ $team->won }}</div>
+      <div class="smallpadding border"> {{ $team->drawn }}</div>
+      <div class="smallpadding border"> {{ $team->lost }}</div>
       <div class="smallpadding border"> #</div>
       <div class="smallpadding border"> #</div>
       <div class="smallpadding border"> #</div>
