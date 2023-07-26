@@ -19,7 +19,7 @@ class TeamController extends Controller
 
     public function view(int $id, string $slug): RedirectResponse|View
     {
-        $team = Team::where('id', $id)->first();
+        $team = Team::with('manager')->where('id', $id)->first();
         $player = $team->players;
 
         if(! $team) {
@@ -33,8 +33,25 @@ class TeamController extends Controller
             ]);
         }
 
+        $teamArray = $team->toArray();
+        $tableDataKeys = ['manager.name', 'stadium', 'capacity', 'location', 'nickname'];
+
+        foreach($tableDataKeys as $key) {
+            $teamTableData[] = [
+                [
+                    'data' => $key,
+                    'style' => 'uppercase'
+                ],
+                [
+                    'data' => data_get($teamArray, $key),
+                    'style' => 'text-right uppercase'
+                ]
+            ];
+        }
+
         return view('teams.view', [
             'team' => $team,
+            'teamTableData' => $teamTableData,
             'teams' => Team::all()->take(5),
             'players' => $player
         ]);
