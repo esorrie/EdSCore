@@ -63,17 +63,19 @@
     </div>
 
     <div class="">
-        <div class="negmargintop">
-            <div class=" bordertop bg-darkgrey padding text heading"> TOP SEARCHED TEAMS </div>
-            <div class=" grid grid-cols-2 subheading">
-                <div class=" bg-darkgrey pl-4 text-sm smallpadding"> TEAM</div>
-                <div class=" bg-darkgrey text-sm smallpadding "> LEAGUE</div>
-                    {{-- @foreach ($teams as $team)
-                        
-                        <div class=""> {{ $team->name }}</div>
-                        <div class="">wertyu</div>
-                    @endforeach         --}}
-            </div>
+        <div class="w-full">
+            <x-card.card title="Top Searched Teams">
+                <div class=" grid grid-cols-2 subheading">
+                    <div class=" bg-darkgrey pl-4 text-sm smallpadding"> TEAM</div>
+                    <div class=" bg-darkgrey text-sm smallpadding "> LEAGUE</div>
+                        {{-- @foreach ($teams as $team)
+                            
+                            <div class=""> {{ $team->name }}</div>
+                            <div class="">wertyu</div>
+                        @endforeach         --}}
+                </div>
+            </x-card.card>
+
         </div>
         <div class="mt-12">
             <div class=" bordertop bg-darkgrey padding text heading"> TOP SEARCHED PLAYERS </div>
