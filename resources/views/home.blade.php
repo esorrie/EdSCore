@@ -1,9 +1,10 @@
 @extends('layouts.base')
 
 @section('content')
-<div class="grid grid-cols-2 w-full, h-max padding text-white border margintop">
+
+<div class="grid grid-cols-2 w-full text-white  margintop">
     
-<x-fixturepreview />
+<div class="heading"><x-leaguecomponents.fixturepreview /></div>
     <div class=" ml-72"> 
         <div class="bordertop bg-darkgrey padding text "> LEAGUES </div> 
             <div class="borderbottom h-fit">
@@ -60,21 +61,19 @@
     </div>
 
     <div class="">
-        <div class="">
+        <div class="negmargintop">
             <div class=" bordertop bg-darkgrey padding text heading"> TOP SEARCHED TEAMS </div>
             <div class=" grid grid-cols-2 subheading">
                 <div class=" bg-darkgrey pl-4 text-sm smallpadding"> TEAM</div>
                 <div class=" bg-darkgrey text-sm smallpadding "> LEAGUE</div>
-                
-                @foreach ($teams as $team)
-                    <div class=""> {{ $team->name}} </div>
-                    <div class=""> {{ $team->league->name}} </div>
-
-                @endforeach
-            
+                    {{-- @foreach ($teams as $team)
+                        
+                        <div class=""> {{ $team->name }}</div>
+                        <div class="">wertyu</div>
+                    @endforeach         --}}
             </div>
         </div>
-        <div class="margintop">
+        <div class="mt-12">
             <div class=" bordertop bg-darkgrey padding text heading"> TOP SEARCHED PLAYERS </div>
             <div class=" grid grid-cols-2 subheading">
                 <div class=" bg-darkgrey pl-4 text-sm smallpadding"> PLAYER</div>

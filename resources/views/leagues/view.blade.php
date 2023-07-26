@@ -24,7 +24,7 @@
   </div>
 </div>
 
-<x-fixturepreview />
+<x-leaguecomponents.fixturepreview />
 
 <div class="text-xs text"><a href="/leagues">Go Back to leagues</a></div>
 
