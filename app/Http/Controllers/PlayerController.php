@@ -32,9 +32,26 @@ class PlayerController extends Controller
                 'slug' => $player->slug,
             ]);
         }
+
+        $playerArray = $player->toArray();
+        $tableDataKeys = ['country_of_origin', 'date_of_birth', 'age', 'height', 'number', 'nickname'];
+
+        foreach($tableDataKeys as $key) {
+            $playerTableData[] = [
+                [
+                    'data' => $key,
+                    'style' => 'uppercase'
+                ],
+                [
+                    'data' => data_get($playerArray, $key),
+                    'style' => 'text-right uppercase'
+                ]
+            ];
+        }
     
         return view('players.view', [
-            'player' => $player
+            'player' => $player,
+            'playerTableData' => $playerTableData,
         ]);
     }
 
