@@ -19,9 +19,9 @@
     <a class="{{ request()->routeIs('leagues.teams') ? 'active' : '' }}" href="/leagues/{{ $league->id }}/{{ $league->slug }}/teams">TEAMS</a> 
   </div>
 </div>
-
-<x-leaguecomponents.fixturepreview />
-
+<div class="text-white">
+  <x-leaguecomponents.fixturepreview />
+</div>
 <div class="text-xs text"><a href="/leagues">Go Back to leagues</a></div>
 
 @endsection 

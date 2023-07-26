@@ -22,7 +22,7 @@ export default {
         '15': 'repeat(15,minmax(0, 1fr))'
       },
       spacing: {
-        '480': '30rem'
+        '840': '52.5rem'
       },
       
     },

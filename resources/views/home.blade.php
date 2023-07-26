@@ -2,11 +2,12 @@
 
 @section('content')
 
-<div class="grid grid-cols-2 w-full text-white  margintop">
+<div class="grid grid-cols-2 text-white  margintop">
     
-    <div class="">
+    <div class="w-840">
         <x-leaguecomponents.fixturepreview />
       </div>
+      
     <div class=" ml-72"> 
         <div class="bordertop bg-darkgrey padding text "> LEAGUES </div> 
             <div class="borderbottom h-fit">
@@ -63,7 +64,7 @@
     </div>
 
     <div class="">
-        <div class="w-full">
+        <div class="w-840">
             <x-card.card title="Top Searched Teams">
                 <div class=" grid grid-cols-2 subheading">
                     <div class=" bg-darkgrey pl-4 text-sm smallpadding"> TEAM</div>

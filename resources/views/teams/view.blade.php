@@ -24,7 +24,7 @@
       </x-card.card>
     </div>
   </div>
-  <div class="w-full">
+  <div class="w-full text-white">
     <x-leaguecomponents.fixturepreview />
   </div>
 </div>
