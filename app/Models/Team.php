@@ -19,7 +19,11 @@ class Team extends Model
         'stadium',
         'capacity',
         'lat',
-        'lng'
+        'lng',
+        'played',
+        'won',
+        'drawn',
+        'lost',
     ];
 
     public function players()

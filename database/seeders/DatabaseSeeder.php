@@ -50,6 +50,7 @@ class DatabaseSeeder extends Seeder
                 Manager::factory(1)->create([
                     'team_id' => $team->id
                 ]);
+                
             });
         });
     }
