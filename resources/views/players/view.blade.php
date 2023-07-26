@@ -9,7 +9,7 @@
   </div>  
 </div>
 
-<div class="flex justify-evenly">
+<div class="">
   <div class="grid grid-cols-2">
     <div class="details margintop">
       <x-card.card title="Player Details">
@@ -18,7 +18,15 @@
     </div>
   </div>
 </div>
-
+<div class="">
+  <div class="grid grid-cols-2">
+    <div class="details margintop">
+      <x-card.card title="player stats">
+        <x-table.table :tableData="$statTableData"/>
+      </x-card.card>
+    </div>
+  </div>
+</div>
 <div class="text-sm text"> <a href="/players">Go Back to players</a> </div>
 
 @endsection

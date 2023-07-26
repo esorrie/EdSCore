@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Player;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
 class PlayerController extends Controller
@@ -48,10 +47,26 @@ class PlayerController extends Controller
                 ]
             ];
         }
+
+        $statTableDataKeys = ['appearances', 'goals', 'assists'];
+
+        foreach($statTableDataKeys as $key) {
+            $statTableData[] = [
+                [
+                    'data' => $key,
+                    'style' => 'uppercase'
+                ],
+                [
+                    'data' => data_get($playerArray, $key),
+                    'style' => 'text-right uppercase'
+                ]
+            ];
+        }
     
         return view('players.view', [
             'player' => $player,
             'playerTableData' => $playerTableData,
+            'statTableData' => $statTableData,
         ]);
     }
 
