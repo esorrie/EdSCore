@@ -7,6 +7,7 @@ use App\Models\Team;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Response;
+use Illuminate\Support\Str;
 
 class TeamController extends Controller
 {
@@ -34,14 +35,14 @@ class TeamController extends Controller
         }
 
         $teamArray = $team->toArray();
-        $tableDataKeys = ['manager.name', 'stadium', 'capacity', 'location', 'nickname'];
+        $tableDataKeys = ['manager.name', 'stadium', 'location', 'nickname', 'founded'];
 
         foreach($tableDataKeys as $key) {
             $teamTableData[] = [
-                [
+                Str::replace('.name', '', [
                     'data' => $key,
                     'style' => 'uppercase'
-                ],
+                ]),
                 [
                     'data' => data_get($teamArray, $key),
                     'style' => 'text-right uppercase'
@@ -80,8 +81,7 @@ class TeamController extends Controller
     
     public function players(int $id, string $slug) : RedirectResponse|View
     {
-        $team = Team::where('id', $id)->first();
-        $player = Team::all();
+        $team = Team::with('players')->where('id', $id)->first();
 
         if(! $team) {
             abort(Response::HTTP_NOT_FOUND);
@@ -96,8 +96,7 @@ class TeamController extends Controller
 
         return view('teams.players', [
             'team' => $team,
-            'players' => Player::all()->where('team_id', $team->id),
-            // 'players' => Player::all()->where('defender', $player->position),
+            'players' => $team->players
         ]);
     }
     
