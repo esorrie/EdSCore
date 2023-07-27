@@ -17,20 +17,24 @@
 </div>
 
 
-
-<x-card.card title="Goalkeepers">
-  <x-playercomponents.playerlist :players="$players" />
-</x-card.card>
-
-<x-card.card title="Defenders">
-  {{-- <x-playercomponents.playerlist :players="$players" /> --}}
-</x-card.card>
-
-<x-card.card title="Midfielders">
-  {{-- <x-playercomponents.playerlist :players="$players" /> --}}
-</x-card.card>
-
-<x-card.card title="Attackers">
-  {{-- <x-playercomponents.playerlist :players="$players" /> --}}
-</x-card.card>
+<div class="">
+  <x-card.card title="Goalkeepers">
+    <x-playercomponents.playerlist :players="$players->where('position', 'goalkeeper')" />
+  </x-card.card>
+</div>
+<div class="margintop">
+  <x-card.card title="Defenders">
+    <x-playercomponents.playerlist :players="$players->where('position', 'defender')" />
+  </x-card.card>
+</div>
+<div class="margintop">
+  <x-card.card title="Midfielders">
+    <x-playercomponents.playerlist :players="$players->where('position', 'midfielder')" />
+  </x-card.card>
+</div>
+<div class="margintop">
+  <x-card.card title="Attackers">
+    <x-playercomponents.playerlist :players="$players->where('position', 'striker')" />
+  </x-card.card>
+</div>
 @endsection
