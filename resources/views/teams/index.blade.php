@@ -4,7 +4,7 @@
 
 <x-teamcomponents.teamnav />
 
-<div class="grid grid-cols-3 text margintop">
+<div class="grid grid-cols-3 text margintop uppercase">
   <div class="w-full bg-darkgrey border rounded-tl-lg"> 
     <p class="text pl-4 uppercase">Team</p> 
   </div>
@@ -16,15 +16,19 @@
   </div>
   
   @foreach ($teams as $team)
-  <div class="">
-    <div class=" padding border hover:bg-orange duration-500">
+  <div class="text-sm">
+    <div class="smallpadding border hover:bg-orange duration-500 hover:font-bold">
       <a href="/teams/{{ $team->id }}/{{ $team->slug }}">
         {!! $team->name !!}
       </a>
     </div>
   </div>
-  <div class="padding border hover:bg-darkgrey duration-500"> {!! $team->stadium !!} </div>
-  <div class="padding border hover:bg-darkgrey duration-500"> {!! $team->league->name !!} </div>
+  <div class="smallpadding border hover:bg-darkgrey duration-500 text-sm orange"> {!! $team->stadium !!} </div>
+  <div class="smallpadding border hover:bg-darkgrey duration-500 text-sm hover:font-bold"> 
+    <a href="/leagues/{{ $team->league->id }}/{{ $team->league->slug }}">
+      {!! $team->league->name !!} 
+    </a>
+  </div>
   @endforeach
 </div>
   

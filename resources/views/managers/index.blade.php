@@ -16,14 +16,14 @@
     </div>
 
 @foreach ($managers as $manager)
-    <div class="text-sm text uppercase smallpadding border hover:bg-orange duration-500">
+    <div class="text-sm text uppercase smallpadding border hover:bg-orange duration-500 hover:font-bold">
         <a href="/managers/{{ $manager->id }}/{{ $manager->slug }}"> {!! $manager->name !!} </a>
     </div>
-    <div class="text-sm text uppercase smallpadding border hover:bg-darkgrey duration-500">
-        {!! $manager->team->name !!} 
+    <div class="text-sm orange uppercase smallpadding border hover:bg-darkgrey duration-500 hover:font-bold">
+        <a href="/teams/{{ $manager->team->id }}/{{ $manager->team->slug }}"> {!! $manager->team->name !!} </a>
     </div> 
-    <div class="text-sm text uppercase smallpadding border hover:bg-darkgrey duration-500">
-        {!! $manager->team->league->name !!} 
+    <div class="text-sm text uppercase smallpadding border hover:bg-darkgrey duration-500 hover:font-bold">
+        <a href="/leagues/{{ $manager->team->league->id }}/{{ $manager->team->league->slug }}"> {!! $manager->team->league->name !!} </a>
     </div> 
 @endforeach
 
