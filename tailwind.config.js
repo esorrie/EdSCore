@@ -22,7 +22,8 @@ export default {
         '15': 'repeat(15,minmax(0, 1fr))'
       },
       spacing: {
-        '840': '52.5rem'
+        '840': '52.5rem',
+        '448': '448px'
       },
       
     },
