@@ -8,7 +8,7 @@ use App\Models\League;
 use App\Models\Manager;
 use App\Models\Team;
 use App\Models\Player;
-use Database\Factories\ManagerFactory;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
         Team::truncate();
         Player::truncate();
         Manager::truncate();
+        User::truncate();
 
         League::factory(2)->create([])->each(function( $league ) {
             Team::factory(20)->create([
@@ -53,5 +54,6 @@ class DatabaseSeeder extends Seeder
                 
             });
         });
+        User::factory(10)->create();
     }
 }

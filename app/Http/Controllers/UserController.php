@@ -19,4 +19,17 @@ class UserController extends Controller
             'users' => $users,
         ]);
     }
+
+    public function login(): View 
+    {        
+
+        return view('users.login', [
+        ]);
+    }
+    
+    public function register(): View 
+    {        
+        return view('users.register', [
+        ]);
+    }
 }
