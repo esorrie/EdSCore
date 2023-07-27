@@ -1,4 +1,4 @@
-<div class="grid grid-cols-3">
+<div class="grid grid-cols-3 uppercase">
     <div class="bg-darkgrey border rounded-tl-lg smallpadding">
         <div class="text"> TEAM</div>
     </div>
