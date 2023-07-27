@@ -22,6 +22,11 @@ Route::get('/', function () {
     return view('home');
 });
 
+Route::prefix('/users')->name('users.')->group(function() {
+    Route::get('/login', [UserController::class, 'login'])->name('login');
+    Route::get('/register', [UserController::class, 'register'])->name('register');
+});
+
 Route::prefix('/players')->name('players.')->group(function() {
     Route::get('/', [PlayerController::class, 'index'])->name('index');
     Route::get('/{id}/{slug}', [PlayerController::class, 'view'])->name('view');
@@ -52,3 +57,4 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+

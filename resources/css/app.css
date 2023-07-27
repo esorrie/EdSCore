@@ -9,6 +9,9 @@ body {
     margin: 0px;
     padding: 0px;
 }
+.fade {
+    background: linear-gradient(180deg, #000 20%, #333 70%, #666);
+}
 .flexcenter {
     display: flex;
     align-items: center;
@@ -115,7 +118,7 @@ body {
 .menu {
     display: flex;
     flex-wrap: wrap; /* stops entities from being off the page */
-    align-items: center; /* formats to thte center of the container height */
+    align-items: center; /* formats to the center of the container height */
 }
 
 .nav .card1 {
@@ -147,7 +150,17 @@ body {
     color: rgba(255, 255, 255, 0.5);
     
 }
-
+.card4 {
+    float: right;
+    border: none;
+    padding-right: 10px;
+    font-size: 15px;
+    align-self: right; /* formats text to the center side of the page */
+}
+.card4 a {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.5);
+}
 .nav .card_searchbar {
     float: right;
     padding: 6px;
@@ -155,7 +168,7 @@ body {
     margin-right: 50px;
     font-size: 17px;
     align-self: center; /* formats text to the right side of the page */
-    padding-right: 56px;
+    padding-right: 45px;
 }
 
 /* 
