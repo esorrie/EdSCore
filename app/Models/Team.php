@@ -14,16 +14,21 @@ class Team extends Model
     use HasFactory;
 
     protected $fillable = [
+        'id',
         'name',
-        'established',
+        'slug',
+        'crest',
+        'founded',
         'stadium',
-        'capacity',
-        'lat',
-        'lng',
-        'played',
-        'won',
-        'drawn',
-        'lost',
+        'location',
+        'manager'
+        // 'capacity',
+        // 'lat',
+        // 'lng',
+        // 'played',
+        // 'won',
+        // 'drawn',
+        // 'lost',
     ];
 
     public function players()

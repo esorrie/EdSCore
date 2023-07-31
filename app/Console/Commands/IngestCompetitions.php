@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use App\Http\Controllers\Controller;
 use App\Models\League;
+use App\Models\Team;
 use Illuminate\Console\Command;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
@@ -31,11 +32,13 @@ class IngestCompetitions extends Command
     public function handle()
     {
         // GET COMPETITIONS
-        $response = Http::withHeader('X-Auth-Token', 'b7173c63c2084739b77c6fe4cb8bf7f0')->get('https://api.football-data.org/v4/competitions');
-        $data = $response->json();
-        $leagues = $data['competitions'];
+        $responseLeagues = Http::withHeader('X-Auth-Token', 'b7173c63c2084739b77c6fe4cb8bf7f0')->get('https://api.football-data.org/v4/competitions');
+        $dataLeagues = $responseLeagues->json();
+        $leagues = $dataLeagues['competitions'];
 
-
+        $responseTeams = Http::withHeader('X-Auth-Token', 'b7173c63c2084739b77c6fe4cb8bf7f0')->get('https://api.football-data.org/v4/competitions/PL/teams');
+        $dataTeams = $responseTeams->json();
+        $teams = $dataTeams['teams'];
 
         // FORMAT THE DATA INTO AN EXPECTED FORMAT FOR US TO USE IN LARAVEL
         // LOOP THOUGH DATA AND WRITE IT TO OUR DB
@@ -50,5 +53,19 @@ class IngestCompetitions extends Command
             ]);
         }
 
+        foreach($teams as $team){
+            $slug = Str::slug($team['name'], '-');
+            Team::create([
+                'league_id' => $team['runningCompetitions']['0']['id'],
+                'id' => $team['id'],
+                'slug' => $slug,
+                'name' => $team['name'],
+                'crest' => $team['crest'],
+                'stadium' => $team['venue'],
+                'founded' => $team['founded'],
+                'location' => $team['area']['name'],
+                'manager' => $team['coach']['name'], // get manager name from an manager api call not team
+            ]);
+        }
     }
 }
