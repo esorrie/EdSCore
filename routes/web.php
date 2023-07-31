@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Controller;
 use App\Http\Controllers\LeagueController;
 use App\Http\Controllers\ManagerController;
 use App\Http\Controllers\PlayerController;
@@ -21,6 +22,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('home');
 });
+
+Route::get('/test', [Controller::class, 'test']);
 
 Route::prefix('/users')->name('users.')->group(function() {
     Route::get('/login', [UserController::class, 'login'])->name('login');
