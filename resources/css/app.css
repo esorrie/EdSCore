@@ -233,14 +233,14 @@ body {
 }
 
 .leagueoverview .leaguename {
-    margin-left:200px;
+    margin-left:20px;
     color: rgb(255, 255, 255);
     text-transform: uppercase;
 }
 .leaguenation {
     font-size: 15px;
     color: rgb(255, 255, 255);;
-    margin-left: 200px;
+    margin-left: 20px;
 }
 
 /*
@@ -294,14 +294,14 @@ body {
 }
 
 .teamoverview .teamname {
-    margin-left:200px;
+    margin-left:20px;
     color: rgb(255, 255, 255);
     text-transform: uppercase;
 }
 .teamnation {
     font-size: 15px;
     color: rgb(255, 255, 255);;
-    margin-left: 200px;
+    margin-left: 20px;
 }
 
 /*
