@@ -18,7 +18,7 @@
             {{ $team->stadium}}
         </div>
         <div class="text-sm text smallpadding border duration-500">
-            {{ $team->capacity}}
+            {{ $team->founded}}
         </div>
       @endforeach
 </div>
