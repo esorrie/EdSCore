@@ -19,11 +19,6 @@ class DatabaseSeeder extends Seeder
 
     public function run(): void
     {
-        League::truncate();
-        Team::truncate();
-        Player::truncate();
-        Manager::truncate();
-        User::truncate();
 
         League::factory(2)->create([])->each(function( $league ) {
             Team::factory(20)->create([
