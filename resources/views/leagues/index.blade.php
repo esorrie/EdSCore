@@ -13,11 +13,12 @@
     </div>
     
     @foreach ($leagues as $league)
-    <div class="text-sm smallpadding border hover:bg-orange duration-500 hover:font-bold">
+    <div class="text-sm smallpadding border hover:bg-orange duration-500 hover:font-bold ">
         <a href="/leagues/{{ $league->id }}/{{ $league->slug }}">
-            {!! $league->name !!}
-        </a>
-    </div>
+            <div class="w-fit"> <img style="width:50px;height:50px; "src="{{ $league->emblem }}"> </div>
+                {!! $league->name !!}
+            </a>
+        </div>
     <div class="text-sm orange smallpadding border hover:bg-darkgrey duration-500"> {{ $league->location }}</div>
     @endforeach
 </div> 

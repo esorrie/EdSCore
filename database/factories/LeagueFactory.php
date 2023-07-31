@@ -18,8 +18,13 @@ class LeagueFactory extends Factory
     public function definition(): array
     {
 
-        return [
+        $name = fake()->name();
 
+        return [
+            'slug' => Str::slug($name),
+            'name' => $name,
+            'location' => fake()->name(),
+            'emblem' => fake()->name()
         ];
     }
 }
