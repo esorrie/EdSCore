@@ -14,8 +14,11 @@ class League extends Model
     use HasFactory;
 
     protected $fillable = [
+        'id',
+        'slug',
         'name',
-        'established',
+        'emblem',
+        'location'
     ];
     
     public function teams()
@@ -40,25 +43,7 @@ class League extends Model
             }
         );
     }
-
-    protected function premLeague(): Attribute
-    {
-        return Attribute::make(
-            get: function() {
-                $leaguestandings = Cache::remember(sprintf('league.%s.standings', $this->id), 60, function() {
-                    Log::info('Collecting Football Data From API');
-                    $response =  Http::withHeader("X-Auth-Token", "b7173c63c2084739b77c6fe4cb8bf7f0" )->get('http://api.football-data.org/v4/competitions/PL/standings', [
-                        'id' => 'PL',
-                        'standings' => '2021'
-                    ])->json('standings');
-
-                    dd($response);
-                });
-                // dd($leaguestandings);
-                return $leaguestandings;
-            }
-        );
-    }
+    
 };
 
     

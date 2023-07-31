@@ -15,7 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('slug');
             $table->string('name');
-            $table->string('established');
+            $table->string('location');
+            $table->string('emblem');
             $table->timestamps();
         });
     }

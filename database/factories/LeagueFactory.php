@@ -17,12 +17,9 @@ class LeagueFactory extends Factory
      */
     public function definition(): array
     {
-        $name = fake()->name();
 
         return [
-            'slug' => Str::slug($name),
-            'name' => $name,
-            'established' => fake() -> numberBetween(1800, 1992)
+
         ];
     }
 }
