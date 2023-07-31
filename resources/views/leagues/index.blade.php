@@ -18,7 +18,7 @@
             {!! $league->name !!}
         </a>
     </div>
-    <div class="text-sm orange smallpadding border hover:bg-darkgrey duration-500">ENGLAND</div>
+    <div class="text-sm orange smallpadding border hover:bg-darkgrey duration-500"> {{ $league->location }}</div>
     @endforeach
 </div> 
 
