@@ -22,7 +22,7 @@ class DatabaseSeeder extends Seeder
 
         League::factory(2)->create([])->each(function( $league ) {
             Team::factory(20)->create([
-                'league_id' => $league->id
+                
             ])->each(function( $team ) {
                 Player::factory(3)->create([
                     'team_id' => $team->id,

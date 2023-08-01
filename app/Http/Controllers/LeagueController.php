@@ -58,7 +58,7 @@ class LeagueController extends Controller
 
         return view('leagues.standings', [
             'league' => $league,
-            'teams' => Team::all()->where('league_id', $league->id)
+            'teams' => $league->teams
             
         ]);
     }
@@ -102,7 +102,7 @@ class LeagueController extends Controller
 
         return view('leagues.teamlist', [
             'league' => $league,
-            'teams' => Team::all()->where('league_id', $league->id)
+            'teams' => $league->teams
         ]);
     }
 
