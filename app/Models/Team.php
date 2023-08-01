@@ -21,7 +21,8 @@ class Team extends Model
         'founded',
         'stadium',
         'location',
-        'manager'
+        'manager',
+        'league_id'
         // 'capacity',
         // 'lat',
         // 'lng',

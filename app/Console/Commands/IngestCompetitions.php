@@ -56,7 +56,7 @@ class IngestCompetitions extends Command
         foreach($teams as $team){
             $slug = Str::slug($team['name'], '-');
             Team::create([
-                'league_id' => $team['runningCompetitions']['0']['id'],
+                'league_id' => $team['runningCompetitions'][0]['id'], // CURRENTLY ONLY TAKING ONE COMPETITION FOR A TEAM
                 'id' => $team['id'],
                 'slug' => $slug,
                 'name' => $team['name'],
