@@ -6,7 +6,7 @@
         <div class="text">STADIUM</div>
     </div>
     <div class="bg-darkgrey border rounded-tr-lg smallpadding">
-      <div class="text">CAPACITY</div>
+      <div class="text">Founded</div>
     </div>
       @foreach ($teams as $team)
         <div class="text-sm text smallpadding border hover:bg-orange duration-500">
