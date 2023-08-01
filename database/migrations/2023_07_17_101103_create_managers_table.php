@@ -15,11 +15,13 @@ return new class extends Migration
             $table->id();
             $table->string('slug');
             $table->string('name');
-            $table->string('nickname');
+            // $table->string('nickname');
             $table->string('date_of_birth');
+            $table->string('contract_start');
+            $table->string('contract_end');
             $table->string('country');
-            $table->string('languages_spoken');
-            $table->string('seasons');
+            // $table->string('languages_spoken');
+            // $table->string('seasons');
             $table->foreignId('team_id');
             $table->timestamps();
         });

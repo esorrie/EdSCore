@@ -20,14 +20,6 @@ return new class extends Migration
             $table->string('stadium');
             $table->string('location');
             $table->string('manager');
-            // $table->string('capacity');
-            // $table->float('lat');
-            // $table->float('lng');
-            // $table->float('played');
-            // $table->float('won');
-            // $table->float('drawn');
-            // $table->float('lost');
-            $table->foreignId('league_id')->nullable();
             $table->timestamps();
         });
     }
