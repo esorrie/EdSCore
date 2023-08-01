@@ -1,6 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Models\League;
+use App\Models\Team;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
@@ -12,8 +15,12 @@ class Controller extends BaseController
 
     public function test() {
         
-        $response = Http::withHeader('X-Auth-Token', 'b7173c63c2084739b77c6fe4cb8bf7f0')->get('https://api.football-data.org/v4/competitions/PL/teams');
-        dd($response->json());
+        // $team = Team::find(1044);
+
+        // dd($team->league()->where('id', '2021'))->get();
+
+        // $response = Http::withHeader('X-Auth-Token', 'b7173c63c2084739b77c6fe4cb8bf7f0')->get('https://api.football-data.org/v4/competitions/PL/standings');
+        // dd($response->json());
     }
 
 }
