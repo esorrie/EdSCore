@@ -24,11 +24,13 @@ class ManagerFactory extends Factory
             'team_id' => Team::factory(),
             'slug' => Str::slug($name),
             'name' => $name,
-            'nickname' => fake()->firstName(),
+            // 'nickname' => fake()->firstName(),
             'date_of_birth' => fake()->dateTimeBetween('1990-01-01', '2012-12-31')->format('d/m/Y'), 
+            'contract_start' => fake()->dateTimeBetween('1990-01-01', '2012-12-31')->format('d/m/Y'), 
+            'contract_end' => fake()->dateTimeBetween('1990-01-01', '2012-12-31')->format('d/m/Y'), 
             'country' => fake()->country(),
-            'languages_spoken' => fake()->languageCode(),
-            'seasons' => fake()->numberBetween('1', '30')
+            // 'languages_spoken' => fake()->languageCode(),
+            // 'seasons' => fake()->numberBetween('1', '30')
         ];
     }
 }

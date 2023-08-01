@@ -28,14 +28,7 @@ class TeamFactory extends Factory
             'stadium' => fake()-> name(),
             'location' => fake()->name(),
             'manager' => fake()->name(),
-            // 'capacity' => fake()-> numberBetween(10000, 80000),
-            // 'lat' => fake()->randomFloat(6, -90, 90),
-            // 'lng' => fake()->randomFloat(6, -180, 180),
-            // 'played' => fake() -> numberBetween(38, 38),
-            // 'won' => fake() -> numberBetween(7, 38),
-            // 'drawn' => fake() -> numberBetween(10, 38),
-            // 'lost' => fake() -> numberBetween(7, 38),
-            'league_id' => League::factory(),
+            // 'league_id' => League::factory(),
         ];
     }
 }

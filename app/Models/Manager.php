@@ -10,12 +10,14 @@ class Manager extends Model
     use HasFactory;
 
     protected $fillable = [
+        'id',
         'name',
-        'nickname',
+        'slug',
         'date_of_birth',
         'country',
-        'languages_spoken',
-        'seasons'
+        'contract_start',
+        'contract_end',
+        'team_id',
     ];
     
     public function team()

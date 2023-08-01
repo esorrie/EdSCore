@@ -10,13 +10,12 @@ class Player extends Model
     use HasFactory;
 
     protected $fillable = [
+        'id',
+        'slug',
         'name',
-        'nickname',
         'date_of_birth',
         'country',
-        'languages_spoken',
         'position',
-        'foot'
     ];
  
     public function team()

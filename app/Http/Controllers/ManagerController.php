@@ -35,7 +35,7 @@ class ManagerController extends Controller
         }
 
         $managerArray = $manager->toArray();
-        $tableDataKeys = ['country', 'date_of_birth', 'age', 'seasons'];
+        $tableDataKeys = ['country', 'date_of_birth', 'contract_start', 'contract_end'];
 
         foreach($tableDataKeys as $key) {
             $managerTableData[] = [

@@ -35,7 +35,7 @@ class PlayerController extends Controller
         }
 
         $playerArray = $player->toArray();
-        $tableDataKeys = ['country', 'date_of_birth', 'height', 'number', 'Est. market value', 'contract'];
+        $tableDataKeys = ['country', 'date_of_birth', 'height'];
 
         foreach($tableDataKeys as $key) {
             $playerTableData[] = [
