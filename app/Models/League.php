@@ -5,9 +5,6 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Cache;
-use Illuminate\Support\Facades\Http;
-use Illuminate\Support\Facades\Log;
 
 class League extends Model
 {
@@ -23,7 +20,16 @@ class League extends Model
     
     public function teams()
     {
-        return $this->hasMany(Team::class);
+        return $this->belongsToMany(Team::class, 'standings', 'league_id', 'team_id')->withPivot([
+            'won',
+            'lost',
+            'drawn',
+            'gf',
+            'ga',
+            'gd'
+        ])
+        ->orderByPivot('points', 'desc');
+
     }
 
     /**
@@ -43,6 +49,25 @@ class League extends Model
             }
         );
     }
+
+    // protected function currentTable(): Attribute
+    // {
+    //     return Attribute::make(
+    //         get: function() {
+
+    //             $currentStandings = $this->teams()->getPivotColumns(
+    //                 'won',
+    //                 'lost',
+    //                 'drawn',
+    //                 'gf',
+    //                 'ga',
+    //                 'gd'
+    //             );
+
+    //             return $currentStandings;
+    //         }
+    //     );
+    // }
     
 };
 

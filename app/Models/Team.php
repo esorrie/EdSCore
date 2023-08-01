@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
 
+use function PHPSTORM_META\map;
+
 class Team extends Model
 {
     use HasFactory;
@@ -21,15 +23,16 @@ class Team extends Model
         'founded',
         'stadium',
         'location',
+        'league_id',
         'manager',
-        'league_id'
-        // 'capacity',
-        // 'lat',
-        // 'lng',
-        // 'played',
-        // 'won',
-        // 'drawn',
-        // 'lost',
+        'played',
+        'won',
+        'drawn',
+        'lost',
+        'points',
+        'GA',
+        'GF',
+        'GD',
     ];
 
     public function players()
@@ -39,7 +42,14 @@ class Team extends Model
 
     public function league()
     {
-        return $this->belongsTo(League::class, 'league_id');
+        return $this->belongsToMany(League::class, 'standings', 'team_id','league_id')->withPivot([
+            'won',
+            'lost',
+            'drawn',
+            'gf',
+            'ga',
+            'gd'
+        ]);
     }
 
     public function manager()
