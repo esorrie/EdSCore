@@ -8,8 +8,10 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Response;
 
+
 class LeagueController extends Controller
 {
+    // Display the list of all leagues
     public function index(): View 
     {
 
@@ -18,15 +20,18 @@ class LeagueController extends Controller
         ]);
     }
 
+    // View a specific league with its associated teams
     public function view(int $id, string $slug): RedirectResponse|View
     {
-        $league = League::where('id', $id)->first();
-        $team = $league->teams;
+        $league = League::where('id', $id)->first(); // Fetch the league with the given ID
+        $team = $league->teams; // Fetch all the teams associated with this league
 
+        // If the league is not found, return a 404 error
         if(! $league) {
             abort(Response::HTTP_NOT_FOUND);
         }
     
+        // If the provided slug does not match the league's actual slug, redirect to the correct URL
         if($league->slug !== $slug) {
             return redirect()->route('leagues.view', [
                 'id' => $league->id,
@@ -34,16 +39,17 @@ class LeagueController extends Controller
             ]);
         }
     
+        // Pass the league and its associated teams to the 'leagues.view' view
         return view('leagues.view', [
             'league' => $league,
             'teams' => $team
         ]);
     }
 
+    // View the standings of a specific league with its associated teams
     public function standings(int $id, string $slug): RedirectResponse|View 
     {
-        $league = League::where('id', $id)->first();
-        $team = Team::where('id', $id)->first();
+        $league = League::where('id', $id)->first(); // Fetch the league with the given ID
         
         if(! $league) {
             abort(Response::HTTP_NOT_FOUND);
@@ -56,13 +62,18 @@ class LeagueController extends Controller
             ]);
         }
 
+        $sortedTable = $league->currentTable(); // Call the currentTable() method to get the sorted table
+
+        // Pass the league, its associated teams, and the sorted standings table to the 'leagues.standings' view
         return view('leagues.standings', [
             'league' => $league,
-            'teams' => $league->teams
-            
+            'teams' => $league->teams,
+            'sortedTable' => $sortedTable, 
         ]);
+        
     }
 
+    // View the fixtures of a specific league
     public function fixtures(int $id, string $slug): RedirectResponse|View 
     {
         $league = League::where('id', $id)->first();
@@ -78,6 +89,7 @@ class LeagueController extends Controller
             ]);
         }
 
+        // Pass the league and all fixtures to the 'leagues.fixtures' view
         return view('leagues.fixtures', [
             'league' => $league,
             'fixtures' => League::all(),

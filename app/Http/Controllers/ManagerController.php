@@ -11,6 +11,7 @@ use Illuminate\Support\Str;
 
 class ManagerController extends Controller
 {
+    // Display a paginated list of managers
     public function index(): View
     {
         return view('managers.index', [
@@ -20,7 +21,9 @@ class ManagerController extends Controller
 
     public function view(int $id, string $slug): RedirectResponse|View
     {
+        // Find the manager with the given ID in the 'Manager' table
         $manager = Manager::where('id', $id)->first();
+        // Find the team with the given ID in the 'Team' table
         $team = Team::where('id', $id)->first();
 
         if(! $manager) {
@@ -33,10 +36,12 @@ class ManagerController extends Controller
                 'slug' => $manager->slug,
             ]);
         }
-
+        
+        // Prepare table data for displaying manager information in the view
         $managerArray = $manager->toArray();
         $tableDataKeys = ['country', 'date_of_birth', 'contract_start', 'contract_end'];
 
+        // Loop through the keys of the table data and format it for display
         foreach($tableDataKeys as $key) {
             $managerTableData[] = [
                 Str::replace('_', ' ',[
@@ -50,6 +55,7 @@ class ManagerController extends Controller
             ];
         }
     
+        // Pass the manager and team details to the 'managers.view' view
         return view('managers.view', [
             'manager' => $manager,
             'team' => $team,

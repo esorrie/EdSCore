@@ -11,6 +11,7 @@ use Illuminate\Support\Str;
 
 class TeamController extends Controller
 {
+    // This method fetches all teams from the database and returns them paginated to the 'teams.index' view
     public function index(): View 
     {
         return view('teams.index', [
@@ -18,6 +19,7 @@ class TeamController extends Controller
         ]);
     }
 
+    // This method fetches a specific team by ID and displays its information in the 'teams.view' view
     public function view(int $id, string $slug): RedirectResponse|View
     {
         $team = Team::where('id', $id)->first(); //with('manager')->
@@ -34,9 +36,12 @@ class TeamController extends Controller
             ]);
         }
 
+        // Prepare team data for displaying in a table format
         $teamArray = $team->toArray();
+        // Define the keys for the table data
         $tableDataKeys = ['manager', 'stadium', 'location', 'founded'];
 
+        // Prepare table data for the team's general information.
         foreach($tableDataKeys as $key) {
             $teamTableData[] = [
                 Str::replace('.name', '', [
@@ -49,7 +54,7 @@ class TeamController extends Controller
                 ]
             ];
         }
-
+        // Return the 'teams.view' view with the team information and related data
         return view('teams.view', [
             'team' => $team,
             'teamTableData' => $teamTableData,
@@ -58,6 +63,7 @@ class TeamController extends Controller
         ]);
     }
 
+    // This method is supposed to show a team's matches, but currently, it fetches all teams and returns them to the 'teams.matches' view
     public function matches(int $id, string $slug) : RedirectResponse|View
     {
         $team = Team::where('id', $id)->first();
@@ -79,6 +85,7 @@ class TeamController extends Controller
         ]);
     }
     
+    // This method displays a team's players in the 'teams.players' view
     public function players(int $id, string $slug) : RedirectResponse|View
     {
         $team = Team::with('players')->where('id', $id)->first();

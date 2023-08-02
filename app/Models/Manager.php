@@ -9,6 +9,7 @@ class Manager extends Model
 {
     use HasFactory;
 
+    // Define the fields that are allowed to be mass-assigned
     protected $fillable = [
         'id',
         'name',

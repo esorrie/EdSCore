@@ -28,7 +28,6 @@ class TeamFactory extends Factory
             'stadium' => fake()-> name(),
             'location' => fake()->name(),
             'manager' => fake()->name(),
-            // 'league_id' => League::factory(),
         ];
     }
 }
