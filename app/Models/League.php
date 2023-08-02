@@ -10,6 +10,7 @@ class League extends Model
 {
     use HasFactory;
 
+    // Define the fields that are allowed to be mass-assigned
     protected $fillable = [
         'id',
         'slug',
@@ -17,7 +18,13 @@ class League extends Model
         'emblem',
         'location'
     ];
+
+    public function managers()
+    {
+        return $this->hasMany(Manager::class);
+    }
     
+    // Define the many-to-many relationship with the 'Team' model through the 'standings' table
     public function teams()
     {
         return $this->belongsToMany(Team::class, 'standings', 'league_id', 'team_id')->withPivot([
@@ -27,8 +34,7 @@ class League extends Model
             'gf',
             'ga',
             'gd'
-        ])
-        ->orderByPivot('points', 'desc');
+        ]);
 
     }
 
@@ -42,7 +48,7 @@ class League extends Model
      {
         return Attribute::make(
             get: function() {
-
+                // Get the count of teams associated with this league
                 $teamCount = $this->teams()->count();
 
                 return $teamCount;
@@ -50,25 +56,35 @@ class League extends Model
         );
     }
 
-    // protected function currentTable(): Attribute
-    // {
-    //     return Attribute::make(
-    //         get: function() {
+    public function currentTable(): Attribute
+    {
+        $table = null;
 
-    //             $currentStandings = $this->teams()->getPivotColumns(
-    //                 'won',
-    //                 'lost',
-    //                 'drawn',
-    //                 'gf',
-    //                 'ga',
-    //                 'gd'
-    //             );
+        // Get the teams associated with this league
+        $teams = $this->teams;
 
-    //             return $currentStandings;
-    //         }
-    //     );
-    // }
-    
+        foreach($teams as $team) {
+            // Calculate additional statistics for each team (points and played games)
+            $standing = [
+                ...$team->toArray(), 
+                'points' => ($team['pivot']['won'] * 3 + $team['pivot']['drawn']),
+                'played' => ($team['pivot']['won'] + $team['pivot']['drawn'] + $team['pivot']['lost']),
+            ];
+
+            $table[] = $standing;
+            
+        }
+        
+        // Sort the table by points in descending order
+        $sortedTable = collect($table)->sortByDesc('points');
+
+        return Attribute::make(
+            get: function() use ($sortedTable) {
+                
+                return $sortedTable;
+            }
+        );
+    }
 };
 
     
