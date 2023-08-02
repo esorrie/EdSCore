@@ -32,18 +32,22 @@
     <div class="border rounded-tr-lg bg-darkgrey smallpadding text col-span-2">
         <div class=""> next opp </div>
     </div>
+
+    @php $rowNumber = 1; @endphp <!-- Initialize the row counter -->
     
-    @foreach ($teams as $team) 
-        <div class="smallpadding border text-sm"> #</div>      
-        <div class="col-span-2 smallpadding border hover:bg-orange duration-500 text-sm"> {!! $team->name !!} </div>
-        <div class="smallpadding border text-sm"> {{ $team->played }}</div>
-        <div class="smallpadding border text-sm"> {{ $team->pivot->won }} </div>
-        <div class="smallpadding border text-sm"> {{ $team->pivot->drawn }} </div>
-        <div class="smallpadding border text-sm"> {{ $team->pivot->lost }} </div>
-        <div class="smallpadding border text-sm"> {{ $team->pivot->gf }} </div>
-        <div class="smallpadding border text-sm"> {{ $team->pivot->ga }} </div>
-        <div class="smallpadding border text-sm"> {{ $team->pivot->gd }} </div>
-        <div class="smallpadding border text-sm"> {{ $team->played }} </div>
+    @foreach ($league->currentTable as $index => $team) <!-- Uses the currentTable league model to gather the that is calculated (not making a mysql link ot the teams) -->
+        <div class="smallpadding border text-sm"> {{ $rowNumber}} </div>      
+        <div class="col-span-2 smallpadding border hover:bg-orange duration-500 text-sm"> {{ $team['name'] }} </div>
+        <div class="smallpadding border text-sm"> {{ $team['played'] }} </div>    
+        <div class="smallpadding border text-sm"> {{ $team['pivot']['won'] }} </div>
+        <div class="smallpadding border text-sm"> {{ $team['pivot']['drawn'] }} </div>
+        <div class="smallpadding border text-sm"> {{ $team['pivot']['lost'] }} </div>
+        <div class="smallpadding border text-sm"> {{ $team['pivot']['gf'] }} </div>
+        <div class="smallpadding border text-sm"> {{ $team['pivot']['ga'] }} </div>
+        <div class="smallpadding border text-sm"> {{ $team['pivot']['gd'] }} </div>
+        <div class="smallpadding border text-sm"> {{ $team['points'] }} </div>
         <div class="col-span-2 smallpadding border hover:bg-orange duration-500 text-sm"> N/A </div>
+        @php $rowNumber++; @endphp <!-- Increment the row counter -->
     @endforeach
+    {{-- {{ dd($league->currentTable['pivot']['won'])}} --}}
 </div>

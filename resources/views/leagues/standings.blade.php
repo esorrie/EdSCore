@@ -7,7 +7,7 @@
 <div class="mb-4 bg-gradient-to-b from-fadegrey to-black border rounded-b-lg flexcenter h-14 pl-14">
   <div class="pr-5 grey hover:font-bold"> 
     <a class="{{ request()->routeIs('leagues.view') ? 'active' : '' }}" href="/leagues/{{ $league->id }}/{{ $league->slug }}"> OVERVIEW </a> 
-  </div>
+  </div> 
   <div class="pr-5 grey hover:font-bold"> 
     <a class="{{ request()->routeIs('leagues.standings') ? 'active' : '' }}" href="/leagues/{{ $league->id }}/{{ $league->slug }}/standings">STANDINGS</a> 
   </div>
@@ -19,7 +19,7 @@
   </div>
 </div>
 
-<x-leaguecomponents.leaguetable :teams='$teams' />
+<x-leaguecomponents.leaguetable :sortedTable='$sortedTable' :league="$league" :teams="$teams" />
 
 
 <div class="text-sm text"><a href="/leagues">Go Back to leagues</a></div>
