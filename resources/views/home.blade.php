@@ -26,7 +26,7 @@
                 <div class="borderbottom h-fit">
                     <div class="pl-4 pt-4">
                         <div class="text hover:font-bold">
-                            <a href="{{ route('leagues.view', ['id' => 1, 'slug' => '1']) }}"> Premier League</a>
+                            <a href="{{ route('leagues.view', ['id' => 2021, 'slug' => 'premier-league']) }}"> Premier League</a>
                         </div>
                             <div class="text-xs orange hover:font-bold"><a href="{{ route('teams.index')}}">Teams</a>
                                 <span class="grey">|</span>
