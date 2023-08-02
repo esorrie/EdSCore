@@ -45,11 +45,14 @@ class IngestCompetitions extends Command
         $leagues = $dataLeagues['competitions'];
 
         foreach($leagues as $league) {
+            // Check if the league code is not 'PL' (Premier League) and skip the rest of the loop
             if($league['code'] != 'PL') {
                 continue; // This will stop us for now calling tonnes of requests for each league
             }
+            // Create a slug for the league name
             $slug = Str::slug($league['name'], '-');
             
+            // Update or create a new League record with the data from the API
             League::updateOrCreate( ['id' => $league['id']],[
                 'id' => $league['id'],
                 'name' => $league['name'],
@@ -58,11 +61,15 @@ class IngestCompetitions extends Command
                 'slug' => $slug,
             ]);
 
+            // Get teams for the current league from getTeams
             $leagueTeams = $this->getTeams($league['code'])->json('teams');
             
+            // Loop through each team and update or create a new Team record
             foreach($leagueTeams as $team){
                 //First create the team
+                // Create a slug for the team name (for URL purposes)
                 $slug = Str::slug($team['name'], '-');
+
                 $newTeam = Team::updateOrCreate( ['id' => $team['id']],[
                     'id' => $team['id'],
                     'slug' => $slug,
@@ -79,19 +86,42 @@ class IngestCompetitions extends Command
                     $teamLeague = League::find($competition['id']);
     
                     if($teamLeague) {
+                        // Sync the relationship between team and league without detaching any other teams
                         $teamLeague->teams()->syncWithoutDetaching($newTeam);
                     }
                 }
                  
             }
 
+            // Loop through each manager and update or create a new Team record
+            foreach($leagueTeams as $manager){
+
+                //First create the manager
+                // Create a slug for the team name (for URL purposes)
+                $slug = Str::slug($manager['coach']['name'], '-');
+                
+                $newManager = Manager::updateOrCreate(['id' => $manager['coach']['id']] ,[
+                    'team_id' => $manager['id'], 
+                    'id' => $manager['coach']['id'],
+                    'slug' => $slug,
+                    'name' => $manager['coach']['name'],
+                    'date_of_birth' => $manager['coach']['dateOfBirth'],
+                    'country' => $manager['coach']['nationality'],
+                    'contract_start' => $manager['coach']['contract']['start'],
+                    'contract_end' => $manager['coach']['contract']['until'],
+                ]);
+            }
+
+            // Get standings for the current league from getStandings
             $leagueStandings = $this->getStandings($league['code'])->json('standings');
             foreach ($leagueStandings as $leagueStanding ){
 
+                // Loop through each team's standings and update the corresponding Team record
                 foreach($leagueStanding['table'] as $tableItem) {
                     $team = Team::find($tableItem['team']['id']);
 
                     if($team) {
+                        // Sync the league data for the team without detaching other leagues
                         $team->league()->syncWithoutDetaching([$competition['id'] =>
                             [
                                 'won' => $tableItem['won'], 
@@ -102,31 +132,12 @@ class IngestCompetitions extends Command
                                 'gd' => $tableItem['goalDifference'], 
                             ]
                         ]);
-                    }
-                    
+                    }      
                 }
-
             } 
             
         }
         // $players = $dataTeams['teams'];
-        // $managers = $dataTeams['teams'];
-
-
-        // foreach($managers as $manager){
-        //     $slug = Str::slug($manager['name'], '-');
-        //     Manager::updateOrCreate(['id' => $manager['coach']['id']] ,[
-        //         'team_id' => $manager['id'], 
-        //         'id' => $manager['coach']['id'],
-        //         'slug' => $slug,
-        //         'name' => $manager['coach']['name'],
-        //         'date_of_birth' => $manager['coach']['dateOfBirth'],
-        //         'country' => $manager['coach']['nationality'],
-        //         'contract_start' => $manager['coach']['contract']['start'],
-        //         'contract_end' => $manager['coach']['contract']['until'],
-        //     ]);
-        // }
-
 
         // foreach($players as $player){
         //     $slug = Str::slug($player['name'], '-');
