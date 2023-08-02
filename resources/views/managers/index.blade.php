@@ -23,7 +23,7 @@
         <a href="/teams/{{ $manager->team->id }}/{{ $manager->team->slug }}"> {!! $manager->team->name !!} </a>
     </div> 
     <div class="text-sm text uppercase smallpadding border hover:bg-darkgrey duration-500 hover:font-bold">
-        <a href="/leagues/{{ $manager->team->league->id }}/{{ $manager->team->league->slug }}"> {!! $manager->team->league->name !!} </a>
+        {{-- <a href="/leagues/{{ $manager->team->id }}/{{ $manager->team->league->slug }}"> {!! $manager->team->league->name !!} </a> --}}
     </div> 
 @endforeach
 
