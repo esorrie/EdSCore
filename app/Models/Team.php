@@ -40,6 +40,17 @@ class Team extends Model
     {
         return $this->hasMany(Player::class);
     }
+    
+    public function homeFixtures()
+    {
+
+        return $this->hasMany(Fixture::class, 'home_team_id');
+    }
+    
+    public function awayFixtures()
+    {
+        return $this->hasMany(Fixture::class, 'away_team_id');
+    }
 
     public function league()
     {
@@ -51,6 +62,21 @@ class Team extends Model
             'ga',
             'gd'
         ]);
+    }
+    
+    protected function allFixture(): Attribute
+    {
+        return Attribute::make(
+            get: function(){
+                
+                $homefixtures = $this->homeFixtures;
+                $awayfixtures = $this->awayFixtures;
+                $allfixtures = $homefixtures->merge($awayfixtures)->sortBy('date');
+
+
+                return $allfixtures;
+            }
+        );
     }
 
     public function manager()

@@ -19,6 +19,10 @@ class League extends Model
         'location'
     ];
 
+    public function fixtures()
+    {
+        return $this->hasMany(Fixture::class);
+    }
     public function managers()
     {
         return $this->hasMany(Manager::class);
