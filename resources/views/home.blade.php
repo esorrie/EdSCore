@@ -28,9 +28,9 @@
                         <div class="text hover:font-bold">
                             <a href="{{ route('leagues.view', ['id' => 2021, 'slug' => 'premier-league']) }}"> Premier League</a>
                         </div>
-                            <div class="text-xs orange hover:font-bold"><a href="{{ route('teams.index')}}">Teams</a>
+                            <div class="text-xs orange hover:font-bold"><a href="{{ route('leagues.teams', ['id' => 2021, 'slug' => 'premier-league'])}}">Teams</a>
                                 <span class="grey">|</span>
-                                <a href="">Fixtures</a>
+                                <a href="{{ route('leagues.fixtures', ['id' => 2021, 'slug' => 'premier-league'])}}">Fixtures</a>
                             </div>
                     </div>
 
