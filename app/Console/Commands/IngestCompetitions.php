@@ -2,16 +2,15 @@
 
 namespace App\Console\Commands;
 
-use App\Http\Controllers\Controller;
-use App\Models\Fixture;
 use App\Models\League;
+use App\Models\Team;
+use App\Models\Fixture;
 use App\Models\Manager;
 use App\Models\Player;
-use App\Models\Team;
 use Illuminate\Console\Command;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Str;
+use Carbon\Carbon;
 
 class IngestCompetitions extends Command
 {
@@ -94,25 +93,6 @@ class IngestCompetitions extends Command
                  
             }
 
-            // Loop through each manager and update or create a new Team record
-            foreach($leagueTeams as $manager){
-
-                //First create the manager
-                // Create a slug for the team name (for URL purposes)
-                $slug = Str::slug($manager['coach']['name'], '-');
-                
-                Manager::updateOrCreate(['id' => $manager['coach']['id']] ,[
-                    'team_id' => $manager['id'], 
-                    'id' => $manager['coach']['id'],
-                    'slug' => $slug,
-                    'name' => $manager['coach']['name'],
-                    'date_of_birth' => $manager['coach']['dateOfBirth'],
-                    'country' => $manager['coach']['nationality'],
-                    'contract_start' => $manager['coach']['contract']['start'],
-                    'contract_end' => $manager['coach']['contract']['until'],
-                ]);
-            }
-
             // Get standings for the current league from getStandings
             $leagueStandings = $this->getStandings($league['code'])->json('standings');
             foreach ($leagueStandings as $leagueStanding ){
@@ -139,13 +119,16 @@ class IngestCompetitions extends Command
             
             $leagueMatches = $this->getMatches($league['code'])->json('matches');
             foreach ($leagueMatches as $leagueMatch) {
-                
+
                 $slugHome = Str::slug($leagueMatch['homeTeam']['name'], '-');
                 $slugAway = Str::slug($leagueMatch['awayTeam']['name'], '-');
+                $formattedDate = Carbon::createFromFormat('Y-m-d\TH:i:s\Z', $leagueMatch['utcDate'])
+        ->setTimezone('utc')
+        ->format('d/m/y H:i');
 
-                Fixture::updateOrCreate( [ 'id' => $league['id'] ],[
+                Fixture::updateOrCreate([ 'id' => $leagueMatch['id'] ],[
                     'league_id' => $leagueMatch['competition']['id'],
-                    'date' => $leagueMatch['utcDate'],
+                    'date' => $formattedDate,
                     'home_team_id' => $leagueMatch['homeTeam']['id'],
                     'away_team_id' => $leagueMatch['awayTeam']['id'],
                     'home_team_slug' => $slugHome,
@@ -156,24 +139,49 @@ class IngestCompetitions extends Command
                     'half_time_away' => $leagueMatch['score']['halfTime']['away'],
                     'full_time_home' => $leagueMatch['score']['fullTime']['home'],
                     'full_time_away' => $leagueMatch['score']['fullTime']['away'],
-                    // 'referee'=> $matches['referees']['']
+                    // 'referee'=> $leagueMatch['referees']['name']
                 ]);
             }
-        }
-        // $players = $dataTeams['teams'];
 
-        // foreach($players as $player){
-        //     $slug = Str::slug($player['name'], '-');
-        //     Player::create([
-        //         'team_id' => $team['id'], 
-        //         'slug' => $slug,
-        //         'id' => $player['squad']['id'],
-        //         'name' => $player['squad']['name'],
-        //         'date_of_birth' => $player['squad']['dateOfBirth'],
-        //         'country' => $player['squad']['nationality'],
-        //         'position' => $player['squad']['position'],        
-        //     ]);
-        // }
+            // Loop through each manager and update or create a new Team record
+            foreach($leagueTeams as $manager){
+
+                //First create the manager
+                // Create a slug for the manager name (for URL purposes)
+                $slug = Str::slug($manager['coach']['name'], '-');
+                
+                Manager::updateOrCreate(['id' => $manager['coach']['id']] ,[
+                    'team_id' => $manager['id'], 
+                    'id' => $manager['coach']['id'],
+                    'slug' => $slug,
+                    'name' => $manager['coach']['name'],
+                    'date_of_birth' => $manager['coach']['dateOfBirth'],
+                    'country' => $manager['coach']['nationality'],
+                    'contract_start' => $manager['coach']['contract']['start'],
+                    'contract_end' => $manager['coach']['contract']['until'],
+                ]);
+            }
+
+            // Loop through each team
+            foreach($leagueTeams as $leagueTeam){
+
+                foreach($leagueTeam['squad'] as $player) {
+                    //First create the player
+                    // Create a slug for the player name (for URL purposes)
+                    $slug = Str::slug($player['name'], '-');
+                    
+                    Player::updateOrCreate(['id' => $player['id']] ,[
+                        'team_id' => $leagueTeam['id'], 
+                        'id' => $player['id'],
+                        'slug' => $slug,
+                        'name' => $player['name'],
+                        'position' => $player['position'],        
+                        'date_of_birth' => $player['dateOfBirth'],
+                        'country' => $player['nationality'],
+                    ]);
+                }
+            }
+        }
 
     }
 
