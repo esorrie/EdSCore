@@ -19,7 +19,7 @@
   </div>
 </div>
 
-<x-leaguecomponents.leaguetable :sortedTable='$sortedTable' :league="$league" :teams="$teams" />
+<x-leaguecomponents.leaguetable :league="$league" />
 
 
 <div class="text-sm text"><a href="/leagues">Go Back to leagues</a></div>
