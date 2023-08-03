@@ -19,22 +19,23 @@
 
 <div class="">
   <x-card.card title="Goalkeepers">
-    <x-playercomponents.playerlist :players="$players->where('position', 'goalkeeper')" />
+    <x-playercomponents.playerlist :players="$players->where('position', 'Goalkeeper')" />
   </x-card.card>
 </div>
+{{-- ->where('position', 'goalkeeper')" --}}
 <div class="margintop">
   <x-card.card title="Defenders">
-    <x-playercomponents.playerlist :players="$players->where('position', 'defender')" />
+    <x-playercomponents.playerlist :players="$players->where('position', 'Defence')" />
   </x-card.card>
 </div>
 <div class="margintop">
   <x-card.card title="Midfielders">
-    <x-playercomponents.playerlist :players="$players->where('position', 'midfielder')" />
+    <x-playercomponents.playerlist :players="$players->where('position', 'Midfield')" />
   </x-card.card>
 </div>
 <div class="margintop">
   <x-card.card title="Attackers">
-    <x-playercomponents.playerlist :players="$players->where('position', 'striker')" />
+    <x-playercomponents.playerlist :players="$players->where('position', 'Offence')" />
   </x-card.card>
 </div>
 @endsection
