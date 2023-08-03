@@ -28,9 +28,9 @@
     </div> 
 @endforeach
 
-<div class="pagination">
+{{-- <div class="pagination">
 {{ $players->links() }}
+</div> --}}
 <div class="text-sm text"><a href="/">Go Back Home</a> </div>
-</div>
 @endsection
 
