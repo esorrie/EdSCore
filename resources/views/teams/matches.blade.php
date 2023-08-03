@@ -16,4 +16,5 @@
   </div>
 </div>
 
+<x-teamcomponents.fixtures :team="$team" />
 @endsection
