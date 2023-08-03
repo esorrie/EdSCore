@@ -16,7 +16,8 @@ class PlayerController extends Controller
     public function index(): View 
     {
         return view('players.index', [
-            'players' => Player::paginate(25),
+            'players' => Player::all()->sortBy('team_id'),
+            // 'players' => Player::paginate(25),
         ]);
     }
 

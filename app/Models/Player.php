@@ -15,9 +15,10 @@ class Player extends Model
         'id',
         'slug',
         'name',
+        'position',
         'date_of_birth',
         'country',
-        'position',
+        'team_id'
     ];
  
     public function team()
