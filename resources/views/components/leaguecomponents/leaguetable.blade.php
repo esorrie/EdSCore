@@ -35,7 +35,7 @@
 
     @php $rowNumber = 1; @endphp <!-- Initialize the row counter -->
     
-    @foreach ($league->currentTable as $index => $team) <!-- Uses the currentTable league model to gather the that is calculated (not making a mysql link ot the teams) -->
+    @foreach ($league->currentTable as $team) <!-- Uses the currentTable league model to gather the data that is calculated (not making a mysql link to the teams) -->
         <div class="smallpadding border text-sm"> {{ $rowNumber}} </div>      
         <div class="col-span-2 smallpadding border hover:bg-orange duration-500 text-sm"> {{ $team['name'] }} </div>
         <div class="smallpadding border text-sm"> {{ $team['played'] }} </div>    
