@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Fixture;
 use App\Models\League;
 use App\Models\Team;
 use Illuminate\Contracts\View\View;
@@ -74,6 +75,7 @@ class LeagueController extends Controller
     public function fixtures(int $id, string $slug): RedirectResponse|View 
     {
         $league = League::where('id', $id)->first();
+        
 
         if(! $league) {
             abort(Response::HTTP_NOT_FOUND);
@@ -89,7 +91,7 @@ class LeagueController extends Controller
         // Pass the league and all fixtures to the 'leagues.fixtures' view
         return view('leagues.fixtures', [
             'league' => $league,
-            'fixtures' => League::all(),
+            'fixtures' => Fixture::all(),
         ]);
     }
     
