@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use App\Http\Controllers\Controller;
+use App\Models\Fixture;
 use App\Models\League;
 use App\Models\Manager;
 use App\Models\Player;
@@ -100,7 +101,7 @@ class IngestCompetitions extends Command
                 // Create a slug for the team name (for URL purposes)
                 $slug = Str::slug($manager['coach']['name'], '-');
                 
-                $newManager = Manager::updateOrCreate(['id' => $manager['coach']['id']] ,[
+                Manager::updateOrCreate(['id' => $manager['coach']['id']] ,[
                     'team_id' => $manager['id'], 
                     'id' => $manager['coach']['id'],
                     'slug' => $slug,
@@ -136,6 +137,28 @@ class IngestCompetitions extends Command
                 }
             } 
             
+            $leagueMatches = $this->getMatches($league['code'])->json('matches');
+            foreach ($leagueMatches as $leagueMatch) {
+                
+                $slugHome = Str::slug($leagueMatch['homeTeam']['name'], '-');
+                $slugAway = Str::slug($leagueMatch['awayTeam']['name'], '-');
+
+                Fixture::updateOrCreate( [ 'id' => $league['id'] ],[
+                    'league_id' => $leagueMatch['competition']['id'],
+                    'date' => $leagueMatch['utcDate'],
+                    'home_team_id' => $leagueMatch['homeTeam']['id'],
+                    'away_team_id' => $leagueMatch['awayTeam']['id'],
+                    'home_team_slug' => $slugHome,
+                    'away_team_slug' => $slugAway,
+                    'home_team' => $leagueMatch['homeTeam']['shortName'],
+                    'away_team' => $leagueMatch['awayTeam']['shortName'],
+                    'half_time_home' => $leagueMatch['score']['halfTime']['home'],
+                    'half_time_away' => $leagueMatch['score']['halfTime']['away'],
+                    'full_time_home' => $leagueMatch['score']['fullTime']['home'],
+                    'full_time_away' => $leagueMatch['score']['fullTime']['away'],
+                    // 'referee'=> $matches['referees']['']
+                ]);
+            }
         }
         // $players = $dataTeams['teams'];
 
@@ -161,5 +184,9 @@ class IngestCompetitions extends Command
 
     private function getStandings($leagueCode) {
         return Http::withHeader('X-Auth-Token', 'b7173c63c2084739b77c6fe4cb8bf7f0')->get(sprintf('https://api.football-data.org/v4/competitions/%s/standings', $leagueCode));
+    } 
+
+    private function getMatches($leagueCode) {
+        return Http::withHeader('X-Auth-Token', 'b7173c63c2084739b77c6fe4cb8bf7f0')->get(sprintf('https://api.football-data.org/v4/competitions/%s/matches', $leagueCode));
     } 
 }
