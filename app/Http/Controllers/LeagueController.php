@@ -62,13 +62,10 @@ class LeagueController extends Controller
             ]);
         }
 
-        $sortedTable = $league->currentTable(); // Call the currentTable() method to get the sorted table
-
         // Pass the league, its associated teams, and the sorted standings table to the 'leagues.standings' view
         return view('leagues.standings', [
             'league' => $league,
-            'teams' => $league->teams,
-            'sortedTable' => $sortedTable, 
+            'teams' => $league->teams, 
         ]);
         
     }
