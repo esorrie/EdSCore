@@ -15,7 +15,8 @@ class TeamController extends Controller
     public function index(): View 
     {
         return view('teams.index', [
-            'teams' => Team::paginate(20),
+            'teams' => Team::all()->sortBy('name'),
+            // 'teams' => Team::paginate(20),
         ]);
     }
 

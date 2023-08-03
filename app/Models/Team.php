@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -71,9 +72,10 @@ class Team extends Model
                 
                 $homefixtures = $this->homeFixtures;
                 $awayfixtures = $this->awayFixtures;
-                $allfixtures = $homefixtures->merge($awayfixtures)->sortBy('date');
-
-
+                $allfixtures = $homefixtures->merge($awayfixtures)->sortBy(function ($fixture){ 
+                    return Carbon::createFromFormat('d/m/y H:i', $fixture['date'])->timestamp;
+                });
+                // dd($allfixtures);
                 return $allfixtures;
             }
         );
