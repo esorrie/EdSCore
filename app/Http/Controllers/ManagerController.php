@@ -15,7 +15,7 @@ class ManagerController extends Controller
     public function index(): View
     {
         return view('managers.index', [
-            'managers' => Manager::paginate(10),
+            'managers' => Manager::all()->sortBy('name'),
         ]);
     }
 
