@@ -5,6 +5,7 @@ use App\Http\Controllers\LeagueController;
 use App\Http\Controllers\ManagerController;
 use App\Http\Controllers\PlayerController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -27,7 +28,10 @@ Route::get('/test', [Controller::class, 'test']);
 
 Route::prefix('/users')->name('users.')->group(function() {
     Route::get('/login', [UserController::class, 'login'])->name('login');
-    Route::get('/register', [UserController::class, 'register'])->name('register');
+});
+
+Route::prefix('/register')->name('register.')->group(function() {
+    Route::get('/create', [RegistrationController::class, 'create'])->name('create');
 });
 
 Route::prefix('/players')->name('players.')->group(function() {

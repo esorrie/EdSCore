@@ -21,7 +21,7 @@
     
     <div class="menu">
         <div class="card4 hover:font-bold uppercase text-right">
-            <a class="{{ request()->routeIs('users.register') ? 'active' : '' }}" href="{{ route('users.register') }}"> Register</a>
+            <a class="{{ request()->routeIs('register.create') ? 'active' : '' }}" href="{{ route('register.create') }}"> Register</a>
         </div>
         <div class="card4 hover:font-bold uppercase">
             <a class="{{ request()->routeIs('users.login') ? 'active' : '' }}" href="{{ route('users.login') }}"> Login</a>
