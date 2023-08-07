@@ -24,7 +24,7 @@
                                 <div class="my-2.5">
                                     <button type="submit"> <a href="/"> <span class="text-black"> Login </a> </span> </button>            
                                 </div>
-                                <span class="psw ">Forgot <a href="#">password?</a></span>
+                                <span class="psw "> <a href="#"> Forgot password?</a></span>
             
                 </form>
         </div>

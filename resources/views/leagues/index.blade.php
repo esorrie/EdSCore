@@ -19,7 +19,7 @@
                 {!! $league->name !!}
             </a>
         </div>
-    <div class="text-sm orange smallpadding border hover:bg-darkgrey duration-500"> {{ $league->location }}</div>
+    <div class="text-xl orange pt-8 padding border hover:bg-darkgrey duration-500"> {{ $league->location }}</div>
     @endforeach
 </div> 
 

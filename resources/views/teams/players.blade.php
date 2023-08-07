@@ -22,7 +22,7 @@
     <x-playercomponents.playerlist :players="$players->where('position', 'Goalkeeper')" />
   </x-card.card>
 </div>
-{{-- ->where('position', 'goalkeeper')" --}}
+
 <div class="margintop">
   <x-card.card title="Defenders">
     <x-playercomponents.playerlist :players="$players->where('position', 'Defence')" />
