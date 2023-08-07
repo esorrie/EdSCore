@@ -2,7 +2,7 @@
 <div id="one" class="nav">
     
     <div class="menu">
-        <div class="card1 font-bold"> 
+        <div class="card1 "> 
             <a href="/"> <x-application-logo /> </a>
         </div>
         <div class="card2 hover:font-bold">
@@ -38,7 +38,7 @@
         </div>
     @endif
         
-    <div class="card_searchbar">
-        <input type="text" placeholder="Search...">
+    <div class="card_searchbar ">
+        <input type="text" class="border bg-grey border-grey text-sm rounded-lg w-full" placeholder="Search...">
     </div>
 </div>
