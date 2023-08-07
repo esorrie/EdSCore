@@ -9,6 +9,7 @@ use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,6 +20,10 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('/', function () {
     return view('home');
@@ -31,8 +36,9 @@ Route::prefix('/users')->name('users.')->group(function() {
 });
 
 Route::prefix('/register')->name('register.')->group(function() {
-    Route::get('/create', [RegistrationController::class, 'create'])->name('create');
+    Route::get('/', [RegistrationController::class, 'create'])->name('create');
 });
+
 
 Route::prefix('/players')->name('players.')->group(function() {
     Route::get('/', [PlayerController::class, 'index'])->name('index');
@@ -58,10 +64,10 @@ Route::prefix('/leagues')->name('leagues.')->group(function() {
     Route::get('/{id}/{slug}/fixtures', [LeagueController::class, 'fixtures'])->name('fixtures');
     Route::get('/{id}/{slug}/teams', [LeagueController::class, 'teams'])->name('teams');
 });
-
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+require __DIR__.'/auth.php';
