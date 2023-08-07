@@ -37,30 +37,28 @@
     </div>
     <div class="w-full ml-20">
       <div class="margintop text uppercase">
-        <div class="bordertop bg-darkgrey smallpadding  "> game STATS</div>
-          <div class="grid grid-cols-13 text-xs">
-            <div class="border bg-darkgrey smallpadding col-span-2"> date </div>
-            <div class="border bg-darkgrey smallpadding col-span-2"> opp </div>
-            <div class="border bg-darkgrey smallpadding"> result </div>
-            <div class="border bg-darkgrey smallpadding"> g </div>
-            <div class="border bg-darkgrey smallpadding"> conc </div>
-            <div class="border bg-darkgrey smallpadding"> s </div>
-            <div class="border bg-darkgrey smallpadding"> s </div>
-            <div class="border bg-darkgrey smallpadding "> xg </div>
-            <div class="border bg-darkgrey smallpadding"> xa </div>
-            <div class="border bg-darkgrey smallpadding"> xga </div>
-            <div class="border bg-darkgrey smallpadding"> xaa </div>
-            <div class="border smallpadding col-span-2"> 26/07/23</div>
-            <div class="border smallpadding col-span-2"> sunderland</div>
-            <div class="border smallpadding"> 12-0 </div>
-            <div class="border smallpadding"> 3</div>
-            <div class="border smallpadding"> 2</div>
-            <div class="border smallpadding"> 23</div>
-            <div class="border smallpadding"> 5</div>
-            <div class="border smallpadding"> 2.4</div>
-            <div class="border smallpadding"> 1.1</div>
-            <div class="border smallpadding"> 0.6</div>
-            <div class="border smallpadding"> 0.7</div>
+        <div class="bordertop bg-darkgrey smallpadding  "> season stat</div>
+          <div class="grid grid-cols-10 text-xs">
+            <div class="border bg-darkgrey smallpadding "> Matches </div>
+            <div class="border bg-darkgrey smallpadding "> Started </div>
+            <div class="border bg-darkgrey smallpadding"> Minutes </div>
+            <div class="border bg-darkgrey smallpadding"> Goals </div>
+            <div class="border bg-darkgrey smallpadding"> Own Goals </div>
+            <div class="border bg-darkgrey smallpadding"> Assists </div>
+            <div class="border bg-darkgrey smallpadding"> Pens </div>
+            <div class="border bg-darkgrey smallpadding "> Yellow </div>
+            <div class="border bg-darkgrey smallpadding"> Yellow->Red </div>
+            <div class="border bg-darkgrey smallpadding"> Red </div>
+            <div class="border smallpadding"> 38 </div>
+            <div class="border smallpadding"> 29 </div>
+            <div class="border smallpadding"> 2397 </div>
+            <div class="border smallpadding"> 14 </div>
+            <div class="border smallpadding"> 0 </div>
+            <div class="border smallpadding"> 7 </div>
+            <div class="border smallpadding"> 3 </div>
+            <div class="border smallpadding"> 8 </div>
+            <div class="border smallpadding"> 1 </div>
+            <div class="border smallpadding"> 1 </div>
           </div>
       </div> 
     </div>
