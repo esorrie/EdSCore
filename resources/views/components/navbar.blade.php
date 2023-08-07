@@ -2,8 +2,8 @@
 <div id="one" class="nav">
     
     <div class="menu">
-        <div class="card1 font-bold">
-            <a href="/"><span class="text-orange">EDS</span>SCORE</a>
+        <div class="card1 font-bold"> 
+            <a href="/"> <x-application-logo /> </a>
         </div>
         <div class="card2 hover:font-bold">
             <a class="{{ request()->routeIs('leagues.index') ? 'active' : '' }}" href="{{ route('leagues.index') }}">LEAGUES</a>
