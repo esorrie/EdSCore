@@ -16,7 +16,7 @@ class PlayerController extends Controller
     public function index(): View 
     {
         return view('players.index', [
-            'players' => Player::all()->sortBy('team_id'),
+            'players' => Player::all()->sortBy('position'),
             // 'players' => Player::paginate(25),
         ]);
     }
@@ -42,7 +42,7 @@ class PlayerController extends Controller
         // Create an array representation of the player object.
         $playerArray = $player->toArray();
         // Define the keys for the table data that will be displayed on the player's view page.
-        $tableDataKeys = ['country', 'date_of_birth', 'height'];
+        $tableDataKeys = ['country', 'date_of_birth', 'position', 'number'];
 
         // Prepare table data for the player's general information.
         foreach($tableDataKeys as $key) {

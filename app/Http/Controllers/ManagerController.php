@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\League;
 use App\Models\Manager;
 use App\Models\Team;
 use Illuminate\Contracts\View\View;
@@ -15,7 +16,7 @@ class ManagerController extends Controller
     public function index(): View
     {
         return view('managers.index', [
-            'managers' => Manager::all()->sortBy('name'),
+            'managers' => Manager::all()->sortBy('team_id'),
         ]);
     }
 
