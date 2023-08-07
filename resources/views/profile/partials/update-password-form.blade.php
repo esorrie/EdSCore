@@ -1,9 +1,9 @@
 <section>
-<div class="text-white mt-11">
-    <div class="margintop font-medium text-2xl uppercase w-fit bg-darkgrey rounded-t-lg smallpadding">
+<div class="text-white mt-4">
+    <div class=" font-medium text-2xl uppercase bg-darkgrey rounded-t-lg padding">
         {{ __('Update Password') }}
     </div>
-    <div class="border rounded-b-lg padding w-fit">
+    <div class="border rounded-b-lg padding">
         <div class="mt-1 text-sm text-gray-600 dark:text-gray-400">
             {{ __('Ensure your account is using a long, random password to stay secure.') }}
         </div>

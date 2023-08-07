@@ -1,9 +1,9 @@
 <section>
-<div class="text-white mt-11">
-    <div class="margintop font-medium text-2xl uppercase w-fit bg-darkgrey rounded-t-lg smallpadding">
+<div class="text-white mt-4">
+    <div class=" font-medium text-2xl uppercase bg-darkgrey rounded-t-lg padding">
             {{ __('Profile Information') }}
     </div>
-    <div class="border rounded-b-lg padding w-fit">
+    <div class="border rounded-b-lg padding">
         <div class="mt-1 text-sm text-gray-600 dark:text-gray-400">
                 {{ __("Update your account's profile information and email address.") }}
         </div>
