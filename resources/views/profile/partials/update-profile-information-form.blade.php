@@ -1,4 +1,5 @@
 <section>
+<div class="text-white">
     <header>
         <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">
             {{ __('Profile Information') }}
@@ -61,4 +62,5 @@
             @endif
         </div>
     </form>
+</div>
 </section>
