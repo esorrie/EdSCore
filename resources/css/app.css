@@ -169,6 +169,7 @@ body {
     font-size: 17px;
     align-self: center; /* formats text to the right side of the page */
     padding-right: 45px;
+
 }
 
 /* 
@@ -276,8 +277,7 @@ body {
 *
 */
 .teamoverview {
-    background:
-    linear-gradient(180deg, rgba(74, 74, 74, 0.413) 40%, rgba(81, 81, 81, 0.221) 100%);
+    background: linear-gradient(180deg, rgba(74, 74, 74, 0.413) 40%, rgba(81, 81, 81, 0.221) 100%);
     
     
     border: 1px solid rgba(74, 74, 74, 1);
@@ -367,7 +367,7 @@ body {
     margin-left: 200px;
     text-transform: uppercase;
 }
-.managerteam a{
+.managerteam a {
     text-decoration: none;
 }
 
