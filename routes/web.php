@@ -31,15 +31,6 @@ Route::get('/', function () {
 
 Route::get('/test', [Controller::class, 'test']);
 
-Route::prefix('/users')->name('users.')->group(function() {
-    Route::get('/login', [UserController::class, 'login'])->name('login');
-});
-
-Route::prefix('/register')->name('register.')->group(function() {
-    Route::get('/create', [RegistrationController::class, 'create'])->name('create');
-});
-
-
 Route::prefix('/players')->name('players.')->group(function() {
     Route::get('/', [PlayerController::class, 'index'])->name('index');
     Route::get('/{id}/{slug}', [PlayerController::class, 'view'])->name('view');
