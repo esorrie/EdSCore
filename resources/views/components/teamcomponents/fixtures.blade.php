@@ -10,7 +10,7 @@
 
     @foreach ($team->allFixture as $fixture)
     <div class="border smallpadding orange"> {{ $fixture->date }} </div>
-            <div class="col-span-2 border smallpadding">
+            <div class="col-span-2 border smallpadding  hover:bg-orange duration-500">
                 <a href="/teams/{{ $fixture->home_team_id}}/ {{ $fixture->home_team_slug}}"> {{ $fixture->home_team }} </a>
                 vs 
                 <a href="/teams/{{ $fixture->away_team_id}}/ {{ $fixture->away_team_slug}}"> {{ $fixture->away_team }} </a>

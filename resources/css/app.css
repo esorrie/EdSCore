@@ -367,6 +367,9 @@ body {
     margin-left: 200px;
     text-transform: uppercase;
 }
+.managerteam a{
+    text-decoration: none;
+}
 
 /*
 *
