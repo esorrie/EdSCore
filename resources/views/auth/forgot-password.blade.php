@@ -1,9 +1,10 @@
-<x-navbar />
-<x-guest-layout>
+@extends('layouts.base')
+
+@section('content')
 
 <div class="border padding rounded-lg mt-44 flex justify-evenly fade h-80 w-96 ml-448">
     <div class="flex flex-col uppercase">
-        <div class="font-bold text-2xl orange mt-11">Login to your account</div>
+        <div class="font-bold text-2xl orange mt-11">Reset Password</div>
         <div class="items-center text">
 
             <div class="mb-4 text-sm text-gray-600 dark:text-gray-400">
@@ -23,8 +24,8 @@
                     <x-input-error :messages="$errors->get('email')" class="mt-2" />
                 </div>
 
-                <div class="flex items-center justify-end mt-4">
-                    <x-primary-button>
+                <div class="flex items-center justify-end mt-4 ">
+                    <x-primary-button class="rounded-lg">
                         {{ __('Email Password Reset Link') }}
                     </x-primary-button>
                 </div>
@@ -33,4 +34,4 @@
         </div>
     </div>
 </div>
-</x-guest-layout>
+@endsection

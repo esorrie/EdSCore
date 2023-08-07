@@ -1,9 +1,10 @@
-<x-navbar />
-<x-guest-layout>
+@extends('layouts.base')
 
-<div class="border rounded-lg mt-44 flex justify-evenly fade h-80 w-96  ml-448">
+@section('content')
+
+<div class="border rounded-lg mt-44 flex justify-evenly fade h-96 w-96  ml-448">
     <div class="flex flex-col uppercase">
-        <div class="font-bold text-2xl orange mt-11">Login to your account</div>
+        <div class="font-bold text-2xl orange mt-11">Create an account</div>
         <div class="items-center text">
             <form method="POST" action="{{ route('register') }}">
                 @csrf
@@ -60,4 +61,4 @@
     </div>
 </div>
 
-</x-guest-layout>
+@endsection

@@ -1,6 +1,8 @@
-<x-navbar />
-<x-guest-layout>
-    <!-- Session Status -->
+@extends('layouts.base')
+
+@section('content')
+
+    <!-- Session Status ssss -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
 <div class="border rounded-lg mt-44 flex justify-evenly fade h-80 w-96 ml-448">
@@ -55,4 +57,5 @@
         </div>
     </div>
 </div>
-</x-guest-layout>
+
+@endsection
