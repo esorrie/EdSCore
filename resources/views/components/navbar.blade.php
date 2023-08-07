@@ -21,10 +21,13 @@
     
     <div class="menu">
         <div class="card4 hover:font-bold uppercase text-right">
-            <a class="{{ request()->routeIs('register.create') ? 'active' : '' }}" href="{{ route('register.create') }}"> Register</a>
+            <a class="{{ request()->routeIs('register') ? 'active' : '' }}" href="{{ route('register') }}"> Register</a>
         </div>
         <div class="card4 hover:font-bold uppercase">
-            <a class="{{ request()->routeIs('users.login') ? 'active' : '' }}" href="{{ route('users.login') }}"> Login</a>
+            <a class="{{ request()->routeIs('login') ? 'active' : '' }}" href="{{ route('login') }}"> Login</a>
+        </div>
+        <div class="card4 hover:font-bold uppercase">
+            <a class="{{ request()->routeIs('logout') ? 'active' : '' }}" href="{{ route('logout') }}"> Logout</a>
         </div>
     </div>
         
