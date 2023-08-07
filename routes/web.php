@@ -36,7 +36,7 @@ Route::prefix('/users')->name('users.')->group(function() {
 });
 
 Route::prefix('/register')->name('register.')->group(function() {
-    Route::get('/', [RegistrationController::class, 'create'])->name('create');
+    Route::get('/create', [RegistrationController::class, 'create'])->name('create');
 });
 
 
