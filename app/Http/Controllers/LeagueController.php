@@ -26,6 +26,7 @@ class LeagueController extends Controller
     {
         $league = League::where('id', $id)->first(); // Fetch the league with the given ID
         $team = $league->teams; // Fetch all the teams associated with this league
+        $fixture = $league->fixtures->first();
 
         // If the league is not found, return a 404 error
         if(! $league) {
@@ -43,7 +44,8 @@ class LeagueController extends Controller
         // Pass the league and its associated teams to the 'leagues.view' view
         return view('leagues.view', [
             'league' => $league,
-            'teams' => $team
+            'teams' => $team,
+            'fixture' => $fixture,
         ]);
     }
 

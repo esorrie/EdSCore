@@ -22,13 +22,13 @@
 <div class="margintop">
   <x-card.card title="upcoming fixtures">
       <div class="borderbottom text">
-          <div class="pt-4 text-xl text-center"> PREMIER LEAGUE </div>
+          <div class="pt-4 text-xl text-center"> {{ $league->name }} </div>
           <div class="padding  uppercase">
-              <div class="text-center text-2xl font-bold"> Newcastle United </div> 
+            {{-- {{ dd( $fixtures) }} TODO: Need to get the fixture to update based on whats next--}} 
+              <div class="text-center text-2xl font-bold"> <a href="/teams/{{ $fixture->home_team_id}}/ {{ $fixture->home_team_slug}}"> {{ $fixture->home_team }} </a> </div>
               <div class="text-center orange font-bold"> vs </div>
-              <div class="text-center text-2xl font-bold"> Manchester United </div>
-              <div class="text-center orange"> 26/07</div>
-              <div class="text-center orange"> 12:30</div>
+              <div class="text-center text-2xl font-bold"> <a href="/teams/{{ $fixture->away_team_id}}/ {{ $fixture->away_team_slug}}"> {{ $fixture->away_team }} </a> </div>
+              <div class="text-center orange"> {{ $fixture->date }}</div>
           </div>    
       </div>  
   </x-card.card>
