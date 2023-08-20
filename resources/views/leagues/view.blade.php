@@ -16,6 +16,9 @@
     <a class="{{ request()->routeIs('leagues.fixtures') ? 'active' : '' }}" href="/leagues/{{ $league->id }}/{{ $league->slug }}/fixtures">FIXTURES</a> 
   </div>
   <div class="pr-5 grey hover:font-bold"> 
+    <a class="{{ request()->routeIs('leagues.results') ? 'active' : '' }}" href="/leagues/{{ $league->id }}/{{ $league->slug }}/results">RESULTS</a> 
+  </div>
+  <div class="pr-5 grey hover:font-bold"> 
     <a class="{{ request()->routeIs('leagues.teams') ? 'active' : '' }}" href="/leagues/{{ $league->id }}/{{ $league->slug }}/teams">TEAMS</a> 
   </div>
 </div>
@@ -30,7 +33,7 @@
               <div class="text-center text-2xl font-bold"> <a href="/teams/{{ $fixture->away_team_id}}/ {{ $fixture->away_team_slug}}"> {{ $fixture->away_team }} </a> </div>
               <div class="text-center orange"> {{ $fixture->date }}</div>
           </div>    
-      </div>  
+      </div>   
   </x-card.card>
 </div>
 <div class="margintop">

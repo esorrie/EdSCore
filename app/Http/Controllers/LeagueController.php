@@ -96,6 +96,29 @@ class LeagueController extends Controller
             'fixtures' => Fixture::all(),
         ]);
     }
+
+    public function results(int $id, string $slug): RedirectResponse|View 
+    {
+        $league = League::where('id', $id)->first();
+        
+
+        if(! $league) {
+            abort(Response::HTTP_NOT_FOUND);
+        }
+    
+        if($league->slug !== $slug) {
+            return redirect()->route('leagues.view', [
+                'id' => $league->id,
+                'slug' => $league->slug,
+            ]);
+        }
+
+        // Pass the league and all fixtures to the 'leagues.fixtures' view
+        return view('leagues.fixtures', [
+            'league' => $league,
+            'fixtures' => Fixture::all(),
+        ]);
+    }
     
     public function teams(int $id, string $slug): RedirectResponse|View 
     {

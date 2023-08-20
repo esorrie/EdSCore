@@ -53,6 +53,7 @@ Route::prefix('/leagues')->name('leagues.')->group(function() {
     Route::get('/{id}/{slug}', [LeagueController::class, 'view'])->name('view');
     Route::get('/{id}/{slug}/standings', [LeagueController::class, 'standings'])->name('standings');
     Route::get('/{id}/{slug}/fixtures', [LeagueController::class, 'fixtures'])->name('fixtures');
+    Route::get('/{id}/{slug}/results', [LeagueController::class, 'results'])->name('results');
     Route::get('/{id}/{slug}/teams', [LeagueController::class, 'teams'])->name('teams');
 });
 Route::middleware('auth')->group(function () {
