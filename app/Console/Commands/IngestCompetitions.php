@@ -90,7 +90,6 @@ class IngestCompetitions extends Command
                         $teamLeague->teams()->syncWithoutDetaching($newTeam);
                     }
                 }
-                 
             }
 
             // Get standings for the current league from getStandings
@@ -119,12 +118,9 @@ class IngestCompetitions extends Command
             
             $leagueMatches = $this->getMatches($league['code'])->json('matches');
             foreach ($leagueMatches as $leagueMatch) {
-
                 $slugHome = Str::slug($leagueMatch['homeTeam']['name'], '-');
                 $slugAway = Str::slug($leagueMatch['awayTeam']['name'], '-');
-                $formattedDate = Carbon::createFromFormat('Y-m-d\TH:i:s\Z', $leagueMatch['utcDate'])
-        ->setTimezone('utc')
-        ->format('d/m/y H:i');
+                $formattedDate = Carbon::createFromFormat('Y-m-d\TH:i:s\Z', $leagueMatch['utcDate'])->setTimezone('utc')->format('d/m/y H:i');
 
                 Fixture::updateOrCreate([ 'id' => $leagueMatch['id'] ],[
                     'league_id' => $leagueMatch['competition']['id'],
@@ -139,9 +135,16 @@ class IngestCompetitions extends Command
                     'half_time_away' => $leagueMatch['score']['halfTime']['away'],
                     'full_time_home' => $leagueMatch['score']['fullTime']['home'],
                     'full_time_away' => $leagueMatch['score']['fullTime']['away'],
-                    // 'referee'=> $leagueMatch['referees']['name']
+                    
                 ]);
+                
+                // foreach ($leagueMatch['referees'] as $referee) {
+                //     Fixture::updateOrCreate([ 'id' => $leagueMatch['id'] ],[
+                //         'referee'=> $referee['name'],
+                //     ]);
+                // }
             }
+
 
             // Loop through each manager and update or create a new Team record
             foreach($leagueTeams as $manager){
@@ -187,7 +190,6 @@ class IngestCompetitions extends Command
 
     private function getTeams($leagueCode) {
         return Http::withHeader('X-Auth-Token', 'b7173c63c2084739b77c6fe4cb8bf7f0')->get(sprintf('https://api.football-data.org/v4/competitions/%s/teams', $leagueCode));
-
     } 
 
     private function getStandings($leagueCode) {
@@ -197,4 +199,8 @@ class IngestCompetitions extends Command
     private function getMatches($leagueCode) {
         return Http::withHeader('X-Auth-Token', 'b7173c63c2084739b77c6fe4cb8bf7f0')->get(sprintf('https://api.football-data.org/v4/competitions/%s/matches', $leagueCode));
     } 
+    
+    // private function getPlayerInfo($leagueCode) {
+    //     return Http::withHeader('X-Auth-Token', 'b7173c63c2084739b77c6fe4cb8bf7f0')->get(sprintf('https://api.football-data.org/v4/persons/%s/matches', $leagueCode));
+    // } 
 }
