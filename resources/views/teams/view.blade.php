@@ -16,10 +16,10 @@
       <x-card.card title="upcoming fixtures">
           <div class="borderbottom">
             <div class="padding text uppercase">
-                <div class="text-center text-2xl font-bold"> <img style="width:50px;height:50px;" src="{{ $team->nextFixture->home_team_crest }}"> <a href="/teams/{{ $team->nextFixture->home_team_id}}/ {{ $team->nextFixture->home_team_slug}}"> {{ $team->nextFixture->home_team }} </a> </div> 
-                <div class="text-center orange font-bold"> vs </div>
-                <div class="text-center text-2xl font-bold"> <img style="width:50px;height:50px;" src="{{ $team->nextFixture->away_team_crest }}"> <a href="/teams/{{ $team->nextFixture->away_team_id}}/ {{ $team->nextFixture->away_team_slug}}"> {{ $team->nextFixture->away_team }} </a> </div>
-                <div class="text-center orange"> {{ $team->nextFixture->date }} </div>
+              <div class="text-center text-2xl font-bold"> <a href="/teams/{{ $team->nextFixture->home_team_id}}/ {{ $team->nextFixture->home_team_slug}}"> <img style="width:50px;height:50px;" src="{{ $team->nextFixture->home_team_crest }}"> {{ $team->nextFixture->home_team }} </a> </div> 
+              <div class="text-center orange font-bold"> vs </div>
+              <div class="text-center text-2xl font-bold"> <a href="/teams/{{ $team->nextFixture->away_team_id}}/ {{ $team->nextFixture->away_team_slug}}"> <img style="width:50px;height:50px;" src="{{ $team->nextFixture->away_team_crest }}"> {{ $team->nextFixture->away_team }} </a> </div>
+              <div class="text-center orange"> {{ $team->nextFixture->date }} </div>
             </div>    
           </div>  
       </x-card.card>
@@ -27,7 +27,7 @@
 </div>
 <div class="flex justify-start">
     <div class="details">
-      <x-leaguecomponents.leaguetablepreview :teams="$teams" />
+      <x-leaguecomponents.leaguetablepreview  /> {{-- :league="$league" --}}
     </div>
 </div>
   
