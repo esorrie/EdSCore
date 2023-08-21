@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Fixture;
+use App\Models\League;
 use App\Models\Player;
 use App\Models\Team;
 use Illuminate\Contracts\View\View;
@@ -17,13 +18,13 @@ class TeamController extends Controller
     {
         return view('teams.index', [
             'teams' => Team::all()->sortBy('name'),
-            // 'teams' => Team::paginate(20),
         ]);
     }
 
     // This method fetches a specific team by ID and displays its information in the 'teams.view' view
     public function view(int $id, string $slug): RedirectResponse|View
     {
+
         $team = Team::where('id', $id)->first(); //with('manager')->
         $player = $team->players;
 
@@ -58,10 +59,10 @@ class TeamController extends Controller
         }
         // Return the 'teams.view' view with the team information and related data
         return view('teams.view', [
+            'league' => League::where('id', $id)->first(),
             'team' => $team,
             'teamTableData' => $teamTableData,
-            'teams' => Team::all()->take(5),
-            'players' => $player
+            'players' => $player,
         ]);
     }
 

@@ -20,29 +20,7 @@
       </div>   
   </x-card.card>
 </div>
-<div class="margintop">
-  <x-card.card title="top teams">
-    <div class="borderbottom padding">
-      <div class="flex text uppercase">
-        <div class="border rounded-lg padding mr-4 w-96 text-center">
-          <div class="orange "> #1 </div>
-          <div class=""> newcastle united </div>
-          <div class=""> 0-0-0 </div>
-        </div>
-        <div class="border rounded-lg padding mr-4 w-96 text-center">
-          <div class="orange"> #2 </div>
-          <div class=""> newcastle united </div>
-          <div class=""> 0-0-0 </div>
-        </div>
-        <div class="border rounded-lg padding w-96 text-center">
-          <div class="orange"> #3 </div>
-          <div class=""> newcastle united </div>
-          <div class=""> 0-0-0 </div>
-        </div>
-      </div>
-    </div>  
-  </x-card.card>
-</div>
+
 <div class="text-xs text"><a href="/leagues">Go Back to leagues</a></div>
 
 @endsection 
