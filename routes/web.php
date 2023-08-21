@@ -44,7 +44,8 @@ Route::prefix('/managers')->name('managers.')->group(function() {
 Route::prefix('/teams')->name('teams.')->group(function() {
     Route::get('/', [TeamController::class, 'index'])->name('index');
     Route::get('/{id}/{slug}', [TeamController::class, 'view'])->name('view');
-    Route::get('/{id}/{slug}/matches', [TeamController::class, 'matches'])->name('matches');
+    Route::get('/{id}/{slug}/fixtures', [TeamController::class, 'fixtures'])->name('fixtures');
+    Route::get('/{id}/{slug}/results', [TeamController::class, 'results'])->name('results');
     Route::get('/{id}/{slug}/players', [TeamController::class, 'players'])->name('players');
 });
 
