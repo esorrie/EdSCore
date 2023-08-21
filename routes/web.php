@@ -25,10 +25,7 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/', function () {
-    return view('home');
-});
-
+Route::get('/home', [Controller::class, 'home']);
 Route::get('/test', [Controller::class, 'test']);
 
 Route::prefix('/players')->name('players.')->group(function() {

@@ -4,23 +4,23 @@
 
 <div class="margintop text-white uppercase">
     
-    <div class="margintop flex">
+    <div class="flex">
         <div class="w-full">
-            <x-card.card title="upcoming fixtures">
-                <div class="borderbottom">
-                    <div class="pt-4 text-xl text-center"> Premier league </div>
-                    <div class="padding text uppercase">
-                        <div class="text-center text-2xl font-bold"> Newcastle United </div> 
-                        <div class="text-center orange font-bold"> vs </div>
-                        <div class="text-center text-2xl font-bold"> Manchester United </div>
-                        <div class="text-center orange"> 26/07</div>
-                        <div class="text-center orange"> 12:30</div>
-                    </div>    
-                </div>  
-            </x-card.card>
+            <div class="">
+                <x-card.card title="upcoming fixtures">
+                    <div class="borderbottom text">
+                        <div class="pt-4 text-xl text-center"></div>
+                        <div class="padding  uppercase">
+                            <div class="text-center text-2xl font-bold"> <img style="width:50px;height:50px;" src="{{ $fixture->home_team_crest }}"> <a href="/teams/{{ $fixture->home_team_id}}/ {{ $fixture->home_team_slug}}"> {{ $fixture->home_team }} </a> </div>
+                            <div class="text-center orange font-bold"> vs </div>
+                            <div class="text-center text-2xl font-bold"> <img style="width:50px;height:50px;" src="{{ $fixture->away_team_crest }}"> <a href="/teams/{{ $fixture->away_team_id}}/ {{ $fixture->away_team_slug}}"> {{ $fixture->away_team }} </a> </div>
+                            <div class="text-center orange"> {{ $fixture->date }} </div>
+                        </div>    
+                    </div>   
+                </x-card.card>
+            </div>
         </div>
     
-      
         <div class=" ml-5 w-6/12"> 
             <div class="bordertop bg-darkgrey padding text "> Leagues </div> 
                 <div class="borderbottom h-fit">
