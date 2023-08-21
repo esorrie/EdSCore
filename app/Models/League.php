@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 class League extends Model
 {
     use HasFactory;
-
+    
     // Define the fields that are allowed to be mass-assigned
     protected $fillable = [
         'id',
@@ -39,7 +39,6 @@ class League extends Model
             'ga',
             'gd'
         ]);
-
     }
 
     /**
@@ -48,8 +47,8 @@ class League extends Model
      * 
      */
     
-     protected function totalTeams(): Attribute
-     {
+    protected function totalTeams(): Attribute
+    {
         return Attribute::make(
             get: function() {
                 // Get the count of teams associated with this league
@@ -94,5 +93,3 @@ class League extends Model
         );
     }
 };
-
-    
