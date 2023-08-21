@@ -37,8 +37,11 @@
             </div>
         </div>
     @endif
-        
-    <div class="card_searchbar ">
-        <input type="text" class="border border-grey text-sm rounded-lg w-full" placeholder="Search...">
+    <div class="menu">
+        <form action="" method="GET">
+            <div class="card_searchbar menu">
+                <input type="text" name="search" value="<?php if(isset($_GET['search'])){$_GET['search'];} ?>" class="border border-grey text-sm rounded-lg w-full" placeholder="Search...">
+            </div>
+        </form>
     </div>
 </div>
