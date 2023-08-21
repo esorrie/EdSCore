@@ -30,7 +30,7 @@
 <div class="flex jusitfy-evenly">
 
     <div class="details">
-      <x-leaguecomponents.leaguetablepreview :teams="$teams"/> {{-- :league="$league"  --}}
+      <x-managercomponents.leaguetablepreview :manager="$manager"/>
     </div>
 
     <div class="w-full ml-20">

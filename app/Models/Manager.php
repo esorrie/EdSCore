@@ -57,4 +57,17 @@ class Manager extends Model
             }
         );
     }
+    public function tablePreview(): Attribute
+    {
+        // $league = League::first();
+        // dd($league->currentTable);
+
+        return Attribute::make(
+            get: function() {
+                $league = League::first();
+                $preview = $league->currentTable->take(5); 
+                return $preview;
+            }
+        );
+    }
 }
