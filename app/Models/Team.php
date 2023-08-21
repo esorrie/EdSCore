@@ -107,12 +107,8 @@ class Team extends Model
         return Attribute::make(
             get: function(){
                 
-                $homefixtures = $this->homeFixtures;
-                $awayfixtures = $this->awayFixtures;
-                $allfixtures = $homefixtures->merge($awayfixtures)->sortBy(function ($fixture){ 
-                    return Carbon::createFromFormat('d/m/y H:i', $fixture['date'])->timestamp;
-                });
-                // dd($allfixtures);
+                $allfixtures = $this->allFixture;
+
                 return $allfixtures->where('full_time_home', null)->first();
             }
         );
