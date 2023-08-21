@@ -73,6 +73,7 @@ class League extends Model
                 ...$team->toArray(), 
                 'points' => ($team['pivot']['won'] * 3 + $team['pivot']['drawn']),
                 'played' => ($team['pivot']['won'] + $team['pivot']['drawn'] + $team['pivot']['lost']),
+                'gd' => ($team['pivot']['gd'])
             ];
 
             $table[] = $standing;
@@ -80,7 +81,10 @@ class League extends Model
         }
         
         // Sort the table by points in descending order
-        $sortedTable = collect($table)->sortByDesc('points');
+        $sortedTable = collect($table)->sortBy([
+            ['points', 'desc'],
+            ['gd', 'desc'],
+        ]);
 
         return Attribute::make(
             get: function() use ($sortedTable) {
