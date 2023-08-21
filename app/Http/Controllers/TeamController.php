@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Fixture;
 use App\Models\Player;
 use App\Models\Team;
 use Illuminate\Contracts\View\View;
@@ -64,8 +65,8 @@ class TeamController extends Controller
         ]);
     }
 
-    // This method is supposed to show a team's matches, but currently, it fetches all teams and returns them to the 'teams.matches' view
-    public function matches(int $id, string $slug) : RedirectResponse|View
+    // This method is supposed to show a team's matches, but currently, it fetches all teams and returns them to the 'teams.fixtures' view
+    public function fixtures(int $id, string $slug) : RedirectResponse|View
     {
         $team = Team::where('id', $id)->first();
 
@@ -80,9 +81,29 @@ class TeamController extends Controller
             ]);
         }
 
-        return view('teams.matches', [
+        return view('teams.fixtures', [
             'team' => $team,
-            'matches' => Team::all(),
+        ]);
+    }
+
+    // This method is supposed to show a team's matches, but currently, it fetches all teams and returns them to the 'teams.results' view
+    public function results(int $id, string $slug) : RedirectResponse|View
+    {
+        $team = Team::where('id', $id)->first();
+
+        if(! $team) {
+            abort(Response::HTTP_NOT_FOUND);
+        }
+    
+        if($team->slug !== $slug) {
+            return redirect()->route('teams.view', [
+                'id' => $team->id,
+                'slug' => $team->slug,
+            ]);
+        }
+
+        return view('teams.results', [
+            'team' => $team,
         ]);
     }
     
