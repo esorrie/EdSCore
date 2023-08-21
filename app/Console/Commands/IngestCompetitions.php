@@ -122,6 +122,12 @@ class IngestCompetitions extends Command
                 $slugAway = Str::slug($leagueMatch['awayTeam']['name'], '-');
                 $formattedDate = Carbon::createFromFormat('Y-m-d\TH:i:s\Z', $leagueMatch['utcDate'])->setTimezone('utc')->format('d/m/y H:i');
 
+                $referee = null;
+
+                foreach($leagueMatch['referees'] as $referee) {
+                    $referee = $referee['name'];
+                }
+
                 Fixture::updateOrCreate([ 'id' => $leagueMatch['id'] ],[
                     'league_id' => $leagueMatch['competition']['id'],
                     'date' => $formattedDate,
@@ -137,16 +143,11 @@ class IngestCompetitions extends Command
                     'half_time_away' => $leagueMatch['score']['halfTime']['away'],
                     'full_time_home' => $leagueMatch['score']['fullTime']['home'],
                     'full_time_away' => $leagueMatch['score']['fullTime']['away'],
+                    'referee' => $referee
                     
                 ]);
                 
-                // foreach ($leagueMatch['referees'] as $referee) {
-                //     Fixture::updateOrCreate([ 'id' => $leagueMatch['id'] ],[
-                //         'referee'=> $referee['name'],
-                //     ]);
-                // }
             }
-
 
             // Loop through each manager and update or create a new Team record
             foreach($leagueTeams as $manager){
