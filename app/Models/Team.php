@@ -6,6 +6,8 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Team extends Model
 {
@@ -52,7 +54,7 @@ class Team extends Model
         return $this->hasMany(Fixture::class, 'home_team_id');
     }
     
-    public function awayResults()
+    public function awayResults(): HasMany
     {
         return $this->hasMany(Fixture::class, 'away_team_id');
     }
@@ -68,7 +70,7 @@ class Team extends Model
             'gd'
         ]);
     }
-    
+
     protected function allFixture(): Attribute
     {
         return Attribute::make(
@@ -95,7 +97,7 @@ class Team extends Model
                 $allresults = $homeresults->merge($awayresults)->sortBy(function ($result){ 
                     return Carbon::createFromFormat('d/m/y H:i', $result['date'])->timestamp;
                 });
-                // dd($allresults);
+                
                 return $allresults->where('full_time_home', !null);
             }
         );
@@ -113,7 +115,7 @@ class Team extends Model
         );
     }
 
-    public function manager()
+    public function manager(): HasOne
     {
         return $this->hasOne(Manager::class);
     }
@@ -129,5 +131,18 @@ class Team extends Model
             }
         );
     }
-    
+
+    public function tablePreview(): Attribute
+    {
+        // $league = League::first();
+        // dd($league->currentTable);
+
+        return Attribute::make(
+            get: function() {
+                $league = League::first();
+                $preview = $league->currentTable->take(5); 
+                return $preview;
+            }
+        );
+    }
 }

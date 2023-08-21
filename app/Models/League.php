@@ -88,8 +88,9 @@ class League extends Model
         return Attribute::make(
             get: function() use ($sortedTable) {
                 
-                return $sortedTable;
+                return collect($sortedTable);
             }
         );
     }
+
 };
