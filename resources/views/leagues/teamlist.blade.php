@@ -8,6 +8,4 @@
 
 <x-leaguecomponents.teamslist :teams="$teams" />
 
-<a href="/leagues">Go Back to leagues</a>
-
 @endsection 

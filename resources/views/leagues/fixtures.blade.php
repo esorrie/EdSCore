@@ -8,7 +8,4 @@
 
 <x-leaguecomponents.fixtures :fixtures="$fixtures" />
 
-
-<a href="/leagues">Go Back to leagues</a>
-
 @endsection 
