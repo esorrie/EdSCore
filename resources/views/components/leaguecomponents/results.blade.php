@@ -1,4 +1,4 @@
-<div class="text font-bold text-4xl uppercase">fixtures</div>
+<div class="text font-bold text-4xl uppercase">results</div>
 
 <div class="margintop text">
     <div class="grid grid-cols-6 border  uppercase">
@@ -11,9 +11,9 @@
         @foreach ($results as $result) 
             <div class="border smallpadding orange"> {{ $result->date }} </div>
             <div class="col-span-2 border smallpadding  hover:bg-orange duration-500">
-                <a href="/teams/{{ $fixture->home_team_id}}/ {{ $fixture->home_team_slug}}"> {{ $result->home_team }} </a>
+                <a href="/teams/{{ $result->home_team_id}}/ {{ $result->home_team_slug}}"> {{ $result->home_team }} </a>
                 vs 
-                <a href="/teams/{{ $fixture->away_team_id}}/ {{ $fixture->away_team_slug}}"> {{ $result->away_team }} </a>
+                <a href="/teams/{{ $result->away_team_id}}/ {{ $result->away_team_slug}}"> {{ $result->away_team }} </a>
             </div>
             <div class="border smallpadding"> {{ $result->half_time_home }} - {{ $result->half_time_away }} </div>
             <div class="border smallpadding"> {{ $result->full_time_home }} - {{ $result->full_time_away }} </div>
