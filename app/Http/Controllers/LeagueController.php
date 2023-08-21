@@ -112,11 +112,11 @@ class LeagueController extends Controller
                 'slug' => $league->slug,
             ]);
         }
-
+        
         // Pass the league and all results to the 'leagues.results' view
         return view('leagues.results', [
             'league' => $league,
-            'results' => Fixture::all()->where('full_time_home', !null),
+            'results' => Fixture::all()->where('full_time_home', '!=', null),
         ]);
     }
     
