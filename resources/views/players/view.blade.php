@@ -15,14 +15,12 @@
     <div class="text-white w-full margintop ml-20">
       <x-card.card title="upcoming fixtures">
           <div class="borderbottom">
-              <div class="pt-4 text-xl text-center"> PREMIER LEAGUE </div>
-              <div class="padding text uppercase">
-                  <div class="text-center text-2xl font-bold"> Newcastle United </div> 
-                  <div class="text-center orange font-bold"> vs </div>
-                  <div class="text-center text-2xl font-bold"> Manchester United </div>
-                  <div class="text-center orange"> 26/07</div>
-                  <div class="text-center orange"> 12:30</div>
-              </div>    
+            <div class="padding text uppercase">
+              <div class="text-center text-2xl font-bold"> <a href="/teams/{{ $player->team->nextFixture->home_team_id}}/ {{ $player->team->nextFixture->home_team_slug}}"> {{ $player->team->nextFixture->home_team }} </a> </div> 
+              <div class="text-center orange font-bold"> vs </div>
+              <div class="text-center text-2xl font-bold"> <a href="/teams/{{ $player->team->nextFixture->away_team_id}}/ {{ $player->team->nextFixture->away_team_slug}}"> {{ $player->team->nextFixture->away_team }} </a> </div>
+              <div class="text-center orange"> {{ $player->team->nextFixture->date }} </div>
+            </div>    
           </div>  
       </x-card.card>
     </div>

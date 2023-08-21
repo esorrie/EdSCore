@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Player;
+use App\Models\Team;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Response;
@@ -26,6 +27,7 @@ class PlayerController extends Controller
     {
         // Find the player with the given ID in the database.
         $player = Player::where('id', $id)->first();
+        $team = Team::where('id', $id)->first();
 
         if(! $player) {
             abort(Response::HTTP_NOT_FOUND);
@@ -76,6 +78,7 @@ class PlayerController extends Controller
     
         // Return the 'players.view' view with the player details and the prepared table data.
         return view('players.view', [
+            'team' => $team,
             'player' => $player,
             'playerTableData' => $playerTableData,
             'statTableData' => $statTableData,
