@@ -60,7 +60,6 @@ class ManagerController extends Controller
         return view('managers.view', [
             'manager' => $manager,
             'team' => $team,
-            'teams' => Team::all()->take(5),
             'managerTableData' => $managerTableData,
         ]);
     }
