@@ -131,6 +131,8 @@ class IngestCompetitions extends Command
                     'away_team_slug' => $slugAway,
                     'home_team' => $leagueMatch['homeTeam']['shortName'],
                     'away_team' => $leagueMatch['awayTeam']['shortName'],
+                    'home_team_crest' => $leagueMatch['homeTeam']['crest'],
+                    'away_team_crest' => $leagueMatch['awayTeam']['crest'],
                     'half_time_home' => $leagueMatch['score']['halfTime']['home'],
                     'half_time_away' => $leagueMatch['score']['halfTime']['away'],
                     'full_time_home' => $leagueMatch['score']['fullTime']['home'],
@@ -199,7 +201,7 @@ class IngestCompetitions extends Command
     private function getMatches($leagueCode) {
         return Http::withHeader('X-Auth-Token', 'b7173c63c2084739b77c6fe4cb8bf7f0')->get(sprintf('https://api.football-data.org/v4/competitions/%s/matches', $leagueCode));
     } 
-    
+
     // private function getPlayerInfo($leagueCode) {
     //     return Http::withHeader('X-Auth-Token', 'b7173c63c2084739b77c6fe4cb8bf7f0')->get(sprintf('https://api.football-data.org/v4/persons/%s/matches', $leagueCode));
     // } 

@@ -29,11 +29,12 @@ class FixtureFactory extends Factory
             'away_team_slug' => Str::slug($name),
             'home_team' => $name,
             'away_team' => $name,
+            'home_team_crest'=> fake()->string(),
+            'away_team_crest'=> fake()->string(),
             'half_time_home' => fake()->randomElement(['0','1','2','3'])->format('-'),
             'half_time_away' => fake()->randomElement(['0','1','2','3'])->format('-'),
             'full_time_home' => fake()->randomElement(['0','1','2','3'])->format('-'),
             'full_time_away' => fake()->randomElement(['0','1','2','3'])->format('-'),
-            // 'score' => fake()->name(),
             'referee' => fake()->name(),
         ];
     }

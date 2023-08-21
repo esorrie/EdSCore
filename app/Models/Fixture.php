@@ -17,6 +17,8 @@ class Fixture extends Model
         'away_team_slug',
         'home_team',
         'away_team',
+        'home_team_crest',
+        'away_team_crest',
         'half_time_home',
         'half_time_away',
         'full_time_home',

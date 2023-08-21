@@ -20,6 +20,8 @@ return new class extends Migration
             $table->string('away_team_slug');
             $table->string('home_team');
             $table->string('away_team');
+            $table->string('home_team_crest');
+            $table->string('away_team_crest');
             $table->string('half_time_home')->nullable();
             $table->string('half_time_away')->nullable();
             $table->string('full_time_home')->nullable();
