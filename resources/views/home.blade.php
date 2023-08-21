@@ -89,6 +89,15 @@
             </x-card.card>
 
         </div>
+        <div class="mt-12 w-840">
+            <x-card.card title="Top Players">
+                <div class=" grid grid-cols-3 subheading">
+                    <div class=" bg-darkgrey pl-4 text-sm smallpadding"> Player</div>
+                    <div class=" bg-darkgrey text-sm smallpadding"> Goals</div>
+                    <div class=" bg-darkgrey text-sm smallpadding"> Club</div>
+                </div>
+            </x-card.card>
+        </div>
     </div>
 </div>
 
