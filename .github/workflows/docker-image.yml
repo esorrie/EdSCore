@@ -7,13 +7,6 @@ jobs:
   build_and_publish:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - name: Build and push the Docker image
-        run: | 
-          docker login --username esorrie --password ${{ secrets.GH_PAT }} ghcr.io
-          docker build . --tag ghcr.io/esorrie/edscore-app:latest
-          docker push ghcr.io/esorrie/edscore-app:latest
-
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with: 
@@ -25,12 +18,15 @@ jobs:
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v1
 
-      - name: Build, Tag and Push the Image to Amazon ECR
-        id: build-image
+      - uses: actions/checkout@v3
+      - name: Build and push the Docker image to GHCR and AWS ECR
         env: 
-          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+          ECR_REGISTRY: 110756906800.dkr.ecr.eu-west-2.amazonaws.com
           ECR_REPOSITORY: edscore-app
           IMAGE_TAG: latest
         run: | 
-          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
+          docker login --username esorrie --password ${{ secrets.GH_PAT }} ghcr.io
+          docker build . --tag ghcr.io/esorrie/edscore-app:latest
+          docker push ghcr.io/esorrie/edscore-app:latest
+          docker tag ghcr.io/esorrie/edscore-app:latest $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
           docker push  $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
