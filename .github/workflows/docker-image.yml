@@ -14,9 +14,9 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: eu-west-2
 
-      # - name: Login to Amazon ECR
-      #   id: login-ecr
-      #   uses: aws-actions/amazon-ecr-login@v1
+      - name: Login to Amazon ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v1
 
       - uses: actions/checkout@v3
       - name: Build and push the Docker image to GHCR and AWS ECR
@@ -24,9 +24,6 @@ jobs:
           ECR_REGISTRY: 110756906800.dkr.ecr.eu-west-2.amazonaws.com
           ECR_REPOSITORY: edscore-app
           IMAGE_TAG: latest
-        uses: aws-actions/amazon-ecr-login@v1
         run: | 
-          docker login --username esorrie --password ${{ secrets.GH_PAT }} ghcr.io
           docker build . -t ghcr.io/esorrie/edscore-app:latest -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
-          docker push ghcr.io/esorrie/edscore-app:latest
           docker push  $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
