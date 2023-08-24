@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('slug');
             $table->string('name');
-            $table->string('position');
-            $table->string('date_of_birth');
+            $table->string('position')->nullable();
+            $table->string('date_of_birth')->nullable();
             $table->string('country');
             $table->foreignId('team_id');
             $table->timestamps();
