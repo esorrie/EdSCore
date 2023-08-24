@@ -1,0 +1,18 @@
+name: Docker Image CI
+
+on:
+  push:
+
+jobs:
+
+  build_and_publish:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Build and push the Docker image
+      run: 
+      docker login ghcr.io --username esorrie --password ${{ secrets.GH_PAT }} ghcr.io
+      docker build . --tag ghcr.io/esorrie/edscore-app:latest
+      docker push ghcr.io/esorrie/edscore-app
