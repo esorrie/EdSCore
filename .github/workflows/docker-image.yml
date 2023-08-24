@@ -32,5 +32,5 @@ jobs:
           ECR_REPOSITORY: edscore-app
           IMAGE_TAG: latest
         run: | 
-          docker login -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
+          docker login --tag $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
           docker push  $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
