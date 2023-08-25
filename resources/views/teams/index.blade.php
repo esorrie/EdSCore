@@ -23,6 +23,20 @@
     </div>
     <div class="smallpadding border hover:bg-darkgrey duration-500 text-sm orange"> {!! $team->stadium !!} </div>
     @endforeach
+
+    @forelse ($teams as $team)
+        
+    @empty
+    <div>
+        <p class="text-center text">
+            No results found for query 
+        </p>
+        <p class="text-center text">
+            <strong> {{ request()->query('name') }} </strong>
+        </p>
+    </div>
+    @endforelse
+
   </div>
     
   <div class="pagination text">

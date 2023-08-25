@@ -12,14 +12,27 @@
         <div class="text"> TEAM</div>
     </div>
 
-@foreach ($managers as $manager)
-    <div class="text-sm text uppercase smallpadding border hover:bg-orange duration-500 hover:font-bold">
-        <a href="/managers/{{ $manager->id }}/{{ $manager->slug }}"> {!! $manager->name !!} </a>
+    @foreach ($managers as $manager)
+        <div class="text-sm text uppercase smallpadding border hover:bg-orange duration-500 hover:font-bold">
+            <a href="/managers/{{ $manager->id }}/{{ $manager->slug }}"> {!! $manager->name !!} </a>
+        </div>
+        <div class="text-sm orange uppercase smallpadding border hover:bg-darkgrey duration-500 hover:font-bold">
+            <a href="/teams/{{ $manager->team->id }}/{{ $manager->team->slug }}"> {!! $manager->team->name !!} </a>
+        </div>  
+    @endforeach
+    @forelse ($managers as $manager)
+        
+    @empty
+    <div>
+        <p class="text-center text">
+            No results found for query 
+        </p>
+        <p class="text-center text">
+            <strong> {{ request()->query('name') }} </strong>
+        </p>
     </div>
-    <div class="text-sm orange uppercase smallpadding border hover:bg-darkgrey duration-500 hover:font-bold">
-        <a href="/teams/{{ $manager->team->id }}/{{ $manager->team->slug }}"> {!! $manager->team->name !!} </a>
-    </div>  
-@endforeach
+    @endforelse
+</div>
 
 <div class="pagination text">
     {{ $managers->appends(['name' => request()->query('name') ])->links() }} {{-- appends allows for the search parameters to be kept when looking over multiple pages--}}

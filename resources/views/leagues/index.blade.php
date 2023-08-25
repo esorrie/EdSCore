@@ -21,6 +21,19 @@
         </div>
     <div class="text-sm orange padding border hover:bg-darkgrey duration-500"> {{ $league->location }}</div>
     @endforeach
+
+    @forelse ($leagues as $league)
+        
+    @empty
+    <div>
+        <p class="text-center">
+            No results found for query 
+        </p>
+        <p class="text-center">
+            <strong> {{ request()->query('name') }} </strong>
+        </p>
+    </div>
+    @endforelse
 </div> 
 
 {{ $leagues->appends(['name' => request()->query('name') ])->links() }} {{-- appends allows for the search parameters to be kept when looking over multiple pages--}}
