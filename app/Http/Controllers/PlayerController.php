@@ -16,9 +16,17 @@ class PlayerController extends Controller
     // The index function retrieves a paginated list of players and returns the 'players.index' view.
     public function index(): View 
     {
+        $search = request()->query('name');
+
+        if ($search) {
+            $player = Player::where('name', 'LIKE', "%{$search}%")->simplePaginate('2000');
+
+        } else {
+            $player = Player::all();
+        }
+
         return view('players.index', [
-            'players' => Player::all()->sortBy('position'),
-            // 'players' => Player::paginate(25),
+            'players' => $player,
         ]);
     }
 
