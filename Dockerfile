@@ -1,4 +1,22 @@
 ########################################################
+#   Build frontend                                     #
+########################################################
+
+FROM node:16 AS node_stage
+
+# Set working directory
+WORKDIR /src
+
+# Copy files
+COPY . .
+
+# Run npm
+RUN npm install && npm run build
+
+# Delete node_modules
+RUN rm -rf node_modules
+
+########################################################
 #   Build the main application                         #
 ########################################################
 
@@ -31,7 +49,7 @@ RUN chmod uga+x /usr/local/bin/install-php-extensions && sync && \
 # Copy files and permissions
 RUN rm -R html
 RUN rm -R localhost
-COPY --chown=www-data:www-data . .
+COPY --chown=www-data:www-data --from=node_stage /src /var/www
 RUN touch storage/logs/laravel.log
 RUN chown www-data:www-data storage/logs/laravel.log
 
