@@ -13,7 +13,7 @@
         <div class="text"> POSITION</div>
     </div>
     <div class="bg-darkgrey border rounded-tr-lg padding">
-      <div class="text"> CLUB</div>
+        <div class="text"> CLUB</div>
     </div>
 
 @foreach ($players as $player)
@@ -28,9 +28,10 @@
     </div> 
 @endforeach
 
-{{-- <div class="pagination">
-{{ $players->links() }}
-</div> --}}
+<div class="pagination">
+    {{ $players->appends(['name' => request()->query('name') ])->links() }} {{-- appends allows for the search parameters to be kept when looking over multiple pages--}}
+</div>
+
 <div class="text-sm text"><a href="/">Go Back Home</a> </div>
 @endsection
 

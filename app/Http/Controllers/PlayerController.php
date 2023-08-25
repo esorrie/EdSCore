@@ -19,10 +19,10 @@ class PlayerController extends Controller
         $search = request()->query('name');
 
         if ($search) {
-            $player = Player::where('name', 'LIKE', "%{$search}%")->simplePaginate('2000');
+            $player = Player::where('name', 'LIKE', "%{$search}%")->orderBy('name')->simplePaginate('20');
 
         } else {
-            $player = Player::all();
+            $player = Player::orderBy('name')->simplePaginate('20');
         }
 
         return view('players.index', [
