@@ -30,7 +30,7 @@ jobs:
           ECR_REPOSITORY: edscore-app
           IMAGE_TAG: ${{ steps.increment-git-tag.outputs.git-tag }}
         run: | 
-          docker login --username esorrie --password ${{ secrets.GH_PAT }} ghcr.io
+#          docker login --username esorrie --password ${{ secrets.GH_PAT }} ghcr.io
           docker build . -t ghcr.io/esorrie/edscore-app:latest -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
-          docker push ghcr.io/esorrie/edscore-app:latest
+#          docker push ghcr.io/esorrie/edscore-app:latest
           docker push  $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
