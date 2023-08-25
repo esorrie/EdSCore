@@ -21,7 +21,7 @@ jobs:
       - name: Automatic Tagging of Releases
         id: increment-git-tag
         run: | 
-          bash ./build/git_update.sh -v patch
+          npm ./build/git_update.sh -v patch
 
       - uses: actions/checkout@v3
       - name: Build and push the Docker image to GHCR and AWS ECR
