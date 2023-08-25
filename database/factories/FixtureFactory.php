@@ -23,6 +23,7 @@ class FixtureFactory extends Factory
         return [
             'league_id' => League::factory(),
             'date' => fake()->format('d/m/Y', 'H:i'),
+            'match_id' => fake()->string(),
             'home_team_id' => fake()->name(),
             'away_team_id' => fake()->name(),
             'home_team_slug' => Str::slug($name),

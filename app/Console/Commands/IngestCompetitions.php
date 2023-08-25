@@ -53,7 +53,7 @@ class IngestCompetitions extends Command
             $slug = Str::slug($league['name'], '-');
             
             // Update or create a new League record with the data from the API
-            League::updateOrCreate( ['id' => $league['id']],[
+            League::updateOrCreate( ['id' => $league['id']],[ // checks if a team with id exists to update, if not creates it 
                 'id' => $league['id'],
                 'name' => $league['name'],
                 'emblem' => $league['emblem'],
@@ -70,7 +70,7 @@ class IngestCompetitions extends Command
                 // Create a slug for the team name (for URL purposes)
                 $slug = Str::slug($team['name'], '-');
 
-                $newTeam = Team::updateOrCreate( ['id' => $team['id']],[
+                $newTeam = Team::updateOrCreate( ['id' => $team['id']],[ // checks if a team with id exists to update, if not creates it 
                     'id' => $team['id'],
                     'slug' => $slug,
                     'name' => $team['shortName'],
@@ -121,15 +121,15 @@ class IngestCompetitions extends Command
                 $slugHome = Str::slug($leagueMatch['homeTeam']['name'], '-');
                 $slugAway = Str::slug($leagueMatch['awayTeam']['name'], '-');
                 $formattedDate = Carbon::createFromFormat('Y-m-d\TH:i:s\Z', $leagueMatch['utcDate'])->setTimezone('utc')->format('d/m/y H:i');
-
                 $referee = null;
 
                 foreach($leagueMatch['referees'] as $referee) {
                     $referee = $referee['name'];
                 }
 
-                Fixture::updateOrCreate([ 'id' => $leagueMatch['id'] ],[
+                Fixture::updateOrCreate([ 'match_id' => $leagueMatch['id'] ],[ // checks if a fixture with match_id exists to update, if not creates it 
                     'league_id' => $leagueMatch['competition']['id'],
+                    'match_id' => $leagueMatch['id'],
                     'date' => $formattedDate,
                     'home_team_id' => $leagueMatch['homeTeam']['id'],
                     'away_team_id' => $leagueMatch['awayTeam']['id'],
@@ -144,7 +144,6 @@ class IngestCompetitions extends Command
                     'full_time_home' => $leagueMatch['score']['fullTime']['home'],
                     'full_time_away' => $leagueMatch['score']['fullTime']['away'],
                     'referee' => $referee
-                    
                 ]);
                 
             }
@@ -156,7 +155,7 @@ class IngestCompetitions extends Command
                 // Create a slug for the manager name (for URL purposes)
                 $slug = Str::slug($manager['coach']['name'], '-');
                 
-                Manager::updateOrCreate(['id' => $manager['coach']['id']] ,[
+                Manager::updateOrCreate(['id' => $manager['coach']['id']] ,[ // checks if a manager with id exists to update, if not creates it 
                     'team_id' => $manager['id'], 
                     'id' => $manager['coach']['id'],
                     'slug' => $slug,
@@ -176,7 +175,7 @@ class IngestCompetitions extends Command
                     // Create a slug for the player name (for URL purposes)
                     $slug = Str::slug($player['name'], '-');
                     
-                    Player::updateOrCreate(['id' => $player['id']] ,[
+                    Player::updateOrCreate(['id' => $player['id']] ,[ // checks if a team with id exists to update, if not creates it 
                         'team_id' => $leagueTeam['id'], 
                         'id' => $player['id'],
                         'slug' => $slug,

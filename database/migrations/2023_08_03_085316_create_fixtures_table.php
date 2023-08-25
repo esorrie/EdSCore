@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('fixtures', function (Blueprint $table) {
             $table->id();
             $table->string('date');
+            $table->string('match_id');
             $table->string('home_team_id');
             $table->string('away_team_id');
             $table->string('home_team_slug');

@@ -11,6 +11,7 @@ class Fixture extends Model
 
     protected $fillable = [
         'date',
+        'match_id',
         'home_team_id',
         'away_team_id',
         'home_team_slug',
