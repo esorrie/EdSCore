@@ -25,9 +25,9 @@
     @endforeach
   </div>
     
-  {{-- <div class="pagination text">
-    {{ $teams->links() }}
-  </div> --}}
+  <div class="pagination text">
+    {{ $teams->appends(['name' => request()->query('name') ])->links() }}
+  </div>
   <div class="text-xs text"><a href="/">Go Back Home</a></div>
 
 @endsection

@@ -17,10 +17,10 @@ class TeamController extends Controller
         $search = request()->query('name');
 
         if ($search) {
-            $team = Team::where('name', 'LIKE', "%{$search}%")->simplePaginate(20)->sortBy('name');
+            $team = Team::where('name', 'LIKE', "%{$search}%")->orderBy('name')->simplePaginate(10);
             // dd($team);
         } else {
-            $team = Team::all()->sortBy('name');
+            $team = Team::orderBy('name')->simplePaginate(10);
             
         }
 
