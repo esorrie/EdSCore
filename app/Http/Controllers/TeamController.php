@@ -16,8 +16,18 @@ class TeamController extends Controller
     // This method fetches all teams from the database and returns them paginated to the 'teams.index' view
     public function index(): View 
     {
+        $search = request()->query('name');
+
+        if ($search) {
+            $team = Team::where('name', 'LIKE', "%{$search}%")->simplePaginate(20)->sortBy('name');
+            // dd($team);
+        } else {
+            $team = Team::all()->sortBy('name');
+            
+        }
+
         return view('teams.index', [
-            'teams' => Team::all()->sortBy('name'),
+            'teams' => $team,
         ]);
     }
 
