@@ -1,6 +1,8 @@
 <div class="managernav">
     <div class="managersdisplay"> MANAGERS</div>
-        <div class="card_searchbar">
-            <input type="text" class="border border-grey text-sm rounded-full w-full" placeholder="Search...">
+    <form action="{{ route('managers.index') }}" method="GET">
+        <div class="card_searchbar menu">
+            <input type="text" name="name" class="border border-grey text-sm rounded-lg w-full" placeholder="Search...">
         </div>
-  </div>
+    </form>
+</div>

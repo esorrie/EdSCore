@@ -15,8 +15,17 @@ class ManagerController extends Controller
     // Display a paginated list of managers
     public function index(): View
     {
+        $search = request()->query('name');
+
+        if ($search) {
+            $manager = Manager::where('name', 'LIKE', "%{$search}%")->simplePaginate('2000')->sortBy('team_id');
+
+        } else {
+            $manager = Manager::all()->sortBy('team_id');
+        }
+
         return view('managers.index', [
-            'managers' => Manager::all()->sortBy('team_id'),
+            'managers' => $manager,
         ]);
     }
 
