@@ -2,7 +2,7 @@
 <div id="one" class="nav">
     
     <div class="menu">
-        <div class="card1 "> 
+        <div class="card1"> 
             <a href="/home"> <x-application-logo /> </a>
         </div>
         <div class="card2 hover:font-bold">
@@ -20,7 +20,7 @@
     </div>
     @if(Auth::check())
         <div class="menu">
-            <div class="card4 hover:font-bold uppercase text-right">
+            <div class="card4 hover:font-bold uppercase text-right mr">
                 <a class="{{ request()->routeIs('profile.edit') ? 'active' : '' }}" href="{{ route('profile.edit') }}"> profile </a>
             </div>
             <div class="card4 hover:font-bold uppercase">
@@ -28,7 +28,7 @@
             </div>
         </div>
     @else
-        <div class="menu">
+        <div class="menu pr-56">
             <div class="card4 hover:font-bold uppercase text-right">
                 <a class="{{ request()->routeIs('register') ? 'active' : '' }}" href="{{ route('register') }}"> Register </a>
             </div>
@@ -37,11 +37,4 @@
             </div>
         </div>
     @endif
-    <div class="menu">
-        <form action="" method="GET">
-            <div class="card_searchbar menu">
-                <input type="text" name="search" value="<?php if(isset($_GET['search'])){$_GET['search'];} ?>" class="border border-grey text-sm rounded-lg w-full" placeholder="Search...">
-            </div>
-        </form>
-    </div>
 </div>

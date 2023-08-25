@@ -23,7 +23,8 @@ export default {
       },
       spacing: {
         '840': '52.5rem',
-        '448': '448px'
+        '448': '448px',
+        '56': '56px'
       },
       
     },
@@ -32,7 +33,7 @@ export default {
 
   corePlugins: {
     preflight: false,
- }
+  }
 
 }
 
