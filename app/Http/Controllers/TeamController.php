@@ -2,9 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Fixture;
 use App\Models\League;
-use App\Models\Player;
 use App\Models\Team;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
