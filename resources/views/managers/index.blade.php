@@ -21,9 +21,11 @@
     </div>  
 @endforeach
 
-{{-- <div class="pagination text">
-{{ $managers->links() }}
-<a href="/">Go Back Home</a>
-</div> --}}
+<div class="pagination text">
+    {{ $managers->appends(['name' => request()->query('name') ])->links() }} {{-- appends allows for the search parameters to be kept when looking over multiple pages--}}
+    <div class="text text-sm">
+        <a href="/">Go Back Home</a>
+    </div>
+</div>
 
 @endsection
