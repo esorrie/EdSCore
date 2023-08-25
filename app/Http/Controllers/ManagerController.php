@@ -18,7 +18,7 @@ class ManagerController extends Controller
         $search = request()->query('name');
 
         if ($search) {
-            $manager = Manager::where('name', 'LIKE', "%{$search}%")->simplePaginate('2000')->sortBy('team_id');
+            $manager = Manager::where('name', 'LIKE', "%{$search}%")->simplePaginate('20')->sortBy('team_id');
 
         } else {
             $manager = Manager::all()->sortBy('team_id');

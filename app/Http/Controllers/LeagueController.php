@@ -15,9 +15,17 @@ class LeagueController extends Controller
     // Display the list of all leagues
     public function index(): View 
     {
+        $search = request()->query('name');
+
+        if ($search) {
+            $league = League::where('name', 'LIKE', "%{$search}%")->simplePaginate('200')->sortBy('name');
+
+        } else {
+            $league = League::all()->sortBy('name');
+        }
 
         return view('leagues.index', [
-            'leagues' => League::all()->sortBy('name'),
+            'leagues' => $league,
         ]);
     }
 
