@@ -23,5 +23,10 @@
     @endforeach
 </div> 
 
-<div class="text-xs text"> <a href="/"> Go Back Home </a> </div>
+{{ $leagues->appends(['name' => request()->query('name') ])->links() }} {{-- appends allows for the search parameters to be kept when looking over multiple pages--}}
+
+<div class="text-xs text">
+    <a href="/"> Go Back Home </a> 
+</div>
+
 @endsection

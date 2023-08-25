@@ -18,10 +18,9 @@ class LeagueController extends Controller
         $search = request()->query('name');
 
         if ($search) {
-            $league = League::where('name', 'LIKE', "%{$search}%")->simplePaginate('200')->sortBy('name');
-
+            $league = League::where('name', 'LIKE', "%{$search}%")->orderBy('name')->simplePaginate(10);
         } else {
-            $league = League::all()->sortBy('name');
+            $league = League::orderBy('name')->simplePaginate(10);
         }
 
         return view('leagues.index', [
