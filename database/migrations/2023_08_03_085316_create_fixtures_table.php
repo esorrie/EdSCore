@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('fixtures', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('league_id');
             $table->string('date');
             $table->string('match_id');
             $table->string('home_team_id');
@@ -28,7 +29,6 @@ return new class extends Migration
             $table->string('full_time_home')->nullable();
             $table->string('full_time_away')->nullable();
             $table->string('referee')->nullable();
-            $table->foreignId('league_id');
             $table->timestamps();
         });
     }

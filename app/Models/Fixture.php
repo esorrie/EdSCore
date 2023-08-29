@@ -11,6 +11,7 @@ class Fixture extends Model
 
     protected $fillable = [
         'date',
+        'league_id',
         'match_id',
         'home_team_id',
         'away_team_id',
@@ -25,7 +26,6 @@ class Fixture extends Model
         'full_time_home',
         'full_time_away',
         'referee',
-        'league_id',
     ];
 
     public function league()
