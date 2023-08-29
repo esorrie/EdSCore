@@ -24,7 +24,8 @@ class LeagueFactory extends Factory
             'slug' => Str::slug($name),
             'name' => $name,
             'location' => fake()->name(),
-            'emblem' => fake()->name()
+            'emblem' => fake()->name(),
+            'country_flag' => fake()->name()
         ];
     }
 }

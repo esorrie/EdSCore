@@ -16,7 +16,8 @@ class League extends Model
         'slug',
         'name',
         'emblem',
-        'location'
+        'location',
+        'country_flag'
     ];
 
     public function fixtures()

@@ -55,10 +55,11 @@ class IngestCompetitions extends Command
             // Update or create a new League record with the data from the API
             League::updateOrCreate( ['id' => $league['id']],[ // checks if a team with id exists to update, if not creates it 
                 'id' => $league['id'],
+                'slug' => $slug,
                 'name' => $league['name'],
                 'emblem' => $league['emblem'],
                 'location' => $league['area']['name'],
-                'slug' => $slug,
+                'country_flag' => $league['area']['flag'],
             ]);
 
             // Get teams for the current league from getTeams
@@ -201,8 +202,4 @@ class IngestCompetitions extends Command
     private function getMatches($leagueCode) {
         return Http::withHeader('X-Auth-Token', 'b7173c63c2084739b77c6fe4cb8bf7f0')->get(sprintf('https://api.football-data.org/v4/competitions/%s/matches', $leagueCode));
     } 
-
-    // private function getPlayerInfo($leagueCode) {
-    //     return Http::withHeader('X-Auth-Token', 'b7173c63c2084739b77c6fe4cb8bf7f0')->get(sprintf('https://api.football-data.org/v4/persons/%s/matches', $leagueCode));
-    // } 
 }

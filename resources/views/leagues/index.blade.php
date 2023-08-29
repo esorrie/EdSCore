@@ -16,10 +16,13 @@
     <div class="text-sm smallpadding border hover:bg-orange duration-500 hover:font-bold ">
         <a href="/leagues/{{ $league->id }}/{{ $league->slug }}">
             <div class="w-fit"> <img style="width:50px;height:50px; "src="{{ $league->emblem }}"> </div>
-                {!! $league->name !!}
+                {{ $league->name }}
             </a>
         </div>
-    <div class="text-sm orange padding border hover:bg-darkgrey duration-500"> {{ $league->location }}</div>
+    <div class="text-sm orange padding border hover:bg-darkgrey duration-500"> 
+        <div class="w-fit"> <img style="width:50px;height:50px; "src="{{ $league->country_flag }}"> </div>
+            {{ $league->location }}
+        </div>
     @endforeach
 
     @forelse ($leagues as $league)
