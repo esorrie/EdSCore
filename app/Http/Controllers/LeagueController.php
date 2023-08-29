@@ -101,7 +101,7 @@ class LeagueController extends Controller
         // Pass the league and all fixtures to the 'leagues.fixtures' view
         return view('leagues.fixtures', [
             'league' => $league,
-            'fixtures' => Fixture::all()->where('full_time_home', null),
+            'fixtures' => $league->fixtures->where('full_time_home', null), // only fixtures associated with the league through league_id will be displayed
         ]);
     }
 
@@ -124,7 +124,7 @@ class LeagueController extends Controller
         // Pass the league and all results to the 'leagues.results' view
         return view('leagues.results', [
             'league' => $league,
-            'results' => Fixture::all()->where('full_time_home', '!=', null),
+            'results' => $league->fixtures->where('full_time_home', '!=', null), // only results associated with the league through league_id will be displayed
         ]);
     }
     
