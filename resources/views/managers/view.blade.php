@@ -15,7 +15,7 @@
     <div class="text-white w-full margintop ml-20">
       <x-card.card title="upcoming fixtures">
           <div class="borderbottom">
-            <div class="padding text uppercase">
+            <div class="padding text uppercase hover:bg-grey duration-500">
               <div class="text-center text-2xl font-bold"> <a href="/teams/{{ $manager->team->nextFixture->home_team_id}}/ {{ $manager->team->nextFixture->home_team_slug}}"> <img style="width:50px;height:50px;" src="{{ $manager->team->nextFixture->home_team_crest }}"> {{ $manager->team->nextFixture->home_team }} </a> </div> 
               <div class="text-center orange font-bold"> vs </div>
               <div class="text-center text-2xl font-bold"> <a href="/teams/{{ $manager->team->nextFixture->away_team_id}}/ {{ $manager->team->nextFixture->away_team_slug}}"> <img style="width:50px;height:50px;" src="{{ $manager->team->nextFixture->away_team_crest }}"> {{ $manager->team->nextFixture->away_team }} </a> </div>
