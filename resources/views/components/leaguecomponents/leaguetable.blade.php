@@ -34,7 +34,7 @@
     @php $rowNumber = 1; @endphp <!-- Initialize the row counter -->
     @foreach ($league->currentTable as $team) <!-- Uses the currentTable league model to gather the data that is calculated (not making a mysql link to the teams) -->
         <div class="smallpadding border text-sm"> {{ $rowNumber}} </div>      
-        <div class="col-span-2 smallpadding border hover:bg-orange duration-500 text-sm"> {{ $team['name'] }} </div>
+        <div class="col-span-2 smallpadding border hover:bg-orange duration-500 text-sm"> <a href="/teams/{{ $team['id'] }}/{{ $team['slug'] }}"> {{ $team['name'] }} </a> </div>
         <div class="smallpadding border text-sm"> {{ $team['played'] }} </div>    
         <div class="smallpadding border text-sm"> {{ $team['pivot']['won'] }} </div>
         <div class="smallpadding border text-sm"> {{ $team['pivot']['drawn'] }} </div>

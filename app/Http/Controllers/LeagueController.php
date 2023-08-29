@@ -69,6 +69,7 @@ class LeagueController extends Controller
             return redirect()->route('leagues.view', [
                 'id' => $league->id,
                 'slug' => $league->slug,
+                'teams' => $league->teams
             ]);
         }
 
