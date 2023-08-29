@@ -13,13 +13,13 @@ return new class extends Migration
     {
         Schema::create('managers', function (Blueprint $table) {
             $table->id();
-            $table->string('slug');
-            $table->string('name');
-            $table->string('date_of_birth');
-            $table->string('contract_start');
-            $table->string('contract_end');
-            $table->string('country');
-            $table->foreignId('team_id');
+            $table->string('slug')->nullable();
+            $table->string('name')->nullable();
+            $table->string('date_of_birth')->nullable();
+            $table->string('contract_start')->nullable();
+            $table->string('contract_end')->nullable();
+            $table->string('country')->nullable();
+            $table->foreignId('team_id')->nullable();
             $table->timestamps();
         });
     }

@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('founded')->nullable();
             $table->string('stadium');
             $table->string('location');
-            $table->string('manager');
+            $table->string('manager')->nullable();
             $table->timestamps();
         });
     }

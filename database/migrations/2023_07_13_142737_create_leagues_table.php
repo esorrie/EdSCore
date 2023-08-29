@@ -13,11 +13,11 @@ return new class extends Migration
     {
         Schema::create('leagues', function (Blueprint $table) {
             $table->id();
-            $table->string('slug');
-            $table->string('name');
-            $table->string('location');
-            $table->string('emblem');
-            $table->string('country_flag');
+            $table->string('slug')->nullable();
+            $table->string('name')->nullable();
+            $table->string('location')->nullable();
+            $table->string('emblem')->nullable();
+            $table->string('country_flag')->nullable();
             $table->timestamps();
         });
     }

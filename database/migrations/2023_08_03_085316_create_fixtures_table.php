@@ -14,16 +14,16 @@ return new class extends Migration
         Schema::create('fixtures', function (Blueprint $table) {
             $table->id();
             $table->foreignId('league_id');
-            $table->string('date');
-            $table->string('match_id');
-            $table->string('home_team_id');
-            $table->string('away_team_id');
-            $table->string('home_team_slug');
-            $table->string('away_team_slug');
-            $table->string('home_team');
-            $table->string('away_team');
-            $table->string('home_team_crest');
-            $table->string('away_team_crest');
+            $table->string('date')->nullable();
+            $table->string('match_id')->nullable();
+            $table->string('home_team_id')->nullable();
+            $table->string('away_team_id')->nullable();
+            $table->string('home_team_slug')->nullable();
+            $table->string('away_team_slug')->nullable();
+            $table->string('home_team')->nullable();
+            $table->string('away_team')->nullable();
+            $table->string('home_team_crest')->nullable();
+            $table->string('away_team_crest')->nullable();
             $table->string('half_time_home')->nullable();
             $table->string('half_time_away')->nullable();
             $table->string('full_time_home')->nullable();
