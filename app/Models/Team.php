@@ -98,7 +98,7 @@ class Team extends Model
                     return Carbon::createFromFormat('d/m/y H:i', $result['date'])->timestamp;
                 });
                 
-                return $allresults->where('full_time_home', !null);
+                return $allresults->where('full_time_home', '!=',null);
             }
         );
     }
