@@ -73,7 +73,8 @@ class League extends Model
                 ...$team->toArray(), 
                 'points' => ($team['pivot']['won'] * 3 + $team['pivot']['drawn']),
                 'played' => ($team['pivot']['won'] + $team['pivot']['drawn'] + $team['pivot']['lost']),
-                'gd' => ($team['pivot']['gd'])
+                'gd' => ($team['pivot']['gd']),
+                'gf' => ($team['pivot']['gf'])
             ];
 
             $table[] = $standing;
@@ -84,6 +85,7 @@ class League extends Model
         $sortedTable = collect($table)->sortBy([
             ['points', 'desc'],
             ['gd', 'desc'],
+            ['gf', 'desc'],
         ]);
 
         return Attribute::make(
