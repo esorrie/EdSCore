@@ -132,16 +132,42 @@ class Team extends Model
         );
     }
 
-    public function tablePreview(): Attribute
+    protected function tablePreview(): Attribute
     {
-        // $league = League::first();
-        // dd($league->currentTable);
+        $table = null;
+        $league = $this->league;
+        $leagueID = collect($league)->first->teams;
 
+        $teams = $leagueID->teams;
+        // dd($teams);
+
+        foreach($teams as $team) {
+            // Calculate additional statistics for each team (points and played games)
+            $standing = [
+                'name' => ($team['name']),
+                'played' => ($team['pivot']['won'] + $team['pivot']['drawn'] + $team['pivot']['lost']),
+                'won' => ($team['pivot']['won']),
+                'drawn' => ($team['pivot']['drawn']),
+                'lost' => ($team['pivot']['lost']),
+                'points' => ($team['pivot']['won'] * 3 + $team['pivot']['drawn']),
+                'gd' => ($team['pivot']['gd']),
+            ];
+            $table[] = $standing;
+            
+            $sortedPrev = collect($table)->sortBy([
+                ['points', 'desc'],
+                ['gd', 'desc'],
+            ]);
+            
+            // dd($sortedPrev);
+        }
+
+        
         return Attribute::make(
-            get: function() {
-                $league = League::first();
-                $preview = $league->currentTable->take(5); 
-                return $preview;
+            get: function() use ($sortedPrev) {
+                
+                // dd($sortedPrev);     
+                return $sortedPrev->take(5);
             }
         );
     }
