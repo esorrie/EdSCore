@@ -46,7 +46,7 @@ class IngestCompetitions extends Command
 
         foreach($leagues as $league) {
             // Check if the league code is not 'PL' (Premier League) and skip the rest of the loop
-            if($league['code'] != 'PL') {
+            if($league['code'] != 'PL' ) {
                 continue; // This will stop us for now calling tonnes of requests for each league
             }
             // Create a slug for the league name
@@ -85,32 +85,38 @@ class IngestCompetitions extends Command
                 // Next link team to leagues
                 foreach($team['runningCompetitions'] as $competition) {
                     $teamLeague = League::find($competition['id']);
-    
                     if($teamLeague) {
-                        // Sync the relationship between team and league without detaching any other teams
-                        $teamLeague->teams()->syncWithoutDetaching($newTeam);
+                        
+                        if($league) {
+                            // Sync the relationship between team and league without detaching any other teams
+                            $teamLeague->teams()->syncWithoutDetaching($newTeam);
+                            // dd($teamLeague['id']);
+                            
+                        }
                     }
+                    
                 }
             }
 
             // Get standings for the current league from getStandings
             $leagueStandings = $this->getStandings($league['code'])->json('standings');
             foreach ($leagueStandings as $leagueStanding ){
-
+                // dd($this->getStandings($league['code'])->json('competition'));
+                
                 // Loop through each team's standings and update the corresponding Team record
                 foreach($leagueStanding['table'] as $tableItem) {
                     $team = Team::find($tableItem['team']['id']);
-
                     if($team) {
                         // Sync the league data for the team without detaching other leagues
-                        $team->league()->syncWithoutDetaching([$competition['id'] =>
-                            [
-                                'won' => $tableItem['won'], 
-                                'drawn' => $tableItem['draw'], 
-                                'lost' => $tableItem['lost'],
-                                'gf' => $tableItem['goalsFor'], 
-                                'ga' => $tableItem['goalsAgainst'], 
-                                'gd' => $tableItem['goalDifference'], 
+                        // dump($teamLeague['id']);
+                        $team->league()->syncWithoutDetaching([$league['id'] =>
+                        [
+                            'won' => $tableItem['won'], 
+                            'drawn' => $tableItem['draw'], 
+                            'lost' => $tableItem['lost'],
+                            'gf' => $tableItem['goalsFor'], 
+                            'ga' => $tableItem['goalsAgainst'], 
+                            'gd' => $tableItem['goalDifference'], 
                             ]
                         ]);
                     }      
