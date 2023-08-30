@@ -135,15 +135,12 @@ class Team extends Model
     protected function tablePreview(): Attribute
     {
         $table = null;
-        $league = $this->league;
-        $leagueID = collect($league)->first->teams;
+        $teams = $this->league->first()->teams;
 
-        $teams = $leagueID->teams;
-        // dd($teams);
 
         foreach($teams as $team) {
             // Calculate additional statistics for each team (points and played games)
-            $standing = [
+            $table[] = [
                 'name' => ($team['name']),
                 'played' => ($team['pivot']['won'] + $team['pivot']['drawn'] + $team['pivot']['lost']),
                 'won' => ($team['pivot']['won']),
@@ -151,12 +148,13 @@ class Team extends Model
                 'lost' => ($team['pivot']['lost']),
                 'points' => ($team['pivot']['won'] * 3 + $team['pivot']['drawn']),
                 'gd' => ($team['pivot']['gd']),
+                'gf' => ($team['pivot']['gf']),
             ];
-            $table[] = $standing;
             
             $sortedPrev = collect($table)->sortBy([
                 ['points', 'desc'],
                 ['gd', 'desc'],
+                ['gf', 'desc'],
             ]);
             
             // dd($sortedPrev);
