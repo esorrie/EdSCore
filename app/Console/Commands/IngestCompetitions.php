@@ -84,7 +84,7 @@ class IngestCompetitions extends Command
                 
                 // Next link team to leagues
                 foreach($team['runningCompetitions'] as $competition) {
-                    $teamLeague = League::find($competition['id']);
+                    $teamLeague = League::find($competition['id']); // if the running comps id matches a league id from league table  use it if it doesnt then ignore
                     if($teamLeague) {
                         
                         if($league) {
