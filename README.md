@@ -6,27 +6,37 @@ An api has been used as it allows for the data of the current season to be updat
 
 ## Requirements
 - Git
-- Docker
+- Docker: to containerize the application
 - NPM
-- vite v4.4.4
-- Composer
+- NODE.JS: to run vite for front-end development
+- Composer: to manage laravel dependencies
 - Laravel v10.15.0
 - PHP v
 
 ## Installation
-Download Repo. Install composer. Run `composer install`.
+ - Copy the github repository. 
+### Build and run docker containers
+ - open the terminal and navigate to the project directory
+    - `docker-compose up -d`
+### Install Composer Dependencies
+ - open the terminal and navigate to the project directory
+    - `composer install`
+### Install Node.js dependencies 
+ - open the terminal and navigate to the project directory
+    - `npm install`
+### Running Vite for Front-End
+ - `npm run dev`
 
-## Run the project
- - docker-compose up -d
 
- - To build the front end
-    - npm run dev 
 
 ## How to use 
 ### Non-users only have access to the home page
  - Create a new user account with email, password & name
  - If you don't have an account register
 
+### Home Page 
+ - Displays the next fixture across all league fixtures
+ 
 ### League Menu
  - The league index displays each of the leagues that are called using the API
  - the search bar allows you to filter the league results to find a desired league more easily
