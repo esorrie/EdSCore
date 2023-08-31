@@ -16,37 +16,38 @@ class HomeController extends Controller
         // allows for the fixtures of leagues to be used on the home page
         
         $table = null;
-        $teams = Team::all();
-        $league = League::all();
+        $leagues = League::all();
+        // dd($leagues->first()->teams);
+        
+        foreach ($leagues as $league) {
+            // dd($league->teams);
+            foreach($league->teams as $team) {
+                // dd($team);
 
-        dd($league);
-        foreach($teams as $team) {
-            // Calculate additional statistics for each team (points and played games)
-            $table[] = [
-                'name' => ($team['name']),
+                // Calculate additional statistics for each team (points and played games)
+                $table[] = [
+                    // 'league' => ($team['league']['name']),
+                    'crest' => ($team['crest']),
+                    'name' => ($team['name']),
+                    'points' => ($team['pivot']['won'] * 3 + $team['pivot']['drawn']),
+                    'gd' => ($team['pivot']['gd']),
+                    'gf' => ($team['pivot']['gf']),
+                ];
+                // dd($table);
+
+                $topTeams = collect($table)->sortBy([
+                    ['points', 'desc'],
+                    ['gd', 'desc'],
+                    ['gf', 'desc'],
+                ]);
                 
-                'points' => ($team['pivot']['won'] * 3 + $team['pivot']['drawn']),
-                // 'gd' => ($team['pivot']['gd']),
-                // 'gf' => ($team['pivot']['gf']),
-            ];
-            
-            $topTeams = collect($table)->sortBy([
-                ['points', 'desc'],
-                ['gd', 'desc'],
-                ['gf', 'desc'],
-            ]);
-            
-            // dd($topTeams);
+                // dd($topTeams);
+            }
         }
-
-
-
-
 
         return view('home', [
             'fixture' => Fixture::all()->where('full_time_home', null)->first(),
-            // 'teams' => Team::all()->sortBy([['points', 'desc'], ['gd', 'desc']]),
-            'topTeams' => $topTeams,
+            'topTeams' => $topTeams->take(3),
         ]);
     }
 

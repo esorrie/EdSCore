@@ -86,7 +86,14 @@
                     <div class=" bg-darkgrey text-sm smallpadding "> League</div>
                 </div>
             </x-card.card>
-
+            <div class="grid grid-cols-3 mt-5">
+                @foreach ($topTeams as $team)
+                    {{-- {{dd($team->league)}} --}}     
+                    <div class="smallpadding border text-sm"> <img style="width:25px;height:25px;" src="{{ $team['crest'] }}"> {{ $team['name'] }} </div>
+                    <div class="smallpadding border text-sm"> {{ $team['points'] }} </div>
+                    {{-- <div class="smallpadding border text-sm"> {{ $team->league->name }} </div> --}}
+                @endforeach
+            </div>
         </div>
         <div class="mt-12 w-840">
             <x-card.card title="Top Players">
