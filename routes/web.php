@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LeagueController;
 use App\Http\Controllers\ManagerController;
 use App\Http\Controllers\PlayerController;
@@ -25,7 +26,7 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/home', [Controller::class, 'home']);
+Route::get('/home', [HomeController::class, 'home']);
 Route::get('/test', [Controller::class, 'test']);
 
 Route::prefix('/players')->name('players.')->group(function() {
