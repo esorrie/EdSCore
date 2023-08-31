@@ -23,16 +23,8 @@ class Controller extends BaseController
         // $fixture = $league->fixtures->where('full_time_home', null)->first();
         // dd($fixture);
         
-        $response = Http::withHeader('X-Auth-Token', 'b7173c63c2084739b77c6fe4cb8bf7f0')->get('https://api.football-data.org/v4/competitions/2021');
+        $response = Http::withHeader('X-Auth-Token', 'b7173c63c2084739b77c6fe4cb8bf7f0')->get('https://api.football-data.org/v4/competitions');
         dd($response->json());
-    }
-
-    public function home() {
-        // allows for the fixtures of leagues to be used on the home page 
-        $fixture = Fixture::all()->where('full_time_home', null)->first();
-        return view('home', [
-            'fixture' => $fixture,
-        ]);
     }
 
 }
