@@ -29,17 +29,17 @@ Route::get('/dashboard', function () {
 Route::get('/home', [HomeController::class, 'home']);
 Route::get('/test', [Controller::class, 'test']);
 
-Route::prefix('/players')->name('players.')->group(function() {
+Route::middleware('auth')->prefix('/players')->name('players.')->group(function() {
     Route::get('/', [PlayerController::class, 'index'])->name('index');
     Route::get('/{id}/{slug}', [PlayerController::class, 'view'])->name('view');
 });
 
-Route::prefix('/managers')->name('managers.')->group(function() {
+Route::middleware('auth')->prefix('/managers')->name('managers.')->group(function() {
     Route::get('/', [ManagerController::class, 'index'])->name('index');
     Route::get('/{id}/{slug}', [ManagerController::class, 'view'])->name('view');
 });
 
-Route::prefix('/teams')->name('teams.')->group(function() {
+Route::middleware('auth')->prefix('/teams')->name('teams.')->group(function() {
     Route::get('/', [TeamController::class, 'index'])->name('index');
     Route::get('/{id}/{slug}', [TeamController::class, 'view'])->name('view');
     Route::get('/{id}/{slug}/fixtures', [TeamController::class, 'fixtures'])->name('fixtures');
@@ -47,7 +47,7 @@ Route::prefix('/teams')->name('teams.')->group(function() {
     Route::get('/{id}/{slug}/players', [TeamController::class, 'players'])->name('players');
 });
 
-Route::prefix('/leagues')->name('leagues.')->group(function() {
+Route::middleware('auth')->prefix('/leagues')->name('leagues.')->group(function() {
     Route::get('/', [LeagueController::class, 'index'])->name('index');
     Route::get('/{id}/{slug}', [LeagueController::class, 'view'])->name('view');
     Route::get('/{id}/{slug}/standings', [LeagueController::class, 'standings'])->name('standings');
