@@ -19,7 +19,7 @@
         </div>
     </div>
     @if(Auth::check())
-        <div class="menu">
+        <div class="menu pr-56">
             <div class="card4 hover:font-bold uppercase text-right mr">
                 <a class="{{ request()->routeIs('profile.edit') ? 'active' : '' }}" href="{{ route('profile.edit') }}"> profile </a>
             </div>
@@ -29,7 +29,7 @@
         </div>
     @else
         <div class="menu pr-56">
-            <div class="card4 hover:font-bold uppercase text-right">
+            <div class="card4 hover:font-bold uppercase text-right mr">
                 <a class="{{ request()->routeIs('register') ? 'active' : '' }}" href="{{ route('register') }}"> Register </a>
             </div>
             <div class="card4 hover:font-bold uppercase">
