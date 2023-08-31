@@ -87,11 +87,10 @@
                 </div>
             </x-card.card>
             <div class="grid grid-cols-3 mt-5">
-                @foreach ($topTeams as $team)
-                    {{-- {{dd($team->league)}} --}}     
+                @foreach ($topTeams as $team)    
                     <div class="smallpadding border text-sm"> <img style="width:25px;height:25px;" src="{{ $team['crest'] }}"> {{ $team['name'] }} </div>
                     <div class="smallpadding border text-sm"> {{ $team['points'] }} </div>
-                    {{-- <div class="smallpadding border text-sm"> {{ $team->league->name }} </div> --}}
+                    <div class="smallpadding border text-sm"> {{ $team['leagueName'] }} </div>
                 @endforeach
             </div>
         </div>

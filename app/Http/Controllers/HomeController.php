@@ -21,12 +21,14 @@ class HomeController extends Controller
         
         foreach ($leagues as $league) {
             // dd($league->teams);
+            $leagueName = $league->name;
+            // dd($leagueName);
             foreach($league->teams as $team) {
                 // dd($team);
 
                 // Calculate additional statistics for each team (points and played games)
                 $table[] = [
-                    // 'league' => ($team['league']['name']),
+                    'leagueName' => ($leagueName),
                     'crest' => ($team['crest']),
                     'name' => ($team['name']),
                     'points' => ($team['pivot']['won'] * 3 + $team['pivot']['drawn']),
@@ -47,7 +49,7 @@ class HomeController extends Controller
 
         return view('home', [
             'fixture' => Fixture::all()->where('full_time_home', null)->first(),
-            'topTeams' => $topTeams->take(3),
+            'topTeams' => $topTeams->take(5),
         ]);
     }
 
