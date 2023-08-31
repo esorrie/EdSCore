@@ -3,7 +3,7 @@
     
     <div class="menu">
         <div class="card1"> 
-            <a href="/home"> <x-application-logo /> </a>
+            <a href="/"> <x-application-logo /> </a>
         </div>
         <div class="card2 hover:font-bold">
             <a class="{{ request()->routeIs('leagues.index') ? 'active' : '' }}" href="{{ route('leagues.index') }}"> LEAGUES </a>
