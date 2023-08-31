@@ -2,11 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Team extends Model
 {
@@ -14,11 +12,25 @@ class Team extends Model
 
     public function league(): HasMany
     {
-        return $this->hasMany(League::class);
+        return $this->hasMany(League::class, 'standings', 'team_id','league_id')->withPivot([
+            'won',
+            'lost',
+            'drawn',
+            'gf',
+            'ga',
+            'gd'
+        ]);
     }
 
     public function teams(): HasMany
     {
-        return $this->hasMany(Team::class);
+        return $this->hasMany(Team::class, 'standings', 'team_id','league_id')->withPivot([
+            'won',
+            'lost',
+            'drawn',
+            'gf',
+            'ga',
+            'gd'
+        ]);
     }
 }
