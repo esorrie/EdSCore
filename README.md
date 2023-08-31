@@ -3,6 +3,7 @@ Football data from past and current seasons that uses an API to gather real time
 While players and managers have personal details due to API limitations.
 An api has been used as it allows for the data of the current season to be updated automatically for teams, players and managers. 
 
+---
 
 ## Requirements
 - Git
@@ -12,6 +13,8 @@ An api has been used as it allows for the data of the current season to be updat
 - Composer: to manage laravel dependencies
 - Laravel v10.15.0
 - PHP v
+
+---
 
 ## Installation
  - Copy the github repository. 
@@ -27,7 +30,7 @@ An api has been used as it allows for the data of the current season to be updat
 ### Running Vite for Front-End
  - `npm run dev`
 
-
+---
 
 ## How to use 
 ### Non-users only have access to the home page
@@ -36,7 +39,7 @@ An api has been used as it allows for the data of the current season to be updat
 
 ### Home Page 
  - Displays the next fixture across all league fixtures
- 
+
 ### League Menu
  - The league index displays each of the leagues that are called using the API
  - the search bar allows you to filter the league results to find a desired league more easily
