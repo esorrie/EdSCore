@@ -18,6 +18,8 @@ return [
 
     'name' => env('APP_NAME', 'Laravel'),
 
+    'apiKey' => env('FOOTBALL_API_KEY', null),
+
     /*
     |--------------------------------------------------------------------------
     | Application Environment

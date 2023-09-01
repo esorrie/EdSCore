@@ -40,7 +40,7 @@ class IngestCompetitions extends Command
         
 
         // dd($dataLeagues);
-        $responseLeagues = Http::withHeader('X-Auth-Token', 'b7173c63c2084739b77c6fe4cb8bf7f0')->get('https://api.football-data.org/v4/competitions');
+        $responseLeagues = Http::withHeader('X-Auth-Token', config('app.apiKey'))->get('https://api.football-data.org/v4/competitions');
         $dataLeagues = $responseLeagues->json();
         $leagues = $dataLeagues['competitions'];
 
@@ -198,14 +198,14 @@ class IngestCompetitions extends Command
     }
 
     private function getTeams($leagueCode) {
-        return Http::withHeader('X-Auth-Token', 'b7173c63c2084739b77c6fe4cb8bf7f0')->get(sprintf('https://api.football-data.org/v4/competitions/%s/teams', $leagueCode));
+        return Http::withHeader('X-Auth-Token', config('app.apiKey'))->get(sprintf('https://api.football-data.org/v4/competitions/%s/teams', $leagueCode));
     } 
 
     private function getStandings($leagueCode) {
-        return Http::withHeader('X-Auth-Token', 'b7173c63c2084739b77c6fe4cb8bf7f0')->get(sprintf('https://api.football-data.org/v4/competitions/%s/standings', $leagueCode));
+        return Http::withHeader('X-Auth-Token', config('app.apiKey'))->get(sprintf('https://api.football-data.org/v4/competitions/%s/standings', $leagueCode));
     } 
 
     private function getMatches($leagueCode) {
-        return Http::withHeader('X-Auth-Token', 'b7173c63c2084739b77c6fe4cb8bf7f0')->get(sprintf('https://api.football-data.org/v4/competitions/%s/matches', $leagueCode));
+        return Http::withHeader('X-Auth-Token', config('app.apiKey'))->get(sprintf('https://api.football-data.org/v4/competitions/%s/matches', $leagueCode));
     } 
 }
