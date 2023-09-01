@@ -18,17 +18,20 @@ An api has been used as it allows for the data of the current season to be updat
 
 ## Installation
  - Copy the github repository. 
-### Build and run docker containers
- - open the terminal and navigate to the project directory
-    - `docker-compose up -d`
 ### Install Composer Dependencies
  - open the terminal and navigate to the project directory
     - `composer install`
 ### Install Node.js dependencies 
  - open the terminal and navigate to the project directory
     - `npm install`
+### Build and run docker containers
+ - open the terminal and navigate to the project directory
+    - `docker-compose up -d`
 ### Running Vite for Front-End
  - `npm run dev`
+### Artisan Commands 
+- `php artisan migrate:fresh`
+- `php artisan app:ingest-competitions` runs the API
 
 ---
 
