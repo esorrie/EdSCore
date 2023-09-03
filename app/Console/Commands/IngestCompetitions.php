@@ -46,7 +46,7 @@ class IngestCompetitions extends Command
 
         foreach($leagues as $league) {
             // Check if the league code is not 'PL' (Premier League) and skip the rest of the loop
-            if($league['code'] != 'PL' || 'BL1' || 'PD' ) {
+            if($league['code'] != 'PL') {
                 continue; // This will stop us for now calling tonnes of requests for each league
             }
             // Create a slug for the league name
