@@ -17,10 +17,10 @@
             @foreach ($manager->tablePreview as $team)
               <div class="col-span-3 border smallpadding hover:bg-orange duration-500"> {{ $team['name'] }} </a> </div>
               <div class="smallpadding border text-sm"> {{ $team['played'] }} </div>    
-              <div class="smallpadding border text-sm"> {{ $team['pivot']['won'] }} </div>
-              <div class="smallpadding border text-sm"> {{ $team['pivot']['drawn'] }} </div>
-              <div class="smallpadding border text-sm"> {{ $team['pivot']['lost'] }} </div>
-              <div class="smallpadding border text-sm"> {{ $team['pivot']['gd'] }} </div>
+              <div class="smallpadding border text-sm"> {{ $team['won'] }} </div>
+              <div class="smallpadding border text-sm"> {{ $team['drawn'] }} </div>
+              <div class="smallpadding border text-sm"> {{ $team['lost'] }} </div>
+              <div class="smallpadding border text-sm"> {{ $team['gd'] }} </div>
               <div class="smallpadding border text-sm"> {{ $team['points'] }} </div>
             @endforeach
         </div>
