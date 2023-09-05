@@ -1,7 +1,9 @@
 # EdScore About
 Football data from past and current seasons that uses an API to gather real time data, allowing you to compare the statistics from any area of a teams performance. Each team has their own statistics that you can compare to each other respectively. 
 While players and managers have personal details due to API limitations.
-An api has been used as it allows for the data of the current season to be updated automatically for teams, players and managers. 
+An api has been used as it allows for the data of the current season to be updated automatically for teams, players and managers.
+
+Due to the restricted usage of the API the Bundesliga Data is a one time call so the data will not be updated unless called manually, while the Premier League is auto updated by a custom command
 
 ---
 
