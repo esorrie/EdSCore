@@ -82,8 +82,8 @@
             <x-card.card title="Top Teams">
                 <div class=" grid grid-cols-3 subheading">
                     <div class=" bg-darkgrey pl-4 text-sm smallpadding"> Team</div>
-                    <div class=" bg-darkgrey text-sm smallpadding"> Points</div>
-                    <div class=" bg-darkgrey text-sm smallpadding "> League</div>
+                    <div class=" bg-darkgrey pl-4 text-sm smallpadding"> Points</div>
+                    <div class=" bg-darkgrey pl-4 text-sm smallpadding "> League</div>
                 </div>
             </x-card.card>
             <div class="grid grid-cols-3 mt-5">
@@ -98,8 +98,8 @@
             <x-card.card title="Top Players">
                 <div class=" grid grid-cols-3 subheading">
                     <div class=" bg-darkgrey pl-4 text-sm smallpadding"> Player</div>
-                    <div class=" bg-darkgrey text-sm smallpadding"> Goals</div>
-                    <div class=" bg-darkgrey text-sm smallpadding"> Club</div>
+                    <div class=" bg-darkgrey pl-4 text-sm smallpadding"> Goals</div>
+                    <div class=" bg-darkgrey pl-4 text-sm smallpadding"> Club</div>
                 </div>
             </x-card.card>
         </div>
