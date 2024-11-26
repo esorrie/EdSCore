@@ -8,7 +8,7 @@
         <div class="border smallpadding bg-darkgrey"> Full time score  </div>
         <div class="border smallpadding bg-darkgrey"> referee  </div>
         
-        @foreach ($results->reverse() as $result) 
+        @foreach ($results as $result) 
             <div class="border smallpadding orange"> {{ $result->date }} </div>
             <div class="col-span-2 border smallpadding  hover:bg-orange duration-500">
                 <a href="/teams/{{ $result->home_team_id}}/ {{ $result->home_team_slug}}"> {{ $result->home_team }} </a>
@@ -19,5 +19,10 @@
             <div class="border smallpadding"> {{ $result->full_time_home }} - {{ $result->full_time_away }} </div>
             <div class="border smallpadding orange"> {{ $result->referee }} </div>
         @endforeach
+
+        <div class="pagination text">
+            {{ $results->links() }} 
+            <div class="text-xs text"><a href="/">Go Back Home</a></div>
+        </div>
     </div>
 </div>

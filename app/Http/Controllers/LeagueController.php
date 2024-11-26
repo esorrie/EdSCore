@@ -98,10 +98,15 @@ class LeagueController extends Controller
             ]);
         }
 
+        $fixtures = $league->fixtures()
+        ->where('full_time_home', null)
+        ->simplePaginate(10)
+        ;
+
         // Pass the league and all fixtures to the 'leagues.fixtures' view
         return view('leagues.fixtures', [
             'league' => $league,
-            'fixtures' => $league->fixtures->where('full_time_home', null), // only fixtures associated with the league through league_id will be displayed
+            'fixtures' => $fixtures // only fixtures associated with the league through league_id will be displayed
         ]);
     }
 
@@ -120,11 +125,18 @@ class LeagueController extends Controller
                 'slug' => $league->slug,
             ]);
         }
+
+        $results = $league->fixtures()
+        ->where('full_time_home', '!=', null)
+        ->orderBy('id', 'desc')
+        ->simplePaginate(10)
+        ;
+        
         
         // Pass the league and all results to the 'leagues.results' view
         return view('leagues.results', [
             'league' => $league,
-            'results' => $league->fixtures->where('full_time_home', '!=', null), // only results associated with the league through league_id will be displayed
+            'results' => $results
         ]);
     }
     

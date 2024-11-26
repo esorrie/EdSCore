@@ -19,5 +19,11 @@
             <div class="border smallpadding"> {{ $fixture->full_time_home }} - {{ $fixture->full_time_away }} </div>
             <div class="border smallpadding orange"> {{ $fixture->referee }} </div>
         @endforeach
+
+        <div class="pagination text">
+            {{ $fixtures->links() }} 
+            <div class="text-xs text"><a href="/">Go Back Home</a></div>
+        </div>
+
     </div>
 </div>
