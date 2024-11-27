@@ -75,4 +75,5 @@ RUN cp devops/crontab/crontab /etc/crontabs/root
 # Entrypoint
 COPY devops/docker/docker-entrypoint.sh /
 RUN chmod +x /docker-entrypoint.sh
+EXPOSE 80
 ENTRYPOINT ["/docker-entrypoint.sh"]
