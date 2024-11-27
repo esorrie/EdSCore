@@ -78,11 +78,12 @@ class Team extends Model
                 
                 $homefixtures = $this->homeFixtures;
                 $awayfixtures = $this->awayFixtures;
-                $allfixtures = $homefixtures->merge($awayfixtures)->sortBy(function ($fixture){ 
-                    return Carbon::createFromFormat('d/m/y H:i', $fixture['date'])->timestamp;
-                });
+                $allfixtures = $homefixtures->merge($awayfixtures)
+                    ->sortBy('id')
+                    ->whereNull('full_time_home');
+
                 // dd($allfixtures);
-                return $allfixtures->where('full_time_home', null);
+                return $allfixtures;
             }
         );
     }
@@ -94,11 +95,11 @@ class Team extends Model
                 
                 $homeresults = $this->homeResults;
                 $awayresults = $this->awayResults;
-                $allresults = $homeresults->merge($awayresults)->sortBy(function ($result){ 
-                    return Carbon::createFromFormat('d/m/y H:i', $result['date'])->timestamp;
-                });
+                $allresults = $homeresults->merge($awayresults)
+                    ->sortBy('id')
+                    ->where('full_time_home', '!=',null);
                 
-                return $allresults->where('full_time_home', '!=',null);
+                return $allresults;
             }
         );
     }
