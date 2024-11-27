@@ -12,7 +12,7 @@
       @foreach ($players as $player )
         <div class="text-sm orange smallpadding border uppercase hover:bg-grey duration-500">
           <a href="/players/{{ $player->id }}/{{ $player->slug }}">
-            {!! $player->name !!}
+            {{ $player->name }}
           </a>
         </div>
         <div class="text-sm text smallpadding border uppercase">
