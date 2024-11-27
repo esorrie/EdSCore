@@ -19,19 +19,6 @@ return new class extends Migration
             $table->string('position')->nullable();
             $table->string('date_of_birth')->nullable();
             $table->string('country')->nullable();
-            $table->string('number')->nullable();
-            $table->string('Played')->nullable();
-            $table->string('Started')->nullable();
-            $table->string('Minutes')->nullable();
-            $table->string('goals')->nullable();
-            $table->string('assists')->nullable();
-            $table->string('own_goals')->nullable();
-            $table->string('penalties')->nullable();
-            $table->string('subbed_in')->nullable();
-            $table->string('subbed_out')->nullable();
-            $table->string('yellows')->nullable();
-            $table->string('yellow_red')->nullable();
-            $table->string('red')->nullable();
             $table->timestamps();
         });
     }
