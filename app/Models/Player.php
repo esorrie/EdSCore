@@ -16,12 +16,25 @@ class Player extends Model
     protected $fillable = [
         'id',
         'slug',
+        'team_id',
         'name',
         'position',
         'date_of_birth',
         'country',
-        'team_id'
-    ];
+        'number',
+        'Played',
+        'Started',
+        'Minutes',
+        'goals',
+        'assists',
+        'own_goals',
+        'penalties',
+        'subbed_in',
+        'subbed_out',
+        'yellows',
+        'yellow_red',
+        'red'
+        ];
 
     public function homeFixtures()
     {
