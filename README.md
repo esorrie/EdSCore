@@ -32,8 +32,8 @@ Due to the restricted usage of the API the Bundesliga Data is a one time call so
 ### Running Vite for Front-End
  - `npm run dev`
 ### Artisan Commands 
-- `php artisan migrate:fresh`
-- `php artisan app:ingest-competitions` runs the API
+- `php artisan migrate:fresh` or `docker exec -it edscore-app-1 php artisan migrate:fresh`
+- `php artisan app:ingest-competitions` or `docker exec -it edscore-app-1 php artisan app:ingest-competitions` runs the API
 
 ---
 
