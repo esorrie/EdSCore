@@ -32,7 +32,7 @@ on:
 
 env:
   AWS_REGION: eu-north-1                   # set this to your preferred AWS region, e.g. us-west-1
-  ECR_REPOSITORY: edscorerepo           # set this to your Amazon ECR repository name
+  ECR_REPOSITORY: edscore/edscorerepo           # set this to your Amazon ECR repository name
   ECS_SERVICE: edscore-task-service-fsuf4zd2                 # set this to your Amazon ECS service name
   ECS_CLUSTER: edscore-cluster                 # set this to your Amazon ECS cluster name
   ECS_TASK_DEFINITION: '/Users/edwardsorrie/Documents/Woods&Walker Intership/EdSCore/edscore-task-revision1.json'   # set this to the path to your Amazon ECS task definition
